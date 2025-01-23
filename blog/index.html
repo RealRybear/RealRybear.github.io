@@ -3,57 +3,91 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My UNC Charlotte Webpage</title>
+  <title>My Personal Blog</title>
   <style>
-    /* Reset default body spacing */
-    body {
+    /* Reset default margins/padding */
+    * {
       margin: 0;
       padding: 0;
-      /* Example Matrix/1s-and-0s background image; replace with your own URL or file */
-      background: url('https://images.unsplash.com/photo-1526395287342-4971f79a8c48?ixlib=rb-4.0.3&q=80&fm=jpg') 
+      box-sizing: border-box;
+    }
+
+    /* Page layout */
+    body {
+      font-family: Georgia, serif; /* Cozy, classic font */
+      color: #2e2e2e;
+      background: url("https://images.unsplash.com/photo-1532635247-1d6c214a1d18?ixlib=rb-4.0.3&q=80&fm=jpg") 
                   no-repeat center center fixed;
       background-size: cover;
-      /* Make sure the page fills the whole screen height */
       min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center; 
+      align-items: center;
+    }
 
-      /* For text readability on top of the background */
-      color: #00ff00; /* Cyberpunk green text */
-      font-family: monospace;
+    /* Slight overlay to dim the background and make text easier to read */
+    .overlay {
+      background-color: rgba(255, 248, 220, 0.7); /* Warm “parchment” overlay */
+      width: 90%;
+      max-width: 800px;
+      padding: 2rem;
+      border-radius: 8px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.3);
     }
 
     h1 {
       text-align: center;
-      margin-top: 2rem;
+      margin-bottom: 1rem;
+      color: #3a2f2f; /* Deeper color for the heading */
+    }
+
+    p {
+      margin-bottom: 1rem;
+      line-height: 1.6;
+    }
+
+    /* Post list styling */
+    ul {
+      list-style-type: none; /* no bullet points */
+      margin-top: 1rem;
+    }
+    ul li {
+      margin: 0.5rem 0;
     }
 
     a {
-      display: block;
-      text-align: center;
+      color: #6b3f3f;
       text-decoration: none;
-      color: #0f0;
-      margin: 0.5rem auto;
-      font-size: 1.1rem;
-      width: fit-content; /* so links don't stretch across the page */
+      font-weight: bold;
     }
     a:hover {
-      color: #fff; /* Slight color change on hover */
+      text-decoration: underline;
     }
   </style>
 </head>
 <body>
-  <!-- Base Content -->
-  <h1>Welcome to My Class Sites</h1>
-  <a href="itis3135/">ITIS3135 Site</a>
-  <a href="itcs3162/">ITCS3162 Data Mining Site</a>
+  <div class="overlay">
+    <h1>Welcome to My Personal Blog</h1>
+    <p>
+      Kick back, relax, and grab a cup of coffee. 
+      You’ve stumbled upon my quiet corner of the internet where I share thoughts, stories, and random ideas.
+      Feel free to browse, comment, and join the conversation.
+    </p>
 
-  <!-- Background Movement Script -->
-  <script>
-    document.addEventListener('mousemove', (event) => {
-      // Adjust these divisors to control how "fast" the background shifts
-      const xMove = event.clientX / 50;
-      const yMove = event.clientY / 50;
-      document.body.style.backgroundPosition = `${xMove}px ${yMove}px`;
-    });
-  </script>
+    <p>Recent posts:</p>
+    <ul>
+      <!-- Example blog post links (point to files within /posts/) -->
+      <li><a href="posts/post1.html">Post 1: My First Entry</a></li>
+      <li><a href="posts/post2.html">Post 2: Adventures in Coding</a></li>
+      <li><a href="posts/post3.html">Post 3: Security Tips & Tricks</a></li>
+      <!-- Add/remove as needed -->
+    </ul>
+
+    <p>
+      More posts coming soon! 
+      Have a seat in our virtual library, explore the archives, and make yourself at home.
+    </p>
+  </div>
 </body>
 </html>
