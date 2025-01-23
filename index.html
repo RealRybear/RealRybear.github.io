@@ -15,260 +15,102 @@
       /* For text styling */
       color: #0f0;
       font-family: monospace;
-      min-height: 100vh; /* ensure body fills screen */
+      min-height: 100vh; /* Ensure body fills screen */
       position: relative;
-      overflow: hidden;  /* remove scroll if you prefer a fixed background */
+      overflow: hidden;  /* Remove scroll if you prefer a fixed background */
+    }
+
+    /* Semi-Transparent Black Box for Better Readability */
+    .content-box {
+      background: rgba(0, 0, 0, 0.7); /* Black with 70% transparency */
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 255, 0, 0.5); /* Subtle glow effect */
+      max-width: 600px;
+      margin: 5rem auto;
+      text-align: center;
     }
 
     /* Title */
     h1 {
-      text-align: center;
-      margin-top: 3rem;
       text-shadow: 0 0 5px #00ff00; /* Subtle glow effect */
     }
 
     /* Sub-Heading */
     h2 {
-      text-align: center;
-      margin: 1.5rem 0 0.5rem 0;
+      margin-top: 1.5rem;
       text-shadow: 0 0 3px #00ff00;
     }
 
     /* Paragraph / link styling in the container */
     p {
-      text-align: center;
-      margin: 0.5rem auto 2rem auto;
+      margin: 0.5rem auto 1.5rem auto;
     }
-    /* Same styling for all anchor tags inside a <p> */
-    p a {
+
+    /* Styled Links */
+    a {
       color: #d4d0d0;
       background: rgba(253, 86, 19, 0.7);
       text-decoration: none;
-      padding: 0.3rem 1rem;
+      padding: 0.5rem 1rem;
       border-radius: 5px;
       box-shadow: 0 0 5px #ff00bf;
       transition: background 0.3s, color 0.3s, box-shadow 0.3s;
+      display: inline-block;
+      margin: 0.3rem;
     }
-    p a:hover {
+    
+    a:hover {
       background: rgba(255, 255, 255, 0.9);
       color: #0f0;
       box-shadow: 0 0 8px #fff;
     }
 
     /* Center the links to class sites */
-    a.main-link {
+    .main-link {
       color: #000;
-      background: rgba(0, 255, 0, 0.7); /* Semi-transparent green background */
+      background: rgba(203, 216, 203, 0.7); /* Semi-transparent green background */
       text-decoration: none;
-      display: inline-block;
-      text-align: center;
-      margin: 1rem auto;
       padding: 0.5rem 1.5rem;
       font-size: 1.2rem;
       border-radius: 5px;
-      box-shadow: 0 0 5px #00ff00;
+      box-shadow: 0 0 5px #f8bf03;
       transition: background 0.3s, color 0.3s, box-shadow 0.3s;
     }
-    a.main-link:hover {
+
+    .main-link:hover {
       background: rgba(255, 255, 255, 0.9);
       color: #0f0;
       box-shadow: 0 0 8px #fff;
     }
 
-    /* Center container for content */
-    .container {
-      text-align: center;
-      margin-top: 5rem;
-    }
-
-    /* The small "planet" that follows the mouse */
-    .planet {
-      position: fixed;
-      border-radius: 50%;
-      pointer-events: none; /* so they don't interfere with clicks */
-      opacity: 1;
-      transition: opacity 1s linear; /* fade out over 1 second */
-    }
-
-    /* If the planet has rings, we'll add a child element for them */
-    .planet-ring {
-      position: absolute;
-      left: 50%;
-      top: 50%;
-      transform: translate(-50%, -50%);
-      width: 100%;
-      height: 100%;
-      border-radius: 50%;
-      pointer-events: none;
-    }
   </style>
 </head>
 <body>
 
-  <div class="container">
+  <div class="content-box">
     <h1>ls -all</h1>
     <a href="itis3135/" class="main-link">ITIS3135 Site</a>
     <a href="itcs3162/" class="main-link">ITCS3162 Data Mining Site</a>
 
     <h2>WHOAMI</h2>
 
-    <!-- TryHackMe Profile (centered paragraph) -->
+    <!-- TryHackMe Profile -->
     <p>
-    Cyber Security Progress
+      Cyber Security Progress  
       <a href="https://tryhackme.com/r/p/Vypen" target="_blank" rel="noopener">
         TryHackMe Profile
       </a>
     </p>
 
-    <!-- Personal Blog-->
+    <!-- Personal Blog -->
     <p>
-        Check out my 
-        <a href="blog/" target="_blank" rel="noopener">
-          Personal Blog
-        </a>
-      </p>
-      
+      Check out my  
+      <a href="/blog/" target="_blank" rel="noopener">
+        Personal Blog
+      </a>
+    </p>
   </div>
 
-  <script>
-    /*
-      Planet data array:
-       - background: radial gradient or color
-       - minSize, maxSize: random size range
-       - ring: optional object for ring details (border color, thickness, x-scale, y-scale, opacity)
-    */
-    const planetStyles = [
-      {
-        name: 'Mercury',
-        background: 'radial-gradient(circle at 30% 30%, #999, #444 70%, #222 90%)',
-        minSize: 15,
-        maxSize: 25,
-        ring: null
-      },
-      {
-        name: 'Venus',
-        background: 'radial-gradient(circle at 40% 40%, #F5D142, #e5bd68 50%, #d8b46b 90%)',
-        minSize: 20,
-        maxSize: 30,
-        ring: null
-      },
-      {
-        name: 'Earth',
-        background: 'radial-gradient(circle at 40% 40%, #00cc00, #009900 50%, #006600 85%)',
-        minSize: 25,
-        maxSize: 35,
-        ring: null
-      },
-      {
-        name: 'Mars',
-        background: 'radial-gradient(circle at 40% 40%, #cf5922, #a63407 60%, #701f00 90%)',
-        minSize: 20,
-        maxSize: 30,
-        ring: null
-      },
-      {
-        name: 'Jupiter',
-        background: 'radial-gradient(circle at 50% 50%, #e8d0a9, #bfa48b 40%, #a28976 80%)',
-        minSize: 30,
-        maxSize: 40,
-        ring: {
-          borderColor: '#FFD700',
-          borderThickness: 2,
-          xScale: 1.4,
-          yScale: 0.7,
-          opacity: 0.8
-        }
-      },
-      {
-        name: 'Saturn',
-        background: 'radial-gradient(circle at 50% 50%, #edcfa3, #d1a968 45%, #b49871 80%)',
-        minSize: 28,
-        maxSize: 38,
-        ring: {
-          borderColor: '#C0C0C0',
-          borderThickness: 2,
-          xScale: 1.6,
-          yScale: 0.5,
-          opacity: 0.7
-        }
-      },
-      {
-        name: 'Uranus',
-        background: 'radial-gradient(circle at 50% 50%, #a5f3f7, #7cdfe3 45%, #4bcad0 80%)',
-        minSize: 25,
-        maxSize: 35,
-        ring: null
-      },
-      {
-        name: 'Neptune',
-        background: 'radial-gradient(circle at 40% 40%, #3867b4, #25436c 60%, #1d2b5e 90%)',
-        minSize: 25,
-        maxSize: 35,
-        ring: null
-      }
-    ];
-
-    // Return a random integer between min and max, inclusive
-    function getRandomInt(min, max) {
-      return Math.floor(Math.random() * (max - min + 1) + min);
-    }
-
-    let lastSpawnTime = 0;           // track the last time we spawned a planet
-    const spawnCooldown = 100;       // ms between spawns (adjust as desired)
-
-    document.addEventListener('mousemove', (e) => {
-      const now = Date.now();
-      // Only spawn a planet if enough time has passed since last spawn
-      if (now - lastSpawnTime < spawnCooldown) {
-        return; // too soon, skip
-      }
-      lastSpawnTime = now;
-
-      // Pick a random planet style
-      const styleObj = planetStyles[Math.floor(Math.random() * planetStyles.length)];
-
-      // Create main planet div
-      const planetEl = document.createElement('div');
-      planetEl.classList.add('planet');
-      planetEl.style.background = styleObj.background;
-
-      // Determine a random size within the planet's range
-      const size = getRandomInt(styleObj.minSize, styleObj.maxSize);
-      planetEl.style.width = size + 'px';
-      planetEl.style.height = size + 'px';
-
-      // Position it at the cursor, centered
-      planetEl.style.left = (e.pageX - size / 2) + 'px';
-      planetEl.style.top = (e.pageY - size / 2) + 'px';
-
-      // If this planet style includes a ring, create & attach it
-      if (styleObj.ring) {
-        const ringEl = document.createElement('div');
-        ringEl.classList.add('planet-ring');
-        ringEl.style.width = '100%';
-        ringEl.style.height = '100%';
-        ringEl.style.borderRadius = '50%';
-        ringEl.style.border = styleObj.ring.borderThickness + 'px solid ' + styleObj.ring.borderColor;
-        ringEl.style.opacity = styleObj.ring.opacity;
-        // Scale ring to be elliptical
-        ringEl.style.transform = `translate(-50%, -50%) scale(${styleObj.ring.xScale}, ${styleObj.ring.yScale})`;
-
-        planetEl.appendChild(ringEl);
-      }
-
-      // Insert planet into the DOM
-      document.body.appendChild(planetEl);
-
-      // Fade out after a short delay
-      setTimeout(() => {
-        planetEl.style.opacity = '0';
-      }, 50);
-
-      // Remove from DOM after fade
-      setTimeout(() => {
-        planetEl.remove();
-      }, 1050);
-    });
-  </script>
 </body>
 </html>
