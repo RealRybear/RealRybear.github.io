@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My UNC Charlotte Webpage</title>
+  <style>
+    /* Reset default body spacing */
+    body {
+      margin: 0;
+      padding: 0;
+      /* Example Matrix/1s-and-0s background image; replace with your own URL or file */
+      background: url('https://images.unsplash.com/photo-1526395287342-4971f79a8c48?ixlib=rb-4.0.3&q=80&fm=jpg') 
+                  no-repeat center center fixed;
+      background-size: cover;
+      /* Make sure the page fills the whole screen height */
+      min-height: 100vh;
+
+      /* For text readability on top of the background */
+      color: #00ff00; /* Cyberpunk green text */
+      font-family: monospace;
+    }
+
+    h1 {
+      text-align: center;
+      margin-top: 2rem;
+    }
+
+    a {
+      display: block;
+      text-align: center;
+      text-decoration: none;
+      color: #0f0;
+      margin: 0.5rem auto;
+      font-size: 1.1rem;
+      width: fit-content; /* so links don't stretch across the page */
+    }
+    a:hover {
+      color: #fff; /* Slight color change on hover */
+    }
+  </style>
+</head>
+<body>
+  <!-- Base Content -->
+  <h1>Welcome to My Class Sites</h1>
+  <a href="itis3135/">ITIS3135 Site</a>
+  <a href="itcs3162/">ITCS3162 Data Mining Site</a>
+
+  <!-- Background Movement Script -->
+  <script>
+    document.addEventListener('mousemove', (event) => {
+      // Adjust these divisors to control how "fast" the background shifts
+      const xMove = event.clientX / 50;
+      const yMove = event.clientY / 50;
+      document.body.style.backgroundPosition = `${xMove}px ${yMove}px`;
+    });
+  </script>
+</body>
+</html>
