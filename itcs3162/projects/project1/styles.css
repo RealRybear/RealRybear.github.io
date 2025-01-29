@@ -1,0 +1,111 @@
+/* Body */
+body {
+    font-family: 'Cinzel', serif;  /* A more medieval font */
+    margin: 40px;
+    background-color: #2b2a2a; /* Dark, stone-like background */
+    color: #f8f8f2;
+    text-align: left;
+    line-height: 1.6;
+}
+
+/* Container */
+.container {
+    max-width: 900px;
+    margin: auto;
+    padding: 20px;
+    background: #3b3a36; /* Rustic dark wood color */
+    border-radius: 15px;
+    box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.6); /* Strong shadow to give depth */
+    border: 2px solid #8e7d3f; /* Golden border for a royal touch */
+}
+
+/* Headings */
+h1, h2, h3 {
+    color: #ffd700;  /* Medieval gold color */
+    text-shadow: 3px 3px 8px rgba(255, 215, 0, 0.8);  /* Subtle gold glow */
+    text-align: center;
+    font-family: 'Cinzel', serif;
+}
+
+/* Highlighting text */
+.highlight {
+    color: #9b2d20;  /* Rich red for emphasis */
+    font-weight: bold;
+    font-family: 'Cinzel', serif;
+}
+
+/* Magic Elements (flex display) */
+.magic-elements {
+    display: flex;
+    justify-content: space-around;
+    padding: 20px;
+    text-align: center;
+    margin-top: 30px;
+}
+
+/* Magic element buttons */
+.magic-element {
+    padding: 15px;
+    border-radius: 10px;
+    font-size: 18px;
+    font-weight: bold;
+    text-shadow: 1px 1px 5px rgba(0,0,0,0.7);  /* Medieval-style shadow */
+    border: 2px solid #8e7d3f;  /* Golden borders to add a noble feel */
+}
+
+/* Colors for each element type */
+.white {
+    background-color: #f8f4e6; /* Light parchment color */
+    color: #5a5a5a;  /* Dark, noble gray text */
+}
+
+.blue {
+    background-color: #1e60a0; /* Deep oceanic blue */
+    color: #f1f1f1;  /* Light, ethereal text */
+}
+
+.black {
+    background-color: #3a3a3a;  /* Charcoal or stone color */
+    color: #e6e6e6;  /* Pale gray text for contrast */
+}
+
+.red {
+    background-color: #6e1d26; /* Dark wine red */
+    color: #ffffff;  /* Clean white text */
+}
+
+.green {
+    background-color: #4c9141;  /* Forest green */
+    color: #ffffff;  /* White text for readability */
+}
+
+/* Adding parchment-style background texture */
+body {
+    background-image: url('parchment-texture.jpg');  /* Replace with an actual parchment texture image */
+    background-size: cover;
+}
+
+/* Adding scroll-like effect to links or buttons */
+a, .btn {
+    text-decoration: none;
+    padding: 10px 20px;
+    background-color: #9b2d20;  /* Deep red color */
+    color: #fff;
+    border-radius: 5px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+    font-weight: bold;
+    border: 2px solid #ffd700;  /* Gold border for nobility */
+}
+
+a:hover, .btn:hover {
+    background-color: #d97c3e;  /* A slightly brighter gold-red color for hover effect */
+    cursor: pointer;
+    box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.6);
+}
+
+/* Text decoration for medieval feel */
+h1, h2, h3 {
+    font-family: 'Cinzel', serif;
+    text-transform: uppercase;  /* Add uppercase styling for headers */
+    letter-spacing: 2px;  /* Spacing between letters for an old-school feel */
+}
