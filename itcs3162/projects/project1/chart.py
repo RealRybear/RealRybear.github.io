@@ -4,13 +4,13 @@ import re
 import numpy as np
 
 # --------------------------------------------------------
-# 1) LOAD DATA
+#  LOAD DATA
 # --------------------------------------------------------
 file_path = "all_mtg_cards.csv"
 df = pd.read_csv(file_path)
 
 # --------------------------------------------------------
-# 2) PARSE MANA_COST INTO AN INTEGER
+#  PARSE MANA_COST INTO AN INTEGER
 # --------------------------------------------------------
 def parse_mana_cost(mc):
 
@@ -29,13 +29,12 @@ def parse_mana_cost(mc):
 df['x_mana_cost'] = df['mana_cost'].apply(parse_mana_cost)
 
 # --------------------------------------------------------
-# 3) CONVERT POWER TO NUMERIC
+#  CONVERT POWER TO NUMERIC
 # --------------------------------------------------------
 df['power'] = pd.to_numeric(df['power'], errors='coerce')
 
 # --------------------------------------------------------
-# 4) FILTER: KEEP 0–12 FOR X (MANA COST) AND 0–12 FOR POWER
-#    (Adjust as you wish, e.g. if you only want 1–12, etc.)
+#  FILTER
 # --------------------------------------------------------
 df = df.dropna(subset=['x_mana_cost', 'power'])
 df = df[(df['x_mana_cost'] >= 0) & (df['x_mana_cost'] <= 12)]
@@ -44,7 +43,7 @@ df = df[(df['power'] >= 0) & (df['power'] <= 12)]
 print(f"Total cards (before set filtering): {len(df)}")
 
 # --------------------------------------------------------
-# 5) DEFINE SETS FOR '2011' VS. '2024' & FILTER
+#   '2011' VS. '2024' & FILTER
 # --------------------------------------------------------
 sets_2011 = ["MBS", "NPH", "M12", "ISD"]
 sets_2024 = ["RRM", "MKM", "RCE", "FAL", "OTJ", "MH3", "ACD", "BLB", "DMH", "FDN"]
@@ -56,11 +55,11 @@ print(f"2011 cards plotted: {len(df_2011)}")
 print(f"2024 cards plotted: {len(df_2024)}")
 
 # --------------------------------------------------------
-# 6) MAKE A NICER SCATTER PLOT
+#  SCATTER PLOT
 # --------------------------------------------------------
 plt.figure(figsize=(12, 8))
 
-# Plot 2011 sets in yellow
+#2011 sets in yellow
 if not df_2011.empty:
     plt.scatter(
         df_2011['x_mana_cost'],
@@ -72,7 +71,7 @@ if not df_2011.empty:
         label="2011 (MBS, NPH, M12, ISD)"
     )
 
-# Plot 2024 sets in orange
+#2024 sets in orange
 if not df_2024.empty:
     plt.scatter(
         df_2024['x_mana_cost'],
@@ -85,7 +84,7 @@ if not df_2024.empty:
     )
 
 # --------------------------------------------------------
-# 7) AXES FROM 0 TO 12, TICK MARKS EVERY 2
+#  AXES FROM 0 TO 12, TICK MARKS EVERY 2
 # --------------------------------------------------------
 plt.xlim(0, 14)
 plt.ylim(0, 14)
@@ -94,7 +93,7 @@ plt.xticks(ticks)
 plt.yticks(ticks)
 
 # --------------------------------------------------------
-# 8) LABELS, TITLE, GRID
+#  LABELS, TITLE, GRID
 # --------------------------------------------------------
 plt.xlabel("Parsed Mana Cost (0–12)")
 plt.ylabel("Power (0–12)")
@@ -102,7 +101,7 @@ plt.title("MTG Cards: 2011 (Yellow) vs. 2024 (Orange)")
 plt.grid(True)
 
 # --------------------------------------------------------
-# 9) LEGEND BELOW THE PLOT
+#  LEGEND BELOW THE PLOT
 # --------------------------------------------------------
 plt.legend(
     title="Year & Sets",
