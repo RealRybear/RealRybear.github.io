@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Ryan Crosby RealRybear</title>
   <style>
-    /* Page Layout */
+    /* Global Page Layout */
     html, body {
       margin: 0;
       padding: 0;
@@ -15,37 +15,47 @@
       font-family: monospace;
       min-height: 100vh;
       position: relative;
-      overflow: hidden;
+      overflow-x: hidden;
     }
-
-    /* Content Box */
+    
+    /* Header Styling */
+    header {
+      background: rgba(0, 0, 0, 0.8);
+      padding: 1rem;
+      text-align: center;
+      border-bottom: 2px solid #00ff00;
+    }
+    header h1 {
+      margin: 0;
+      text-shadow: 0 0 5px #00ff00;
+    }
+    header p {
+      margin: 0.5rem 0 0 0;
+      font-style: italic;
+    }
+    
+    /* Main Content Area */
+    main {
+      padding: 2rem;
+    }
     .content-box {
       background: rgba(0, 0, 0, 0.7);
       padding: 2rem;
       border-radius: 10px;
       box-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
       max-width: 600px;
-      margin: 5rem auto;
+      margin: 0 auto;
       text-align: center;
     }
-
-    /* Main Title */
-    h1 {
-      text-shadow: 0 0 5px #00ff00;
-    }
-
-    /* Subheading */
-    h2 {
+    .content-box h2 {
       margin-top: 1.5rem;
       text-shadow: 0 0 3px #00ff00;
     }
-
-    /* Paragraphs */
-    p {
+    .content-box p {
       margin: 0.5rem auto 1.5rem auto;
     }
-
-    /* School Classes Links */
+    
+    /* Link Styling for Class/Project Links */
     a.main-link {
       color: #000;
       background: rgba(0, 255, 0, 0.7);
@@ -58,13 +68,12 @@
       display: inline-block;
       margin: 0.3rem;
     }
-
     a.main-link:hover {
       background: rgba(255, 255, 255, 0.9);
       color: #0f0;
       box-shadow: 0 0 8px #fff;
     }
-
+    
     /* Security Profile Link (TryHackMe) */
     a.security-link {
       color: #fff;
@@ -77,13 +86,12 @@
       display: inline-block;
       margin: 0.3rem;
     }
-
     a.security-link:hover {
       background: rgba(255, 255, 255, 0.9);
       color: #0f0;
       box-shadow: 0 0 8px #fff;
     }
-
+    
     /* Blog Link */
     a.blog-link {
       color: #ffffff;
@@ -96,13 +104,34 @@
       display: inline-block;
       margin: 0.3rem;
     }
-
     a.blog-link:hover {
       background: rgba(255, 255, 255, 0.9);
       color: #0f0;
       box-shadow: 0 0 8px #00ccff;
     }
-
+    
+    /* Footer Styling */
+    footer {
+      background: rgba(0, 0, 0, 0.9);
+      padding: 1rem;
+      text-align: center;
+      border-top: 2px solid #00ff00;
+      margin-top: 2rem;
+    }
+    footer nav a {
+      color: #0f0;
+      text-decoration: none;
+      margin: 0 0.5rem;
+      font-weight: bold;
+    }
+    footer nav a:hover {
+      text-decoration: underline;
+    }
+    footer p {
+      margin: 0.5rem 0 0 0;
+      font-size: 0.9rem;
+    }
+    
     /* Comet Trail Particle */
     .comet {
       position: absolute;
@@ -114,8 +143,6 @@
       box-shadow: 0 0 10px rgba(0, 170, 255, 0.8);
       animation: fadeOut 0.5s linear forwards;
     }
-
-    /* Comet Trail Animation */
     @keyframes fadeOut {
       0% {
         opacity: 1;
@@ -126,77 +153,7 @@
         transform: scale(0.5);
       }
     }
-  </style>
-</head>
-<body>
-
-  <!-- Content Box -->
-  <div class="content-box">
-    <h1>Ryan's Space</h1>
-    <h2>ls -all</h2>
-    <!-- School Classes Section -->
-    <a href="itis3135/" class="main-link">ITIS3135 Site</a>
-    <a href="itcs3162/" class="main-link">ITCS3162 Data Mining Site</a>
-
-    <h2>WHOAMI</h2>
-
-    <!-- TryHackMe Profile (Security Section) -->
-    <p>
-      Cyber Security Progress  
-      <a href="https://tryhackme.com/r/p/Vypen" target="_blank" rel="noopener" class="security-link">
-        TryHackMe Profile
-      </a>
-    </p>
-
-    <!-- Personal Blog Section -->
-    <p>
-      Click here for  
-      <a href="blog/index.html" target="_blank" rel="noopener noreferrer" id="blog-link" class="blog-link">
-        My Blog
-      </a>
-      <!--Added script because button was not working. Fixed-->
-      <script>
-        document.getElementById("blog-link").addEventListener("click", function(event) {
-          event.preventDefault(); // Prevents default action (for debugging)
-      
-          let blogUrl = "blog/index.html"; // Ensure correct relative path
-          console.log("Navigating to:", blogUrl); 
-      
-          window.location.href = blogUrl; // Forces redirection
-        });
-      </script>
-     
-      
-      
-    </p>
-  </div>
-
-  <script>
-    // Create Comet Trail Effect
-    document.addEventListener('mousemove', (e) => {
-      for (let i = 0; i < 3; i++) { // Create 3 small particles per movement
-        const comet = document.createElement('div');
-        comet.classList.add('comet');
-
-        const size = Math.random() * 6 + 4; // Random size between 4px and 10px
-        comet.style.width = `${size}px`;
-        comet.style.height = `${size}px`;
-
-        // Position particles slightly behind cursor for trail effect
-        comet.style.left = `${e.pageX - size / 2 + Math.random() * 10 - 5}px`;
-        comet.style.top = `${e.pageY - size / 2 + Math.random() * 10 - 5}px`;
-
-        // Append to body
-        document.body.appendChild(comet);
-
-        // Remove the element after animation
-        setTimeout(() => {
-          comet.remove();
-        }, 500);
-      }
-    });
-  </script>
-  <style>
+    
     /* Malware Clicker Box */
     .malware-box {
       position: fixed;
@@ -215,7 +172,6 @@
       overflow: hidden;
       font-family: monospace;
     }
-  
     /* Skull Malware emoji */
     .malware {
       position: absolute;
@@ -224,45 +180,111 @@
       user-select: none;
       animation: moveSideToSide 3s infinite alternate ease-in-out;
     }
-  
     @keyframes moveSideToSide {
       0% { left: 10px; }
       100% { left: 250px; }
     }
   </style>
+</head>
+<body>
+  <!-- Header Section -->
+  <header>
+    <h1>Ryan Crosby - RealRybear</h1>
+    <p>Welcome to my digital space: ls -all</p>
+  </header>
   
-  <!-- Malware Clicker Box (JUST A FUN GAME NOT REAL MALWARE)-->
+  <!-- Main Content Section -->
+  <main>
+    <div class="content-box">
+      <!-- School Classes Links -->
+      <a href="itis3135/" class="main-link">ITIS3135 Site</a>
+      <a href="itcs3162/" class="main-link">ITCS3162 Data Mining Site</a>
+  
+      <h2>WHOAMI</h2>
+  
+      <!-- TryHackMe Profile (Security Section) -->
+      <p>
+        Cyber Security Progress:
+        <a href="https://tryhackme.com/r/p/Vypen" target="_blank" rel="noopener" class="security-link">
+          TryHackMe Profile
+        </a>
+      </p>
+  
+      <!-- Personal Blog Section -->
+      <p>
+        Click here for
+        <a href="blog/index.html" target="_blank" rel="noopener noreferrer" id="blog-link" class="blog-link">
+          My Blog
+        </a>
+      </p>
+      <script>
+        document.getElementById("blog-link").addEventListener("click", function(event) {
+          event.preventDefault(); // Prevent default action (for debugging)
+          let blogUrl = "blog/index.html"; // Ensure correct relative path
+          console.log("Navigating to:", blogUrl); 
+          window.location.href = blogUrl; // Forces redirection
+        });
+      </script>
+    </div>
+  </main>
+  
+  <!-- Footer Section -->
+  <footer>
+    <nav>
+      <!-- Divider (~) used between links -->
+      <a href="itis3135/">ITIS3135</a> ~ 
+      <a href="https://www.linkedin.com/in/your-linkedin-profile" target="_blank" rel="noopener">LinkedIn</a> ~ 
+      <a href="https://github.com/RealRybear" target="_blank" rel="noopener">GitHub.com</a> ~ 
+      <a href="https://realrybear.github.io/" target="_blank" rel="noopener">GitHub.io</a>
+      <!-- Add additional links as needed -->
+    </nav>
+    <p>
+      
+    </p>
+  </footer>
+  
+  <!-- Comet Trail Effect Script -->
+  <script>
+    document.addEventListener('mousemove', (e) => {
+      for (let i = 0; i < 3; i++) { // Create 3 small particles per movement
+        const comet = document.createElement('div');
+        comet.classList.add('comet');
+        const size = Math.random() * 6 + 4; // Random size between 4px and 10px
+        comet.style.width = `${size}px`;
+        comet.style.height = `${size}px`;
+        // Position particles slightly behind cursor for trail effect
+        comet.style.left = `${e.pageX - size / 2 + Math.random() * 10 - 5}px`;
+        comet.style.top = `${e.pageY - size / 2 + Math.random() * 10 - 5}px`;
+        document.body.appendChild(comet);
+        setTimeout(() => { comet.remove(); }, 500);
+      }
+    });
+  </script>
+  
+  <!-- Malware Clicker Game (Fun Interactive Element) -->
   <div class="malware-box">
     <p>GAME: Click to Eliminate Malware</p>
     <div id="malware-container">
       <span class="malware">💀</span>
     </div>
   </div>
-  
   <script>
     const malwareContainer = document.getElementById('malware-container');
-  
     // Function to duplicate the malware skull on click
     function duplicateMalware(event) {
       const newMalware = document.createElement('span');
       newMalware.classList.add('malware');
       newMalware.innerHTML = '💀';
-  
       // Set new malware position
       newMalware.style.left = Math.random() * 250 + 'px';
       newMalware.style.top = Math.random() * 60 + 'px';
       newMalware.style.animationDuration = (Math.random() * 2 + 2) + 's'; // Vary speed slightly
-  
       // Add event listener for recursive duplication
       newMalware.addEventListener('click', duplicateMalware);
-  
       malwareContainer.appendChild(newMalware);
     }
-  
     // Add click event to the first malware skull
     document.querySelector('.malware').addEventListener('click', duplicateMalware);
   </script>
-  
-
 </body>
 </html>
