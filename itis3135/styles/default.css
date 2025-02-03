@@ -1,12 +1,25 @@
 /* Default CSS for ITIS 3135 Website */
 
-/* Reset some default browser styles */
-* {
+/* Targeted Reset for Common Elements */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+/* Body */
 body {
     font-family: Arial, sans-serif;
     background-color: #f4f4f4;
@@ -15,6 +28,7 @@ body {
     padding: 20px;
 }
 
+/* Header */
 header {
     background-color: #333;
     color: #fff;
@@ -23,6 +37,7 @@ header {
     margin-bottom: 20px;
 }
 
+/* Navigation */
 nav ul {
     list-style: none;
     padding: 0;
@@ -48,6 +63,7 @@ nav ul li a:hover {
     background-color: #007BFF;
 }
 
+/* Main */
 main {
     background-color: #fff;
     padding: 20px;
@@ -57,6 +73,7 @@ main {
     margin: 0 auto 20px auto;
 }
 
+/* Footer */
 footer {
     background-color: #333;
     color: #fff;
@@ -84,6 +101,7 @@ footer ul li a:hover {
     color: #FFD700;
 }
 
+/* Figure and Figcaption */
 figure {
     text-align: center;
     margin: 20px 0;
@@ -95,11 +113,12 @@ figcaption {
     margin-top: 8px;
 }
 
+/* List Items */
 ul li strong {
     color: #007BFF;
 }
 
-/* Validation buttons */
+/* Validation Buttons */
 a img {
     margin: 5px;
 }
@@ -110,7 +129,6 @@ a img {
         flex-direction: column;
         gap: 10px;
     }
-
     main, footer {
         padding: 15px;
     }
