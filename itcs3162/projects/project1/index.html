@@ -8,89 +8,48 @@
 </head>
 <body>
     <h1>Commander Data Analysis: 2011 vs. 2024</h1>
-    <h2>Understanding the Evolution of Magic: The Gathering</h2>
-    <p><em>1/29/2025 - Happy Birthday to me! 🎉</em></p>
-    <p>Magic: The Gathering has evolved significantly over the years, and with the release of the 2024 Aetherdrift Commander set, it's time to compare it with the classic 2011 Commander deck.</p>
-    <p>&nbsp;&nbsp;&nbsp;</p>
-    <h2>Objective</h2>
-    <p>Our goal in this project is to analyze the differences between the <span class="highlight">2011 Commander</span> and <span class="highlight">2024 Aetherdrift Commander</span> sets. We'll examine trends in card types, mana costs, strategies, and deck power levels to understand how the game has shifted over the years.</p>
-    <p>&nbsp;&nbsp;&nbsp;</p>
+    <h2>Introduction to the Problem</h2>
+    <p>Magic: The Gathering has evolved significantly since its inception, with new mechanics and card designs introduced over time. A key concern in the MTG community is the concept of "power creep," where newer cards become stronger, potentially unbalancing the game. This project aims to analyze and compare Commander sets from 2011 and 2024 to determine if power creep is evident. By understanding these trends, we can see how gameplay and strategies have shifted over time.</p>
+
+    <h2>Introduction to the Project</h2>
+    <p>The main problem I am trying to solve is whether the evolution of card design in Magic: The Gathering has led to significant power creep. I aim to answer questions such as: Has the average power and toughness of creatures increased? Are newer cards more cost-efficient in terms of mana? Which colors have benefited the most from new mechanics? This project seeks to provide data-driven insights into how the Commander format has changed over time.</p>
+
     <h2>Data Selection</h2>
     <p>The dataset consists of two Commander sets:</p>
     <ul>
         <li>2011 Commander: A classic set known for its balanced strategies.</li>
         <li>2024 Aetherdrift Commander: The latest evolution in the game, incorporating modern mechanics.</li>
     </ul>
-    <p>&nbsp;&nbsp;&nbsp;</p>
-    <h2>Project Dataset and Overview</h2>
-    <p>For Project 1, I will be focusing on old Magic: The Gathering compared to new. When selecting my project, I decided to focus on something I am passionate about to help me enjoy the project and put more effort into it. This <a href="https://mtgjson.com/downloads/all-sets/" target="_blank">link</a> contains every single card set that Magic: The Gathering has ever created. I plan to focus on a specific format that started in 2011 known as Commander. In this format rules are differnt for MTG and I will take the 2011 dataset and compare it to the 2024 dataset to visualize possible power creep within creatures. The first dataset contains 320 cards and the second contains 400. The data is divided up by card type, rarity, element, and mana cost.</p>
-    <p>&nbsp;&nbsp;&nbsp;</p><p>&nbsp;&nbsp;&nbsp;</p> 
-    <h2>Key Questions</h2>
-    <ul>
-        <li>Has the average power and toughness of creatures increased from 2011 to 2024?</li>
-        <li>Has the mana curve shifted? Are newer creatures more cost-efficient than older ones?</li>
-        <li>Which colors have seen the most improvement in mechanics and abilities over time?</li>
-        <li>Are legendary creatures becoming stronger to fit modern deck-building strategies?</li>
-        <li>How has the balance of card types changed between the two sets?</li>
-        <li>Is it more fun with fancier card effects (personal opinions after research)?</li>
-    </ul>
-    <p>&nbsp;&nbsp;&nbsp;</p><p>&nbsp;&nbsp;&nbsp;</p>
-    <h2>Potential Benefits</h2>
-    <ul>
-        <li><strong>Understanding Power Creep:</strong> My data will help players and game designers assess whether power creep is occurring.</li>
-        <li><strong>Deck-Building Insights:</strong> Identifies trends in creature efficiency that could impact how Commander decks are built.</li>
-        <li><strong>Historic Comparison:</strong> What did Magic start out as? What has it become today? Is it more fun? Are card effects more fair and balanced? This data will provide insights into Magic's evolution and its future relevance.</li>
-    </ul>
-    <p>&nbsp;&nbsp;&nbsp;</p><p>&nbsp;&nbsp;&nbsp;</p>
-    <h2>Potential Harms</h2>
-    <ul>
-        <li><strong>Bias Toward Newer Cards:</strong> Just because new creatures have better abilities on paper doesn't mean they will be stronger in the actual game.</li>
-        <li><strong>Market Influence:</strong> Highlighting power creep may cause older Commander staples to drop in value and raise demand for newer cards. This could benefit Wizards of the Coast as sales continue to grow the company.</li>
-    </ul>
-    <p>&nbsp;&nbsp;&nbsp;</p><p>&nbsp;&nbsp;&nbsp;</p>
-    <h2>Possible Missing Aspects</h2>
-    <p>Since I am only comparing the first Commander sets and the newest Commander sets, the data may not accurately reflect power creep across all years. There may be a specific year that stands out among the data sets that I am skipping. I may further expand this project in the future to involve all Commander data sets.</p>
-    
-    <p>&nbsp;&nbsp;&nbsp;</p><p>&nbsp;&nbsp;&nbsp;</p>
-    <h2>2011 vs. 2024 Commander Data</h2>
-   
-    <img src="2011v2024.png" alt="2011 vs 2024 Visualization" width="500" style="display: block; margin: 0 auto;">
-    
-    <h2>Key Insights</h2>
-    <ul>
-        <li>Creatures in 2024 have a higher average power and toughness, indicating a shift in overall game balance.</li>
-        <li>The mana cost of creatures has decreased slightly, suggesting newer cards are more cost-efficient.</li>
-        <li>There may be an increase in complex mechanics and interactions in newer sets.</li>
-    </ul>
-    
-    <h2>Conclusion</h2>
-    <p>This analysis provides a fascinating look at the evolution of Commander from 2011 to 2024. With new mechanics, power scaling, and gameplay philosophies, we can see how Magic: The Gathering continues to innovate and challenge players.</p>
-    
-    <p>Stay tuned for more visualizations and insights! And once again, Happy Birthday to me! 🎂</p>
+    <p>The data was sourced from <a href="https://mtgjson.com/downloads/all-sets/" target="_blank">MTGJSON</a>, which provides comprehensive datasets for all Magic: The Gathering cards. The dataset includes features such as card type, rarity, mana cost, power, toughness, and special abilities. These features help in analyzing card efficiency, power scaling, and game mechanics across different years.</p>
 
-    
+    <h2>Preprocessing the Data</h2>
+    <p>Before diving into the analysis, I had to clean and preprocess the data to make it usable. This involved handling missing values, converting mana costs and power levels into numeric formats, and filtering out cards with unrealistic stats. The mana costs were especially tricky since they use both numbers and symbols, which required custom code to parse correctly. Without this preprocessing step, the analysis would have been inaccurate and messy.</p>
+
+    <h2>Data Understanding and Visualization</h2>
+    <p>To better understand the data, I created scatter plots comparing the mana cost and power of cards from 2011 and 2024. This visualization helps identify trends in card efficiency and power scaling. While exploring the data, I noticed that creatures from 2024 tend to have higher power for the same mana cost compared to 2011. This suggests a shift towards more aggressive and cost-efficient cards. Additionally, the data revealed an increase in complex mechanics in newer sets, reflecting changes in game design philosophy.</p>
+
+    <h2>Storytelling</h2>
+    <p>Through this analysis, I've learned that Magic: The Gathering has indeed experienced power creep over the years. The data shows that newer cards are generally stronger and more efficient, with enhanced abilities and lower mana costs. This trend impacts deck-building strategies, pushing players to favor newer cards for competitive play. The visualizations tell a story of a game that has evolved to keep up with player expectations and market demands. By answering the initial questions, this project provides insights into the dynamic nature of MTG's card design.</p>
+
+    <h2>Impact</h2>
+    <p>This project highlights how data analysis can reveal interesting trends in games like Magic: The Gathering. By comparing sets from different years, we can see how card design has evolved, affecting gameplay and strategy. Understanding these changes helps players adapt to new environments and optimize their decks. It also shows how data can provide insights beyond just numbers, telling a story about the game's history and growth. This kind of analysis is not just useful for gaming but also for making informed decisions in other fields.</p>
 
     <h2>Code</h2>
     <p>The `parse_mana_cost` function takes the mana cost from a Magic: The Gathering card and turns it into a number that’s easier to work with. It looks for all the symbols inside curly braces `{}` and adds them up, counting regular numbers as-is and colored mana symbols like `W`, `U`, `B`, `R`, and `G` as 1 each. If the card doesn’t have a mana cost, it just returns `NaN`, which basically means there’s no value.</p>
     <img src="code.png" alt="Code Visualization" width="600" style="display: block; margin: 0 auto;">
 
-    <h2>References </h2>
-    <p>The references section will include all sources used to gather data, 
-        such as official Magic: The Gathering datasets,
-         articles on Commander deck strategies, 
-         and any scholarly work related to game design
-          and power creep analysis.</p>
+    <h2>References</h2>
+   
           <p><a href="https://mtgjson.com/downloads/all-sets/" target="_blank">Download All Magic: The Gathering Card Sets</a></p>
         <p><a href="https://mtg.fandom.com/wiki/Power/Toughness" target="_blank">MTG Wiki</a></p>
         <p><a href="https://magic.wizards.com/en" target="_blank">MTG.wizards</a></p>
-        ### 📥 Download the Notebook
 
-        <h2></h2>
-        <a href="https://github.com/RealRybear/RealRybear.github.io/raw/main/itcs3162/projects/project1/mtg_analysis_steps.ipynb" download>
-            <button style="padding: 10px 20px; background-color: #007BFF; color: white; border: none; border-radius: 5px; cursor: pointer; font-size: 16px;">
-                Download Notebook
-            </button>
-        </a>
-        
+    <h2>📥 Download the Notebook</h2>
+    <a href="https://github.com/RealRybear/RealRybear.github.io/raw/main/itcs3162/projects/project1/mtg_analysis_steps.ipynb" download>
+        <button style="padding: 10px 20px; background-color: #007BFF; color: white; border: none; border-radius: 5px; cursor: pointer; font-size: 16px;">
+            Download Notebook
+        </button>
+    </a>
+
 </body>
 </html>
