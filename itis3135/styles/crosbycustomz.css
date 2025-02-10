@@ -1,0 +1,82 @@
+/* Coolors color scheme: https://coolors.co/264653-2a9d8f-e9c46a-f4a261-e76f51 */
+
+/* Reset default margins and paddings */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #fff;
+    color: #264653;
+    padding: 20px;
+    line-height: 1.6;
+  }
+  
+  /* Header and footer styling */
+  header, footer {
+    background-color: #2a9d8f;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  header h1 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    font-size: 2.5em;
+  }
+  
+  header img {
+    /* Optionally, style your logo (e.g., round corners) */
+    border-radius: 50%;
+  }
+  
+  main {
+    margin: 20px 0;
+  }
+  
+  main h2 {
+    margin-bottom: 15px;
+    color: #e76f51;
+  }
+  
+  main p {
+    margin-bottom: 15px;
+  }
+  
+  /* Non-standard bullet style for the unordered list */
+  ul.custom-bullets {
+    list-style-type: square;
+    margin: 15px 40px;
+  }
+  
+  ul.custom-bullets li {
+    margin-bottom: 10px;
+  }
+  
+  /* Styling for the contact info block */
+  .contact-info {
+    background-color: #e9c46a;
+    padding: 15px;
+    border-left: 5px solid #f4a261;
+    margin-top: 20px;
+  }
+  
+  a {
+    color: #f4a261;
+    text-decoration: none;
+  }
+  
+  a:hover {
+    text-decoration: underline;
+  }
+  
+  footer p {
+    margin: 10px 0;
+  }
+  
