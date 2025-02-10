@@ -1,0 +1,90 @@
+/* Global Styles */
+body {
+    background-color: #1C1C1C;  /* Dark background for premium feel */
+    color: #FFD700;  /* Golden yellow text */
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* Header */
+header {
+    background-color: #5A2D0C;  /* Rich brown for farm feel */
+    color: #FFD700; /* Gold text */
+    padding: 20px;
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+/* Navigation */
+nav {
+    background-color: #8B4513; /* Darker brown */
+    padding: 10px 0;
+    text-align: center;
+}
+
+nav a {
+    color: #FFDA44; /* Warm yellow */
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 10px 20px;
+    margin: 0 10px;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+nav a:hover {
+    background-color: #B22222; /* Dark red hover effect */
+    color: #FFF;
+}
+
+/* Buttons */
+button {
+    background-color: #B22222; /* Red CTA buttons */
+    color: #FFD700; /* Gold text */
+    padding: 12px 20px;
+    border: none;
+    font-size: 16px;
+    font-weight: bold;
+    text-transform: uppercase;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background 0.3s, transform 0.2s;
+}
+
+button:hover {
+    background-color: #8B0000; /* Darker red hover */
+    transform: scale(1.05);
+}
+
+/* Product Cards */
+.product-card {
+    background-color: #333333; /* Dark grey contrast */
+    border: 2px solid #8B4513; /* Brown border */
+    border-radius: 10px;
+    padding: 20px;
+    margin: 20px;
+    text-align: center;
+    color: #FFD700;
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s;
+}
+
+.product-card:hover {
+    transform: scale(1.05);
+}
+
+/* Footer */
+footer {
+    background-color: #5A2D0C;
+    color: #FFD700;
+    text-align: center;
+    padding: 15px;
+    font-size: 14px;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
