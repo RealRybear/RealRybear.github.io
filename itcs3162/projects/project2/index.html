@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <title>Malicious Packet Classification Research Project</title>
+  <style>
+    body {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #e9ecef;
+      color: #333;
+      line-height: 1.6;
+    }
+    header {
+      background-color: #343a40;
+      color: #fff;
+      padding: 30px 20px;
+      text-align: center;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2.5em;
+      letter-spacing: 1px;
+    }
+    section {
+      background: #fff;
+      margin: 20px auto;
+      padding: 20px 30px;
+      max-width: 900px;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    h2 {
+      border-bottom: 2px solid #007bff;
+      padding-bottom: 5px;
+      margin-bottom: 15px;
+      color: #007bff;
+    }
+    p {
+      margin: 15px 0;
+      text-align: justify;
+    }
+    a {
+      color: #007bff;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    figure {
+      text-align: center;
+      margin: 20px 0;
+    }
+    figcaption {
+      margin-top: 5px;
+      font-style: italic;
+      color: #555;
+    }
+    ul {
+      margin-left: 20px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Malicious Packet Classification Research Project</h1>
+  </header>
+
+  <!-- Introduce the Problem -->
+  <section>
+    <h2>Introduce the Problem</h2>
+    <p>As part of my research in cybersecurity, I embarked on a project to develop a <strong>classification model</strong> that detects malicious network packets. The primary goal of this project is to leverage machine learning techniques to identify packets that may pose a threat, thereby contributing to the ongoing efforts in securing digital networks.</p>
+    <p>The digital landscape is under constant threat from malicious actors. The challenge I address in this project is to develop a robust classification model capable of distinguishing between normal and malicious network packets. The key questions guiding this research are:</p>
+    <ul>
+      <li>Can we accurately classify network packets as either normal or malicious based on their features?</li>
+      <li>Which machine learning algorithm provides the most reliable results when applied to packet-level data?</li>
+    </ul>
+    <p>This problem is not only academically challenging but also crucial for real-world applications, as accurate packet classification can significantly improve network security and prevent cyber intrusions.</p>
+  </section>
+
+  <!-- Introduce the Data -->
+  <section>
+    <h2>Introduce the Data</h2>
+    <p>The dataset used in this project was sourced from publicly available cybersecurity repositories, specifically from <a href="#">[Insert Link Here]</a> that collects real-world network traffic data. Each record is labeled as either "Malicious" or "Normal," providing a clear target variable for classification.</p>
+    <p>The dataset includes features such as:</p>
+    <ul>
+      <li><strong>Flow Duration:</strong> The total time of the network flow.</li>
+      <li><strong>Packet Counts (Fwd/Backward):</strong> The number of packets moving in each direction.</li>
+      <li><strong>Packet Length Statistics:</strong> Mean, standard deviation, minimum, and maximum lengths.</li>
+      <li><strong>Flag Counts:</strong> Indicators like SYN, FIN, or RST flags common in TCP communication.</li>
+      <li><strong>Flow Bytes/s & Flow Packets/s:</strong> Rate-based metrics indicating how quickly data is transmitted.</li>
+    </ul>
+    <p>Working with real-world data presented its challenges—such as missing values, outliers, and occasional noise. However, this realistic scenario allowed me to test and improve the model’s robustness in a setting that closely resembles live network traffic.</p>
+  </section>
+
+  <!-- Pre-processing the Data -->
+  <section>
+    <h2>Pre-processing the Data</h2>
+    <p>Pre-processing is a critical phase in any machine learning project. Below are the key steps I followed, along with the rationale for each:</p>
+    <ul>
+      <li><strong>Data Cleaning:</strong> Removed extra spaces from column names and handled missing values. Ensuring consistent, clean data helps avoid unexpected errors and improves model reliability.</li>
+      <li><strong>Type Conversion:</strong> Converted all features to numeric values (where applicable). Non-numeric or string-based data can hinder training unless properly encoded or transformed.</li>
+      <li><strong>Outlier Management:</strong> Capped extreme values at the 99th percentile to prevent rare but large spikes from distorting the model.</li>
+      <li><strong>Normalization:</strong> Applied standard scaling (mean = 0, std = 1) to the features. Many algorithms assume features share a common scale, improving both convergence speed and performance.</li>
+    </ul>
+    <p>This meticulous preprocessing ensured that the model would be trained on high-quality, consistent data, laying a solid foundation for accurate predictions.</p>
+  </section>
+
+  <!-- Data Understanding & Visualization -->
+  <section>
+    <h2>Data Understanding & Visualization</h2>
+    <p>To better understand the data and uncover potential insights, I employed several visualization techniques:</p>
+    <ul>
+      <li><strong>Histograms & Scatter Plots:</strong> Provided views of feature distributions and relationships, highlighting which features might be most relevant.</li>
+      <li><strong>Correlation Heatmap:</strong> Revealed the strength of relationships between features and with the target label.</li>
+      <li><strong>Parallel Coordinates Plot:</strong> Offered a high-dimensional view to observe how feature values vary across samples.</li>
+    </ul>
+    <p>These visualizations were instrumental in identifying patterns and trends—such as which features differed significantly between malicious and normal packets. The findings helped refine the feature selection process and guided the next steps in modeling.</p>
+    
+    <!-- Figure 2: Distribution of Normal vs Malicious Traffic -->
+    <p><strong>Figure 2:</strong> The bar chart below shows the overall distribution of normal vs. malicious traffic. This figure highlights any class imbalance within the dataset, which is important because an imbalanced dataset can affect the model’s ability to learn minority class characteristics. Noticing the proportion of malicious packets early on helps in planning further steps such as resampling or adjusting evaluation metrics.</p>
+    <figure>
+      <img src="figure_2.png"
+           alt="Distribution of Normal vs Malicious Traffic"
+           style="max-width:80%; height:auto;">
+      <figcaption>Figure 2: Distribution of Normal vs Malicious Traffic in the Dataset</figcaption>
+    </figure>
+    <p>This image helps us understand the overall makeup of the data and ensures that any subsequent analysis takes into account potential biases caused by class imbalance.</p>
+    
+    <!-- Figure 3: Correlation Heatmap -->
+    <p><strong>Figure 3:</strong> The correlation heatmap below displays the relationships among key features and between the features and the target label. Warmer colors indicate stronger positive correlations, while cooler colors indicate negative correlations. This figure is essential for understanding multicollinearity, which can affect the performance of some models, and helps in identifying which features are most likely to influence the classification.</p>
+    <figure>
+      <img src="figure_3.png"
+           alt="Correlation Heatmap of Key Features"
+           style="max-width:130%; height:auto;">
+      <figcaption>Figure 3: Correlation Heatmap of Key Features</figcaption>
+    </figure>
+    <p>This enlarged heatmap allows for a clearer view of the inter-feature relationships, helping to determine which variables might be redundant or highly influential in classifying packets.</p>
+    
+    <!-- Figure 5: Parallel Coordinates Plot -->
+    <p><strong>Figure 5:</strong> The parallel coordinates plot below provides a high-dimensional visualization of the top features. Each line represents a sample from the dataset, and the plot allows us to observe how feature values vary across different classes. This figure is particularly useful for spotting clusters and identifying whether the data for malicious and normal packets diverge or overlap.</p>
+    <figure>
+      <img src="figure_5.png"
+           alt="Parallel Coordinates Plot for Top Features"
+           style="max-width:90%; height:auto;">
+      <figcaption>Figure 5: Parallel Coordinates Plot for Top Features</figcaption>
+    </figure>
+    <p>This plot gives a comprehensive view of how the selected features behave collectively, providing insight into the separability of the classes and aiding in the selection of the most predictive features for modeling.</p>
+  </section>
+
+  <!-- Modeling -->
+  <section>
+    <h2>Modeling</h2>
+    <p>I experimented with several classification algorithms, each offering unique advantages and trade-offs:</p>
+    <ul>
+      <li><strong>Naive Bayes:</strong> Simple and fast; works well when features are independent. However, it makes strong independence assumptions that might not hold true in all cases.</li>
+      <li><strong>K-Nearest Neighbors (KNN):</strong> Easy to understand and implement, with no explicit training phase. Its prediction time can be slow, and performance depends heavily on the choice of k and feature scaling.</li>
+      <li><strong>Support Vector Machines (SVM):</strong> Effective in high-dimensional spaces and robust to outliers, but can be computationally intensive and require careful parameter tuning.</li>
+      <li><strong>Random Forest:</strong> An ensemble method that builds multiple decision trees, offering robustness against overfitting and providing useful feature importance metrics. It performed the best on my dataset.</li>
+    </ul>
+    <p>After careful evaluation, I selected the <strong>Random Forest</strong> classifier due to its strong performance and ability to handle diverse feature interactions. The model was trained using an 80-20 train-test split, with iterative tuning to optimize its predictive power.</p>
+  </section>
+
+  <!-- Challenges in Building a Classification Model -->
+  <section>
+    <h2>Challenges in Building a Classification Model</h2>
+    <p>Developing a reliable classification model for malicious packet detection involves several key challenges, many of which we encountered during the project:</p>
+    <ul>
+      <li><strong>Data Quality & Class Imbalance:</strong> Real-world network traffic often contains noisy data and a skewed ratio between normal and malicious packets, which can bias the model. We struggled to obtain a balanced dataset, leading to additional steps like resampling and careful metric selection.</li>
+      <li><strong>Feature Selection & Dimensionality:</strong> With numerous potential features—such as packet length statistics, flag counts, and flow durations—identifying those with true predictive power was challenging. Some features were redundant, and removing them was crucial to avoid over-complicating the model.</li>
+      <li><strong>Overfitting vs. Generalization:</strong> In our experiments, models that were too complex tended to overfit the training data, performing poorly on unseen data. We had to carefully balance model complexity by employing cross-validation and hyperparameter tuning.</li>
+      <li><strong>Computational Constraints:</strong> Processing large volumes of network traffic data, especially during iterative model training and tuning, proved to be computationally intensive. Optimizing code and using efficient algorithms was essential to manage these constraints.</li>
+      <li><strong>Interpretability:</strong> Explaining why a model flagged a packet as malicious was critical for trust and for subsequent forensic analysis. We faced challenges in ensuring that the final model was not only accurate but also interpretable by security teams.</li>
+    </ul>
+    <p>Addressing these challenges required iterative refinement—from data preprocessing and feature engineering to experimenting with various model architectures. Each challenge provided an opportunity to learn and improve the overall approach, ultimately leading to a more robust and effective classifier.</p>
+  </section>
+
+  <!-- Evaluation -->
+  <section>
+    <h2>Evaluation</h2>
+    <p>To measure the effectiveness of the model, I employed several evaluation metrics, each offering insights into different aspects of performance:</p>
+    <ul>
+      <li><strong>Accuracy:</strong> Overall, the proportion of correct predictions. However, accuracy alone can be misleading if the dataset is imbalanced.</li>
+      <li><strong>Precision & Recall:</strong> Precision measures how many predicted malicious packets are truly malicious, while recall measures how many actual malicious packets were correctly identified.</li>
+      <li><strong>F1-score:</strong> The harmonic mean of precision and recall, providing a balanced measure for model performance.</li>
+      <li><strong>Confusion Matrix:</strong> Breaks down predictions into true positives, true negatives, false positives, and false negatives, offering a detailed performance analysis.</li>
+      <li><strong>ROC Curve & AUC:</strong> Visualizes the trade-off between the true positive rate and false positive rate at different thresholds, with the Area Under the Curve (AUC) summarizing the model's overall discriminatory ability.</li>
+    </ul>
+    <p>By analyzing these metrics, I gained a comprehensive view of the model's performance in distinguishing between malicious and normal packets.</p>
+    
+    <!-- Figure 4: ROC Curve -->
+    <p><strong>Figure 4:</strong> The ROC curve below illustrates the final model's performance across various decision thresholds. A higher AUC indicates that the classifier is more effective at differentiating between the two classes. This figure confirms that the model has strong discriminatory power, which is critical for real-world cybersecurity applications.</p>
+    <figure>
+      <img src="figure_4.png"
+           alt="ROC Curve for the Classification Model"
+           style="max-width:90%; height:auto;">
+      <figcaption>Figure 4: ROC Curve for the Classification Model</figcaption>
+    </figure>
+    <p>This ROC curve helps to visualize the trade-off between sensitivity and specificity, making it clear how well the model can distinguish between malicious and normal traffic.</p>
+  </section>
+
+  <!-- Storytelling -->
+  <section>
+    <h2>Storytelling</h2>
+    <p>Throughout this project, I discovered how intricate the world of network traffic analysis can be. Early visualizations revealed subtle but critical differences between malicious and normal packets, guiding me toward the features with the most predictive power. Experimenting with various algorithms, I found that the Random Forest classifier offered a compelling balance of accuracy, interpretability, and robustness.</p>
+    <p>As I refined the model, each step—from data cleaning to final evaluation—uncovered new insights that shaped the classifier's evolution. Ultimately, I was able to answer my initial questions with confidence: it is indeed possible to accurately classify malicious packets by leveraging key features like flow duration, packet statistics, and flag counts. This journey underscored the importance of iterative experimentation and a data-driven approach to solving complex cybersecurity challenges.</p>
+  </section>
+
+  <!-- Impact -->
+  <section>
+    <h2>Impact</h2>
+    <p>The implications of this research extend beyond academic interest. A reliable malicious packet classification system can significantly bolster network security by enabling faster threat detection and reducing the risk of data breaches. This is especially crucial in industries where sensitive information is transmitted, such as healthcare, finance, and government.</p>
+    <p>However, deploying such a model raises ethical considerations. False positives might disrupt legitimate traffic, while false negatives could allow threats to pass unnoticed. Balancing strong security with user privacy and system availability is a central concern. As cybersecurity threats evolve, continuous refinement and ethical oversight will be essential to ensure that this technology is both effective and responsible.</p>
+  </section>
+
+  <!-- References -->
+  <section>
+    <h2>References</h2>
+    <p>Below are key resources that guided this project and informed my methodology:</p>
+    <ul>
+      <li>Open-source cybersecurity datasets: <a href="https://www.kaggle.com/datasets/chethuhn/network-intrusion-dataset?resource=download">Kaggle</a></li>
+      <li>Documentation for Python libraries used (Pandas, Scikit-learn, Matplotlib, etc.).</li>
+    </ul>
+    <p>For a more comprehensive list, please visit my <a href="#">References Page</a>.</p>
+  </section>
+
+  <!-- Code -->
+  <section>
+    <h2>Code</h2>
+    <p>The full codebase for this project, including Jupyter notebooks and Python scripts, is available on <a href="#">GitHub</a>. I invite peers and cybersecurity professionals to review the code, offer feedback, and contribute to further developments. The project has also been submitted on Canvas for peer review and discussion, in line with the course requirements.</p>
+    <p>Below is a brief snippet illustrating how the Random Forest classifier was trained:</p>
+    <pre><code># Example Code Snippet
+
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.model_selection import train_test_split
+
+X = df_selected[features]
+y = df_selected['Label']
+
+X_train, X_test, y_train, y_test = train_test_split(
+    X, y, test_size=0.2, random_state=42
+)
+
+model = RandomForestClassifier(n_estimators=100, random_state=42)
+model.fit(X_train, y_train)
+
+print("Training Accuracy:", model.score(X_train, y_train))
+print("Test Accuracy:", model.score(X_test, y_test))
+</code></pre>
+    <p>To view or download the complete notebook, please visit the <a href="https://github.com/RealRybear/RealRybear.github.io/tree/main/itcs3162/projects/project2">GitHub Repository</a>.</p>
+  </section>
+</body>
+</html>
