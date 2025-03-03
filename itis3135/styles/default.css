@@ -1,6 +1,6 @@
-/* Default CSS for ITIS 3135 Website */
+/* Default CSS for my ITIS 3135 Website */
 
-/* Targeted Reset for Common Elements */
+/* Targeted Reset Elements */
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -69,8 +69,9 @@ main {
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    max-width: 800px;
-    margin: 0 auto 20px auto;
+    width: 90%; 
+    margin: 0 auto; 
+    max-width: 1200px; 
 }
 
 /* Footer */
@@ -101,7 +102,7 @@ footer ul li a:hover {
     color: #FFD700;
 }
 
-/* Figure and Figcaption */
+
 figure {
     text-align: center;
     margin: 20px 0;
@@ -113,7 +114,7 @@ figcaption {
     margin-top: 8px;
 }
 
-/* List Items */
+
 ul li strong {
     color: #007BFF;
 }
@@ -123,13 +124,33 @@ a img {
     margin: 5px;
 }
 
-/* Responsive Design */
-@media (max-width: 600px) {
+
+
+/* Mobile Devices */
+@media screen and (max-width: 600px) {
     nav ul {
         flex-direction: column;
         gap: 10px;
     }
     main, footer {
         padding: 15px;
+    }
+}
+
+/* Tablet Devices */
+@media screen and (min-width: 601px) and (max-width: 980px) {
+    nav ul {
+        flex-direction: column;
+        gap: 12px;
+    }
+    main {
+        width: 95%; /* Slightly wider on tablet */
+    }
+}
+
+/* Laptop/Small Screen Devices */
+@media screen and (min-width: 981px) and (max-width: 1400px) {
+    main {
+        width: 85%; /* Adjust content width on smaller laptops */
     }
 }
