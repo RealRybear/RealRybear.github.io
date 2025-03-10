@@ -49,10 +49,12 @@
     a:hover {
       text-decoration: underline;
     }
-    figure {
-      text-align: center;
-      margin: 20px 0;
-    }
+    figure img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
     figcaption {
       margin-top: 5px;
       font-style: italic;
@@ -67,10 +69,11 @@
   <header>
     <h1>Malicious Packet Classification Research Project</h1>
   </header>
-
+  <p><a href="https://github.com/RealRybear/CyberPacketClassifier/blob/main/CyberPacketClassifier.ipynb">View the full notebook on Github</a></p>
   <!-- Introduce the Problem -->
   <section>
     <h2>Introduce the Problem</h2>
+    
     <p>As part of my research in cybersecurity, I embarked on a project to develop a <strong>classification model</strong> that detects malicious network packets. The primary goal of this project is to leverage machine learning techniques to identify packets that may pose a threat, thereby contributing to the ongoing efforts in securing digital networks.</p>
     <p>The digital landscape is under constant threat from malicious actors. The challenge I address in this project is to develop a robust classification model capable of distinguishing between normal and malicious network packets. The key questions guiding this research are:</p>
     <ul>
@@ -113,15 +116,33 @@
 
   <!-- Data Understanding & Visualization -->
   <section>
+    
     <h2>Data Understanding & Visualization</h2>
     <p>To better understand the data and uncover potential insights, I employed several visualization techniques:</p>
+    
     <ul>
       <li><strong>Histograms & Scatter Plots:</strong> Provided views of feature distributions and relationships, highlighting which features might be most relevant.</li>
       <li><strong>Correlation Heatmap:</strong> Revealed the strength of relationships between features and with the target label.</li>
       <li><strong>Parallel Coordinates Plot:</strong> Offered a high-dimensional view to observe how feature values vary across samples.</li>
     </ul>
     <p>These visualizations were instrumental in identifying patterns and trends—such as which features differed significantly between malicious and normal packets. The findings helped refine the feature selection process and guided the next steps in modeling.</p>
-    
+   
+  <p>
+    In addition to evaluating the model’s overall performance, it is often helpful to understand which features have the greatest impact on its decisions. The bar chart below highlights the relative importance of each feature in predicting whether a packet is malicious. Higher bars correspond to features that exert a stronger influence on the Random Forest classifier’s final prediction.
+  </p>
+  <figure>
+    <!-- Update the src attribute if you have a different file name or location -->
+    <img src="Figure_1.png"
+    alt="Distribution of Normal vs Malicious Traffic"
+    style="max-width:108%; height:auto;">
+    <figcaption>Figure 1: Feature Importance in Malicious Packet Detection</figcaption>
+  </figure>
+  <p>
+    From this chart, we can see that certain metrics—such as <strong>Bwd Packet Length Mean</strong>, <strong>Packet Length Mean</strong>, and <strong>Fwd Packet Length Mean</strong>—are particularly significant. These insights suggest that malicious packets in our dataset often exhibit distinguishable patterns in their length distributions. Meanwhile, flags like <strong>FIN Flag Count</strong> or <strong>SYN Flag Count</strong> appear to play a less pivotal role, which may be due to attackers adapting their tactics or the specific characteristics of this dataset.
+  </p>
+  <p>
+    Understanding feature importance not only helps interpret the model’s behavior but also guides future iterations of data collection and feature engineering. For instance, if certain features consistently rank high, security analysts might focus on refining or further exploring those metrics to enhance the model’s predictive power. Conversely, features with minimal importance may be candidates for removal or replacement to streamline the model and improve computational efficiency.
+  </p>
     <!-- Figure 2: Distribution of Normal vs Malicious Traffic -->
     <p><strong>Figure 2:</strong> The bar chart below shows the overall distribution of normal vs. malicious traffic. This figure highlights any class imbalance within the dataset, which is important because an imbalanced dataset can affect the model’s ability to learn minority class characteristics. Noticing the proportion of malicious packets early on helps in planning further steps such as resampling or adjusting evaluation metrics.</p>
     <figure>
@@ -137,7 +158,8 @@
     <figure>
       <img src="Figure_3.png"
            alt="Correlation Heatmap of Key Features"
-           style="max-width:130%; height:auto;">
+           style="max-width:100%; height:auto; float: left;
+">
       <figcaption>Figure 3: Correlation Heatmap of Key Features</figcaption>
     </figure>
     <p>This enlarged heatmap allows for a clearer view of the inter-feature relationships, helping to determine which variables might be redundant or highly influential in classifying packets.</p>
@@ -254,7 +276,7 @@ model.fit(X_train, y_train)
 print("Training Accuracy:", model.score(X_train, y_train))
 print("Test Accuracy:", model.score(X_test, y_test))
 </code></pre>
-    <p>To view or download the complete work, please visit my <a href="https://github.com/RealRybear/CyberPacketClassifier">Github page</a>.</p>
-  </section>
+
+<p><a href="https://github.com/RealRybear/CyberPacketClassifier/blob/main/CyberPacketClassifier.ipynb">View the full notebook on Github</a></p>  </section>
 </body>
 </html>
