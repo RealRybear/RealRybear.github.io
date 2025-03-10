@@ -74,7 +74,7 @@
   <section>
     <h2>Introduce the Problem</h2>
     
-    <p>As part of my research in cybersecurity, I embarked on a project to develop a <strong>classification model</strong> that detects malicious network packets. The primary goal of this project is to leverage machine learning techniques to identify packets that may pose a threat, thereby contributing to the ongoing efforts in securing digital networks.</p>
+    <p>As part of my research in cybersecurity, I took on a project to develop a <strong>classification model</strong> that detects malicious network packets. The primary goal of this project is to leverage machine learning techniques to identify packets that may pose a threat, thereby contributing to the ongoing efforts in securing digital networks.</p>
     <p>The digital landscape is under constant threat from malicious actors. The challenge I address in this project is to develop a robust classification model capable of distinguishing between normal and malicious network packets. The key questions guiding this research are:</p>
     <ul>
       <li>Can we accurately classify network packets as either normal or malicious based on their features?</li>
@@ -87,10 +87,11 @@
   <section>
     <h2>Introduce the Data</h2>
     <p>The dataset used in this project was sourced from publicly available cybersecurity repositories, specifically from <a href="https://www.kaggle.com/datasets/jancsg/cybersecurity-suspicious-web-threat-interactions" target="_blank">
-      Kaggle
+      Kaggle.
     </a>
+    It serves as the foundation for our analysis and model building, and it includes a variety of variables that capture the nuances of network traffic. These variables are critical in distinguishing between normal and malicious packets. The key variables used in this project are:
     </p>
-    <p>The dataset includes features such as:</p>
+    
     <ul>
       <li><strong>Flow Duration:</strong> The total time of the network flow.</li>
       <li><strong>Packet Counts (Fwd/Backward):</strong> The number of packets moving in each direction.</li>
@@ -98,7 +99,7 @@
       <li><strong>Flag Counts:</strong> Indicators like SYN, FIN, or RST flags common in TCP communication.</li>
       <li><strong>Flow Bytes/s & Flow Packets/s:</strong> Rate-based metrics indicating how quickly data is transmitted.</li>
     </ul>
-    <p>Working with real-world data presented its challenges—such as missing values, outliers, and occasional noise. However, this realistic scenario allowed me to test and improve the model’s robustness in a setting that closely resembles live network traffic.</p>
+    <p>Working with real-world data presented its challenges, such as missing values, outliers, and occasional noise. However, this realistic scenario allowed me to test and improve the model’s robustness in a setting that closely resembles live network traffic.</p>
   </section>
 
   <!-- Pre-processing the Data -->
@@ -228,10 +229,29 @@
 
   <!-- Storytelling -->
   <section>
-    <h2>Storytelling</h2>
-    <p>Throughout this project, I discovered how intricate the world of network traffic analysis can be. Early visualizations revealed subtle but critical differences between malicious and normal packets, guiding me toward the features with the most predictive power. Experimenting with various algorithms, I found that the Random Forest classifier offered a compelling balance of accuracy, interpretability, and robustness.</p>
-    <p>As I refined the model, each step—from data cleaning to final evaluation—uncovered new insights that shaped the classifier's evolution. Ultimately, I was able to answer my initial questions with confidence: it is indeed possible to accurately classify malicious packets by leveraging key features like flow duration, packet statistics, and flag counts. This journey underscored the importance of iterative experimentation and a data-driven approach to solving complex cybersecurity challenges.</p>
+    <h2>The Journey (Storytelling)</h2>
+    <p>
+      Throughout this project, I quickly realized that network traffic analysis is way more intricate than I first imagined. What started as a simple idea to classify packets soon turned into a deep dive into messy, real-world data. At first, I thought it would be pretty straightforward, but then I noticed all these subtle differences between normal and malicious packets that really made me pause and think.
+    </p>
+    <p>
+      When I began visualizing the data, I found some interesting trends. I saw that features like flow duration, packet counts, packet length statistics, flag counts, and transmission rates all played a role in distinguishing between the two types of traffic. Even the tiniest differences in these numbers turned out to be critical.
+    </p>
+    <p>
+      There were definitely challenges along the way. For instance, the raw dataset had missing values, outliers, and a lot of noise. I had to put in a ton of work cleaning everything up—removing extra spaces, converting values to numbers, capping extreme values, and normalizing the data—so that the model could actually learn from it. It was kind of a headache at times, but it taught me a lot about the importance of good data preprocessing.
+    </p>
+    <p>
+      Another major part of the project was figuring out which features were really making a difference. I looked at, and used, several algorithms like Naive Bayes, K-Nearest Neighbors, and SVM, but in the end, the Random Forest classifier emerged as the best choice. Tuning the model was a lot of trial and error, but that process showed me just how critical it is to keep testing and adjusting.
+    </p>
+    <p>
+      What I found most exciting was understanding why the model made the decisions it did. Using visualizations like feature importance charts gave me insight into which variables were driving the predictions. It was a real eye-opener, highlighting not just the performance of the model but also the story behind the data.
+    </p>
+    <p>
+      Ultimately, I was able to answer my initial questions with confidence: yes, it is possible to accurately classify malicious packets by using the right features and a data-driven approach. This project taught me that solving complex cybersecurity challenges is all about continuous learning, adapting, and never being afraid to experiment.
+    </p>
+    <p>
+      For a deeper look into every detail of this project, check out the full notebook on my <a href="https://github.com/RealRybear/CyberPacketClassifier/blob/main/CyberPacketClassifier.ipynb">Github!</a>
   </section>
+  
 
   <!-- Impact -->
   <section>
