@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Magic the Gathering Commander Hobby</title>
+  <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+  <!-- Embedded Stylesheet: All styling is directly in this head tag -->
+  
+</head>
+<body>
+  <!-- Header with h1 and nav bar -->
+  <header>
+    <h1>Magic: The Gathering Commander Hobby</h1>
+    <nav>
+      <!-- Navigation links: Each uses a data-section attribute for JS to show/hide sections -->
+      <a href="#" data-section="what">What | Home</a>
+      <a href="#" data-section="who">Who| About</a>
+      <a href="#" data-section="when">When | Schedule</a>
+      <a href="#" data-section="where">Where | Locations</a>
+      <a href="#" data-section="how">How | Gameplay</a>
+      <a href="#" data-section="decks">Decks</a>
+      <a href="#" data-section="why">Why I Play</a>
+      <a href="#" data-section="ai">AI Prompts</a>
+      <!-- Divider icon different from your main site -->
+      <img class="divider" src="images/favicon.ico" alt="Divider Icon">
+    </nav>
+  </header>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(135deg, #ff4136 20%, #0074d9 40%, #2ecc40 60%, #ffffff 80%, #000000);
+      background-size: 400% 400%;
+      animation: bgAnimation 20s ease infinite;
+      font-family: 'Courier New', Courier, monospace;
+      color: #f8f8f2;
+    }
+
+    @keyframes bgAnimation {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    header {
+      background: #000;
+      color: #ffffff;
+      padding: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 3px solid #ff4136;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2.5rem;
+      text-shadow: 2px 2px #0074d9;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    nav a {
+      background: #2ecc40;
+      padding: 0.5rem 1rem;
+      border-radius: 5px;
+      color: #000;
+      text-decoration: none;
+      font-weight: bold;
+      transition: transform 0.2s;
+    }
+
+    nav a:hover {
+      transform: scale(1.1);
+      background: #ff4136;
+      color: #fff;
+    }
+
+    nav img.divider {
+      width: 20px;
+      height: 20px;
+    }
+
+    main {
+      padding: 1rem;
+      background: rgba(255, 255, 255, 0.1);
+      border: 2px dashed #0074d9;
+      border-radius: 8px;
+    }
+
+    section {
+      display: none;
+      margin-bottom: 2rem;
+      padding: 1rem;
+      background: rgba(0, 0, 0, 0.5);
+      border-left: 5px solid #2ecc40;
+      border-radius: 8px;
+    }
+
+    section.active {
+      display: block;
+    }
+
+    footer {
+      background: #000;
+      color: #ffffff;
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.9rem;
+      border-top: 3px solid #0074d9;
+    }
+
+    figure {
+  display: inline-block;          /* shrink-wrap around the image */
+  text-align: center;
+  margin: 1rem auto;             /* center horizontally; auto left/right */
+  border: 2px solid #ff4136;     /* red border */
+  padding: 0.5rem;
+  border-radius: 5px;
+  /* background: #ffffff;        remove solid white background */
+  background: rgba(255,255,255,0.2); /* optional: subtle transparent background */
+}
+
+figure img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 3px;
+}
+
+figure figcaption {
+  font-style: italic;
+  margin-top: 0.5rem;
+  color: #000;
+}
+    /* Custom deck box styles to fix contrast and add MTG flair */
+    article {
+      background: #2b0040;
+      color: #f8f8f8;
+      padding: 1rem;
+      margin-bottom: 1rem;
+      border-radius: 10px;
+      border: 2px solid #cc00ff;
+      box-shadow: 0 0 10px #cc00ff;
+      transition: transform 0.3s ease;
+    }
+
+    article:hover {
+      background-color: #4a0072;
+      transform: scale(1.02);
+    }
+
+    article h3 {
+      color: #ff80ff;
+      text-shadow: 1px 1px 2px black;
+    }
+
+    article p, article figcaption {
+      font-size: 1.05rem;
+      text-shadow: 1px 1px 2px black;
+    }
+
+    .validation-links a {
+      color: #2ecc40;
+      margin: 0 0.5rem;
+      text-decoration: none;
+    }
+
+    .validation-links a:hover {
+      text-decoration: underline;
+    }
+    table.gametable {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 2rem 0;
+  background: rgba(255, 255, 255, 0.95);
+  color: #111;
+  font-family: 'Courier New', Courier, monospace;
+  border: 3px solid #0074d9;
+  border-radius: 6px;
+  box-shadow: 0 0 10px #2ecc40;
+}
+
+table.gametable th,
+table.gametable td {
+  border: 2px solid #0074d9;
+  padding: 1rem;
+  text-align: center;
+}
+
+table.gametable thead {
+  background-color: #000;
+  color: #fff;
+}
+
+table.gametable tbody tr:hover {
+  background-color: #e0f7fa;
+  transition: 0.3s ease;
+}
+.center-container {
+  display: flex;
+  justify-content: center; /* horizontal centering */
+  align-items: center;     /* vertical centering */
+  height: 100vh;           /* full screen height */
+}
+
+.rotated-centered {
+  transform: rotate(270deg);
+  width: 800px;
+  height: auto;
+}
+
+  </style>
+  <main>
+    <!-- WHAT Section (Home): First section displayed -->
+   <section id="what" class="active">
+  <h2>Home - What is Commander?</h2>
+  <p>Commander is a unique Magic the Gathering format where each deck is built around a legendary creature—the Commander. In this 100-card singleton format (aside from basic lands), your Commander defines your strategy.</p>
+  <p>This site is dedicated to my passion for Commander. I spend epic Friday and Saturday nights playing with my mom, her boyfriend, my girlfriend, and my two best friends. Our games can get heated and we sometimes play for hours!</p>
+  <figure>
+    <img src="images/collection.jpeg" alt="Commander collection" width="400">
+    <figcaption>My Personal Epic Commander Full Collection. Each deck is 100 cards.</figcaption>
+  </figure>
+  <h3>My Story</h3>
+  <p>My journey into Commander began as a personal quest to leave behind video games and embrace a hobby that would boost my social life. In December of 2024, I made the decision to stop video gaming and swap it for in-person card and board games. This change wasn’t just about shifting hobbies—it was a deliberate move to promote socialization and to embark on new adventures with real people around me. Although I may return to video games someday, at this time in my life, I simply can’t afford them, so I channel my passion into Commander and live for the thrill of each match.</p>
+<p>Through this project, I aim to showcase not only my favorite decks and epic game moments but also the camaraderie and thrill that comes from each match. Whether it is the dramatic plays, unexpected twists, or just the fun banter, every game tells a story. Welcome to my world of Commander, where every card has a tale and every duel is an adventure.</p>
+
+</section>
+    <!-- WHO Section (About) -->
+    <section id="who">
+        <h2>About - Who We Are</h2>
+        <p>I am a dedicated Magic the Gathering player who balances school assignments during the week with intense weekend games. My passion for Commander is fueled by strategy, creativity, and friendship.</p>
+        <p>My gaming group includes my mom, her boyfriend, my girlfriend, and my two best friends. We mix friendly rivalry with shared fun to make every session memorable.</p>
+      
+        <p>Every game night is more than just cards, it's a full-on experience. We rotate who cooks, and everyone contributes to the feast. Bobby loves deep-frying eggrolls, my mom throws down with her legendary chicken wings and mac and cheese, and my girlfriend and I tag-team beef and noodles. My other friends? Pizza delivery pros. It's less a game night and more a celebration of food, fun, and friendship.</p>
+      
+        <p>Disputes? Not here. We've got a built-in solution: an AI model that acts as our official Commander rules judge. If a card interaction gets confusing, I just ask the AI—*beep boop, legal call made!* No arguments, just smooth gameplay and fair calls. It's like having our own personal digital judge at the table.</p>
+      
+        <figure>
+          <img src="images/gamenight.webp" alt="Commander gameplay table">
+          <figcaption>My gaming group during an intense Commander session (AI used to protect real identities)</figcaption>
+        </figure>
+        <p><em>AI Prompt: "Create a photorealistic image of a lively Magic the Gathering Commander game night with diverse players around a table drinking milk." (AI used to protect real identities)</em></p>
+      </section>
+      
+      
+    
+    <!-- WHEN Section (Schedule) -->
+    <section id="when">
+      <h2>Schedule - When We Play</h2>
+      <p>Our Commander battles are scheduled for Friday and Saturday nights. The excitement builds as we gather and draw our opening hands.</p>
+      <p>Even with a busy week full of assignments, these late-night sessions are worth every minute of preparation.</p>
+      <h3>Our Commander Game Night Schedule</h3>
+      <table class="gametable">
+        <thead>
+          <tr>
+            <th>Day</th>
+            <th>Start Time</th>
+            <th>End Time</th>
+            <th>Notes</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Friday</td>
+            <td>7:00 PM</td>
+            <td>12:00 AM</td>
+            <td>Late-night chaos and long sessions!</td>
+          </tr>
+          <tr>
+            <td>Saturday</td>
+            <td>5:00 PM</td>
+            <td>Open-Ended</td>
+            <td>Earlier start, still wild all night.</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+    
+    <!-- WHERE Section (Locations) -->
+    <section id="where">
+      <h2>Locations - Where We Play</h2>
+      <p>Most of our games take place at home, where the living room transforms into a strategic battlefield. The comfortable setting helps spark creativity.</p>
+      <p>Occasionally, we also meet at local game stores and community centers to experience different environments and challenge new opponents.</p>
+      <figure>
+        <img src="images/gaming_location.jpg" alt="Cozy gaming room">
+        <figcaption>The cozy setup of our home gaming space</figcaption>
+      </figure>
+      <p><em>AI Prompt: "Illustrate a cozy, modern home gaming room with ambient lighting and Magic the Gathering cards spread out on the table."</em></p>
+    </section>
+    
+    <!-- HOW Section (Gameplay) -->
+    <section id="how">
+      <h2>Gameplay - How We Play</h2>
+      <p>Magic: The Gathering was surprisingly easy for me to pick up, mostly because I’ve been into trading card games since I was a kid. I grew up playing Pokémon from the age of 8 to 11, both casually and in official leagues. After that, I shifted into Yu-Gi-Oh! and stuck with it all the way until I was 16—playing with real cards and even battling on my Nintendo DS. I still have my full collection from the 2000s, packed with nostalgia and some cards that are actually worth a pretty penny now. Those years of strategy, deck building, and collecting gave me a strong foundation for diving into Magic, and made it feel like coming home to an even deeper game.</p>
+
+      <p>Our Commander games mix strategy, creativity, and a bit of chaos. The format challenges players to build unique decks around legendary creatures.</p>
+      <p>Every session is a blend of spell-slinging, board control, and unpredictable turns that make each game a new adventure.</p>
+      <p>This image captures the setup at the beginning of a typical Commander game. Every player starts with 40 life, which we track using two D20 dice. You also begin the game with 7 cards in hand, drawn from your 100-card Commander deck. Before we start the room gets real quiet and every locks in. Sitting down at a table like this, surrounded by friends, cards, and strategy, you can feel the game coming alive before it even begins.The image below shows an example of what it looks like to sit at the table. Next time you should hide your hand though. Don't wanna expose your plan!!</p>
+
+      <figure>
+        <div class="center-container">
+            <img src="images/setup.jpeg" alt="Players in a strategic discussion" class="rotated-centered">
+          </div>
+          <figcaption>Typical Gamenight Commander Setup involves a 40 life count with two D20 dice. A hand of 7 cards. A deck of a total of 99+1(commander.) And a playmat. </figcaption>
+      </figure>
+      <h3>Learn More</h3>
+      <p>Want to get into the game? These videos helped me and my friends get started:</p>
+      <figure>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/wif9ppH5JpI" title="How to Play Magic: The Gathering" frameborder="0" allowfullscreen></iframe>
+        <figcaption>How to Play Magic: The Gathering</figcaption>
+      </figure>
+      <figure>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/42noux9KKEM" title="How to Play Commander" frameborder="0" allowfullscreen></iframe>
+        <figcaption>How to Play Commander (EDH Format)</figcaption>
+      </figure>
+
+    </section>
+    
+    <!-- DECKS Section (Individual Deck Showcases) -->
+    <section id="decks">
+      <h2>Decks - Showcasing My Commanders</h2>
+      
+      <!-- Niv Mizzet, Visionary Deck -->
+      <article>
+        <h3>Niv Mizzet, Visionary Deck</h3>
+        <p>This Izzet deck (red and blue) is built around Niv Mizzet. The strategy is to cast spells that deal major damage, and I draw cards equal to the non-combat damage dealt to three opponents.</p>
+        <p>The deck focuses on spell-slinging and board control, making each play impactful.</p>
+        <figure>
+          <img src="images/niv_mizzet.jpg" alt="Niv Mizzet deck display">
+          <figcaption>Niv Mizzet in action leading a spell-slinging assault</figcaption>
+        </figure>
+        <p><em>AI Prompt: "Design a dynamic, high-energy image showcasing a Magic the Gathering deck led by Niv Mizzet with vibrant red and blue mana symbols."</em></p>
+      </article>
+      
+      <!-- Tinybones, Bauble Burglar -->
+      <article>
+        <h3>Tinybones, Bauble Burglar</h3>
+        <p>This mono-black deck is focused on forcing opponents to discard their cards, which I then use to my advantage. It runs only swamp lands to produce black mana.</p>
+        <p>The strategy revolves around resource denial and seizing control of the game.</p>
+        <figure>
+          <img src="images/tinybones.jpg" alt="Tinybones deck display">
+          <figcaption>Tinybones deck using dark swamp imagery for dramatic effect</figcaption>
+        </figure>
+        <p><em>AI Prompt: "Generate a moody, gothic image for a mono-black Magic the Gathering deck featuring Tinybones with dark swamp imagery."</em></p>
+      </article>
+      
+      <!-- Giada, Font of Hope -->
+      <article>
+        <h3>Giada, Font of Hope</h3>
+        <p>This mono-white deck capitalizes on angelic synergy and healing. Every time an angel is summoned or attacks, it triggers a life-steal effect that keeps me in the game.</p>
+        <p>An enchantment that serves as a God adds extra protection to my angel army.</p>
+        <figure>
+          <img src="images/giada.jpg" alt="Giada deck display">
+          <figcaption>Giada deck featuring a radiant army of healing angels</figcaption>
+        </figure>
+        <p><em>AI Prompt: "Illustrate a serene yet powerful mono-white deck featuring angelic figures and healing motifs."</em></p>
+      </article>
+      
+      <!-- Pirate Deck -->
+      <article>
+        <h3>Pirate Deck</h3>
+        <p>This thematic deck revolves around capturing enemies and forcing them to join my pirate crew. Using hostages and disruptive tactics, I create a swashbuckling atmosphere on the battlefield.</p>
+        <p>It is all about a nautical adventure where every captured foe adds to the crew’s might.</p>
+        <figure>
+          <img src="images/pirate_deck.jpg" alt="Pirate deck display">
+          <figcaption>Pirate deck showcasing nautical themes and adventurous gameplay</figcaption>
+        </figure>
+        <p><em>AI Prompt: "Create a vibrant, adventurous image of a pirate-themed Magic the Gathering deck with nautical elements and a touch of mischief."</em></p>
+      </article>
+      
+      <!-- Lord of the Rings Deck -->
+      <article>
+        <h3>Lord of the Rings Deck</h3>
+        <p>Inspired by Frodo and Sam, this deck emphasizes hobbit ingenuity and resilience. It focuses on food production, healing, and using magical trees to secure victory.</p>
+        <p>The theme pays tribute to the warmth and determination of hobbits against overwhelming odds.</p>
+        <figure>
+          <img src="images/lotr_deck.jpg" alt="Lord of the Rings deck display">
+          <figcaption>Lord of the Rings themed deck with hobbit-inspired strategies</figcaption>
+        </figure>
+        <p><em>AI Prompt: "Design an imaginative image that fuses Magic the Gathering with Lord of the Rings aesthetics, highlighting hobbit elements and magical nature."</em></p>
+      </article>
+      
+      <!-- Eldrazi Deck Zulodoch -->
+      <article>
+        <h3>Eldrazi Deck Zulodoch</h3>
+        <p>This deck, sourced from Commander Masters, harnesses the raw power of Eldrazi creatures. Its aim is to overwhelm opponents with colossal threats and unexpected plays.</p>
+        <p>The deck’s emphasis on game-changing creatures makes it a formidable force on the battlefield.</p>
+        <figure>
+          <img src="images/eldrazi.jpg" alt="Eldrazi deck display">
+          <figcaption>Eldrazi deck unleashing massive, game-changing creatures</figcaption>
+        </figure>
+        <p><em>AI Prompt: "Generate an epic, high-impact image of an Eldrazi-themed Magic the Gathering deck with colossal creatures and dramatic energy."</em></p>
+      </article>
+      
+      <!-- Innalia the Archmage Ritualist Deck -->
+      <article>
+        <h3>Innalia the Archmage Ritualist Deck</h3>
+        <p>A wizard tribal deck that leverages enter-the-battlefield effects to summon powerful wizards. The deck’s ritualistic approach disrupts opponents and swings momentum.</p>
+        <p>Each wizard’s arrival on the battlefield brings a surge of spellcasting energy that can turn the tide of the game.</p>
+        <figure>
+          <img src="images/innalia.jpg" alt="Innalia deck display">
+          <figcaption>Innalia deck with a mystical wizard tribal theme</figcaption>
+        </figure>
+        <p><em>AI Prompt: "Illustrate a mystical wizard tribal deck featuring Innalia with dramatic spellcasting effects."</em></p>
+      </article>
+    </section>
+    
+    <!-- WHY Section (Reasons for Playing) -->
+    <section id="why">
+      <h2>Why I Play Commander</h2>
+      <p>Commander isn’t just a game—it’s a way to connect with family and friends through epic battles and clever strategy. The format keeps every game unpredictable.</p>
+      <p>Despite a busy schedule filled with assignments, the thrill of these late-night sessions is an unbeatable reward.</p>
+      <figure>
+        <img src="images/why_play.jpg" alt="Passionate gaming moment">
+        <figcaption>The passion and strategy that fuel our Commander nights</figcaption>
+      </figure>
+      <p><em>AI Prompt: "Create an inspirational image of a person deeply focused and joyful while playing Magic the Gathering Commander in a warm, inviting setting."</em></p>
+    
+    </section>
+    
+    <!-- AI PROMPTS Section -->
+    <section id="ai">
+      <h2>AI Prompts</h2>
+      <p>This section details the AI prompts used during the creation of this page.</p>
+      <ul>
+        <li><em>"Create a photorealistic image of a lively Magic the Gathering Commander game night with diverse players around a table."</em></li>
+        <li><em>"Generate a stylized, cartoonish depiction of a diverse group of friends playing Magic the Gathering Commander at night."</em></li>
+        <li><em>"Create a vibrant, digital art image depicting a late night Magic the Gathering Commander session with glowing cards and dramatic lighting."</em></li>
+        <li><em>"Illustrate a cozy, modern home gaming room with ambient lighting and Magic the Gathering cards spread out on the table."</em></li>
+        <li><em>"Design a dynamic, high-energy image showcasing a Magic the Gathering deck led by Niv Mizzet with vibrant red and blue mana symbols."</em></li>
+        <li><em>"Generate a moody, gothic image for a mono-black deck featuring Tinybones with dark swamp imagery."</em></li>
+        <li><em>"Illustrate a serene yet powerful mono-white deck featuring angelic figures and healing motifs."</em></li>
+        <li><em>"Create a vibrant, adventurous image of a pirate-themed Magic the Gathering deck with nautical elements and a touch of mischief."</em></li>
+        <li><em>"Design an imaginative fusion of Magic the Gathering with Lord of the Rings aesthetics, highlighting hobbit elements and magical nature."</em></li>
+        <li><em>"Generate an epic image of an Eldrazi deck with colossal creatures and dramatic energy."</em></li>
+        <li><em>"Create a Unique and creative (not professional) css element that is unique to magic the gathering. Use the 5 mana colors as implemented. Feel free to combine them as well as many colors are combined to make unique combos. Blue Red Green Black White." </em></li>
+        <li><em>"Create a fixated boarder that adjusts automatically with different pictures and sizes."</em></li>
+        <li><em>"Illustrate a mystical wizard tribal deck featuring Innalia with dramatic spellcasting effects."</em></li>
+      </ul>
+      <figure>
+        <img src="images/ai_prompt.jpg" alt="AI generation process">
+        <figcaption>Visualization of the AI image generation process</figcaption>
+      </figure>
+      <p><em>AI Prompt: "Abstract representation of AI generating creative Magic the Gathering themed images."</em></p>
+    </section>
+  </main>
+  
+  <!-- Footer with design firm link and validation links -->
+  <footer>
+    <p>designed by <a href="https://realrybear.github.io/itis3135/crosbycusomtz.com/" target="_blank" style="color:#EDF2F4;">Crosby Customz</a></p>
+    <div class="validation-links">
+      <!-- Replace the href values with your actual site URL if needed -->
+      <a href="https://validator.w3.org/nu/?doc=https://webpages.charlotte.edu/UNCCID/itis3135/hobby/" target="_blank">HTML Validation</a> |
+      <a href="https://jigsaw.w3.org/css-validator/validator?uri=https://webpages.charlotte.edu/UNCCID/itis3135/hobby/" target="_blank">CSS Validation</a> |
+      <a href="https://achecker.ca/checker/index.php?uri=https://webpages.charlotte.edu/UNCCID/itis3135/hobby/" target="_blank">Accessibility Validation</a>
+    </div>
+  </footer>
+  
+  <!-- JavaScript to hide all sections except the one clicked -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const links = document.querySelectorAll('nav a[data-section]');
+      links.forEach(link => {
+        link.addEventListener('click', function(e) {
+          e.preventDefault();
+          const sectionToShow = this.getAttribute('data-section');
+          document.querySelectorAll('main section').forEach(sec => {
+            sec.classList.toggle('active', sec.id === sectionToShow);
+          });
+          // Optional: scroll to the top of the main content
+          window.scrollTo(0, 0);
+        });
+      });
+    });
+  </script>
+</body>
+</html>
