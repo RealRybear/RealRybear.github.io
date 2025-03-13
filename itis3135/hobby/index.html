@@ -149,7 +149,7 @@ figure figcaption {
     }
 
     article:hover {
-      background-color: #4a0072;
+      background-color: #be9420;
       transform: scale(1.02);
     }
 
@@ -212,6 +212,53 @@ table.gametable tbody tr:hover {
   width: 800px;
   height: auto;
 }
+.location-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1rem 0;
+  background: rgba(255, 255, 255, 0.95);
+  color: #111;
+  font-family: 'Courier New', Courier, monospace;
+  border: 2px solid #0074d9;
+  box-shadow: 0 0 10px #2ecc40;
+}
+
+.location-table th, .location-table td {
+  padding: 1rem;
+  border: 1px solid #0074d9;
+  text-align: center;
+}
+
+.location-table thead {
+  background-color: #000;
+  color: #fff;
+}
+
+.location-form input, .location-form textarea {
+  width: 100%;
+  padding: 0.5rem;
+  margin-top: 0.3rem;
+  border-radius: 5px;
+  border: 1px solid #0074d9;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+.location-form button {
+  background-color: #2ecc40;
+  color: #000;
+  padding: 0.6rem 1.2rem;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 0.5rem;
+}
+
+.location-form button:hover {
+  background-color: #ff4136;
+  color: #fff;
+}
+
 
   </style>
   <main>
@@ -250,10 +297,15 @@ table.gametable tbody tr:hover {
     
     <!-- WHEN Section (Schedule) -->
     <section id="when">
-      <h2>Schedule - When We Play</h2>
-      <p>Our Commander battles are scheduled for Friday and Saturday nights. The excitement builds as we gather and draw our opening hands.</p>
-      <p>Even with a busy week full of assignments, these late-night sessions are worth every minute of preparation.</p>
-      <h3>Our Commander Game Night Schedule</h3>
+        <h2>Schedule - When We Play</h2>
+        <p>Our Commander battles are scheduled for Friday and Saturday nights. The excitement builds as we gather and draw our opening hands.</p>
+        <p>Even with a busy week full of assignments, these late-night sessions are worth every minute of preparation.</p>
+      
+        <p>While our official start times are 7 PM on Fridays and 5 PM on Saturdays, things are always a bit flexible. Sometimes people show up late, or we take time setting up food, music, and good vibes before diving in. No one’s in a rush—we’re here to enjoy the night, not race through it. Even when someone shows up an hour late, they know a seat and a shuffled deck are waiting.</p>
+      
+        <p>Some of our sessions go deep into the night—our record is playing straight through until 5 AM. Most games end around 1 or 2 in the morning, especially when work or school waits the next day. But when the energy is right and everyone's hyped, we lose track of time completely. Commander has this way of pulling you in, and before you know it, hours have passed in a whirlwind of spells, combos, and laughter. We try to be responsible… but sometimes the game just doesn’t let go.</p>
+      
+        <h3>Our Commander Game Night Schedule</h3>
       <table class="gametable">
         <thead>
           <tr>
@@ -282,15 +334,54 @@ table.gametable tbody tr:hover {
     
     <!-- WHERE Section (Locations) -->
     <section id="where">
-      <h2>Locations - Where We Play</h2>
-      <p>Most of our games take place at home, where the living room transforms into a strategic battlefield. The comfortable setting helps spark creativity.</p>
-      <p>Occasionally, we also meet at local game stores and community centers to experience different environments and challenge new opponents.</p>
-      <figure>
-        <img src="images/gaming_location.jpg" alt="Cozy gaming room">
-        <figcaption>The cozy setup of our home gaming space</figcaption>
-      </figure>
-      <p><em>AI Prompt: "Illustrate a cozy, modern home gaming room with ambient lighting and Magic the Gathering cards spread out on the table."</em></p>
-    </section>
+        <h2>Locations - Where We Play</h2>
+        <p>Most of our Commander games happen right in our living room. We push the couches aside, pull out our best playmats, and set up a table full of decks, dice, snacks, and music. It becomes more than just a room—it turns into our battleground, a safe space where strategy and chaos blend into one unforgettable experience.</p>
+        
+        <p>Occasionally, we like to change it up by meeting at local game stores or community centers. These spots give us a chance to challenge new players, show off our deck tech, and support our local gaming community. We’re always on the lookout for new places to duel, and we welcome suggestions from anyone who wants to join in!</p>
+      
+        <h3>Top Locations We've Played</h3>
+        <table class="location-table">
+          <thead>
+            <tr>
+              <th>Location</th>
+              <th>Atmosphere</th>
+              <th>Seats Available</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>My Living Room</td>
+              <td>Cozy, relaxed, snack-heavy</td>
+              <td>6</td>
+            </tr>
+            <tr>
+              <td>Gamers Alley Game Store</td>
+              <td>Competitive but friendly</td>
+              <td>8+</td>
+            </tr>
+            <tr>
+              <td>Mighty Meeple Game Store</td>
+              <td>Spacious and noisy, serves drinks</td>
+              <td>10</td>
+            </tr>
+          </tbody>
+        </table>
+      
+        <h3>Suggest a New Location</h3>
+        <form class="location-form">
+          <label for="name">Your Name:</label><br>
+          <input type="text" id="name" name="name" placeholder="Planeswalker Name"><br><br>
+      
+          <label for="location">Suggested Location:</label><br>
+          <input type="text" id="location" name="location" placeholder="New Place to Play"><br><br>
+      
+          <label for="notes">Why this place?</label><br>
+          <textarea id="notes" name="notes" rows="4" cols="30" placeholder="Tell us why it's great!"></textarea><br><br>
+      
+          <button type="submit">Submit Suggestion</button>
+        </form>
+      </section>
+      
     
     <!-- HOW Section (Gameplay) -->
     <section id="how">
@@ -330,7 +421,7 @@ table.gametable tbody tr:hover {
         <p>This Izzet deck (red and blue) is built around Niv Mizzet. The strategy is to cast spells that deal major damage, and I draw cards equal to the non-combat damage dealt to three opponents.</p>
         <p>The deck focuses on spell-slinging and board control, making each play impactful.</p>
         <figure>
-          <img src="images/niv_mizzet.jpg" alt="Niv Mizzet deck display">
+          <img src="images/niv_mizzet.jpeg" alt="Niv Mizzet deck display" style="max-width: 500px; height: auto;";>
           <figcaption>Niv Mizzet in action leading a spell-slinging assault</figcaption>
         </figure>
         <p><em>AI Prompt: "Design a dynamic, high-energy image showcasing a Magic the Gathering deck led by Niv Mizzet with vibrant red and blue mana symbols."</em></p>
@@ -342,7 +433,7 @@ table.gametable tbody tr:hover {
         <p>This mono-black deck is focused on forcing opponents to discard their cards, which I then use to my advantage. It runs only swamp lands to produce black mana.</p>
         <p>The strategy revolves around resource denial and seizing control of the game.</p>
         <figure>
-          <img src="images/tinybones.jpg" alt="Tinybones deck display">
+          <img src="images/tinybones.jpeg" alt="Tinybones deck display" style="max-width: 500px; height: auto;">
           <figcaption>Tinybones deck using dark swamp imagery for dramatic effect</figcaption>
         </figure>
         <p><em>AI Prompt: "Generate a moody, gothic image for a mono-black Magic the Gathering deck featuring Tinybones with dark swamp imagery."</em></p>
@@ -354,10 +445,10 @@ table.gametable tbody tr:hover {
         <p>This mono-white deck capitalizes on angelic synergy and healing. Every time an angel is summoned or attacks, it triggers a life-steal effect that keeps me in the game.</p>
         <p>An enchantment that serves as a God adds extra protection to my angel army.</p>
         <figure>
-          <img src="images/giada.jpg" alt="Giada deck display">
+            <img src="images/giada.jpeg" alt="Giada deck display" style="max-width: 500px; height: auto;">
+
           <figcaption>Giada deck featuring a radiant army of healing angels</figcaption>
         </figure>
-        <p><em>AI Prompt: "Illustrate a serene yet powerful mono-white deck featuring angelic figures and healing motifs."</em></p>
       </article>
       
       <!-- Pirate Deck -->
@@ -366,7 +457,7 @@ table.gametable tbody tr:hover {
         <p>This thematic deck revolves around capturing enemies and forcing them to join my pirate crew. Using hostages and disruptive tactics, I create a swashbuckling atmosphere on the battlefield.</p>
         <p>It is all about a nautical adventure where every captured foe adds to the crew’s might.</p>
         <figure>
-          <img src="images/pirate_deck.jpg" alt="Pirate deck display">
+          <img src="images/pirates.jpeg" alt="Pirate deck display" style="max-width: 500px; height: auto;">
           <figcaption>Pirate deck showcasing nautical themes and adventurous gameplay</figcaption>
         </figure>
         <p><em>AI Prompt: "Create a vibrant, adventurous image of a pirate-themed Magic the Gathering deck with nautical elements and a touch of mischief."</em></p>
@@ -378,7 +469,7 @@ table.gametable tbody tr:hover {
         <p>Inspired by Frodo and Sam, this deck emphasizes hobbit ingenuity and resilience. It focuses on food production, healing, and using magical trees to secure victory.</p>
         <p>The theme pays tribute to the warmth and determination of hobbits against overwhelming odds.</p>
         <figure>
-          <img src="images/lotr_deck.jpg" alt="Lord of the Rings deck display">
+          <img src="images/lotr.jpeg" alt="Lord of the Rings deck display" style="max-width: 500px; height: auto;">
           <figcaption>Lord of the Rings themed deck with hobbit-inspired strategies</figcaption>
         </figure>
         <p><em>AI Prompt: "Design an imaginative image that fuses Magic the Gathering with Lord of the Rings aesthetics, highlighting hobbit elements and magical nature."</em></p>
@@ -388,21 +479,21 @@ table.gametable tbody tr:hover {
       <article>
         <h3>Eldrazi Deck Zulodoch</h3>
         <p>This deck, sourced from Commander Masters, harnesses the raw power of Eldrazi creatures. Its aim is to overwhelm opponents with colossal threats and unexpected plays.</p>
-        <p>The deck’s emphasis on game-changing creatures makes it a formidable force on the battlefield.</p>
+        <p>The decks emphasis on game-changing creatures makes it a formidable force on the battlefield.</p>
         <figure>
-          <img src="images/eldrazi.jpg" alt="Eldrazi deck display">
-          <figcaption>Eldrazi deck unleashing massive, game-changing creatures</figcaption>
+          <img src="images/eldrazi.jpeg" alt="Eldrazi deck display" style="max-width: 500px; height: auto;">
+        <figcaption>Eldrazi deck unleashing massive, game-changing creatures</figcaption>
         </figure>
         <p><em>AI Prompt: "Generate an epic, high-impact image of an Eldrazi-themed Magic the Gathering deck with colossal creatures and dramatic energy."</em></p>
       </article>
       
       <!-- Innalia the Archmage Ritualist Deck -->
       <article>
-        <h3>Innalia the Archmage Ritualist Deck</h3>
+        <h3>Innala the Archmage Ritualist Deck</h3>
         <p>A wizard tribal deck that leverages enter-the-battlefield effects to summon powerful wizards. The deck’s ritualistic approach disrupts opponents and swings momentum.</p>
-        <p>Each wizard’s arrival on the battlefield brings a surge of spellcasting energy that can turn the tide of the game.</p>
+        <p>Each wizards arrival on the battlefield brings a surge of spellcasting energy that can turn the tide of the game.</p>
         <figure>
-          <img src="images/innalia.jpg" alt="Innalia deck display">
+          <img src="images/innala.jpeg" alt="Innalia deck display" style="max-width: 500px; height: auto;">
           <figcaption>Innalia deck with a mystical wizard tribal theme</figcaption>
         </figure>
         <p><em>AI Prompt: "Illustrate a mystical wizard tribal deck featuring Innalia with dramatic spellcasting effects."</em></p>
@@ -412,7 +503,7 @@ table.gametable tbody tr:hover {
     <!-- WHY Section (Reasons for Playing) -->
     <section id="why">
       <h2>Why I Play Commander</h2>
-      <p>Commander isn’t just a game—it’s a way to connect with family and friends through epic battles and clever strategy. The format keeps every game unpredictable.</p>
+      <p>Commander is not just a game—it is a way to connect with family and friends through epic battles and clever strategy. The format keeps every game unpredictable.</p>
       <p>Despite a busy schedule filled with assignments, the thrill of these late-night sessions is an unbeatable reward.</p>
       <figure>
         <img src="images/why_play.jpg" alt="Passionate gaming moment">
@@ -424,29 +515,20 @@ table.gametable tbody tr:hover {
     
     <!-- AI PROMPTS Section -->
     <section id="ai">
-      <h2>AI Prompts</h2>
-      <p>This section details the AI prompts used during the creation of this page.</p>
-      <ul>
-        <li><em>"Create a photorealistic image of a lively Magic the Gathering Commander game night with diverse players around a table."</em></li>
-        <li><em>"Generate a stylized, cartoonish depiction of a diverse group of friends playing Magic the Gathering Commander at night."</em></li>
-        <li><em>"Create a vibrant, digital art image depicting a late night Magic the Gathering Commander session with glowing cards and dramatic lighting."</em></li>
-        <li><em>"Illustrate a cozy, modern home gaming room with ambient lighting and Magic the Gathering cards spread out on the table."</em></li>
-        <li><em>"Design a dynamic, high-energy image showcasing a Magic the Gathering deck led by Niv Mizzet with vibrant red and blue mana symbols."</em></li>
-        <li><em>"Generate a moody, gothic image for a mono-black deck featuring Tinybones with dark swamp imagery."</em></li>
-        <li><em>"Illustrate a serene yet powerful mono-white deck featuring angelic figures and healing motifs."</em></li>
-        <li><em>"Create a vibrant, adventurous image of a pirate-themed Magic the Gathering deck with nautical elements and a touch of mischief."</em></li>
-        <li><em>"Design an imaginative fusion of Magic the Gathering with Lord of the Rings aesthetics, highlighting hobbit elements and magical nature."</em></li>
-        <li><em>"Generate an epic image of an Eldrazi deck with colossal creatures and dramatic energy."</em></li>
-        <li><em>"Create a Unique and creative (not professional) css element that is unique to magic the gathering. Use the 5 mana colors as implemented. Feel free to combine them as well as many colors are combined to make unique combos. Blue Red Green Black White." </em></li>
-        <li><em>"Create a fixated boarder that adjusts automatically with different pictures and sizes."</em></li>
-        <li><em>"Illustrate a mystical wizard tribal deck featuring Innalia with dramatic spellcasting effects."</em></li>
-      </ul>
-      <figure>
-        <img src="images/ai_prompt.jpg" alt="AI generation process">
-        <figcaption>Visualization of the AI image generation process</figcaption>
-      </figure>
-      <p><em>AI Prompt: "Abstract representation of AI generating creative Magic the Gathering themed images."</em></p>
-    </section>
+        <h2>AI Prompts</h2>
+        <p>This section details the AI prompts used during the creation of this page, from generating images and styling to crafting interactive features and storytelling. Below you'll find the prompts we actually used, as well as some experimental ideas explored along the way.</p>  
+        <h3>Coding Experimental / Extra Prompts</h3>
+        <ul>
+          <li><em>"Create a unique and creative (non-professional) CSS element inspired by Magic: The Gathering, using the five mana colors: Blue, Red, Green, Black, and White."</em></li>
+          <li><em>"Create a fixated border that adjusts automatically to different image sizes and orientations."</em></li>
+          <li><em>"Make a website feel like a card shop using a CSS color scheme based on Magic: The Gatherings five mana colors."</em></li>
+          <li><em>"Create a base for me to code a table and add css elements to match the page."</em></li>
+          <li><em>"Help me understand and write a JavaScript popup alert that thanks the user for submitting a form on a static site."</em></li>
+          <li><em>"Edit my grammer so that I did not mispell in this paragraph."</em></li>
+          <li><em>"take my prompts from this chat that ive used, correct the grammer and return them to me in a list format."</em></li>
+        </ul>
+      </section>
+      
   </main>
   
   <!-- Footer with design firm link and validation links -->
@@ -477,5 +559,21 @@ table.gametable tbody tr:hover {
       });
     });
   </script>
+  <script>
+    // Wait until the page is fully loaded
+    document.addEventListener('DOMContentLoaded', function () {
+      const form = document.querySelector('.location-form');
+      form.addEventListener('submit', function (event) {
+        event.preventDefault(); // Stop the page from reloading
+  
+        // Optional: Clear form inputs after submission
+        form.reset();
+  
+        // Show popup message
+        alert("Thanks for suggesting a new play location! We'll check it out and maybe bring snacks too. 🧙‍♂️");
+      });
+    });
+  </script>
+  
 </body>
 </html>
