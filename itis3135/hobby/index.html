@@ -26,103 +26,126 @@
     </nav>
   </header>
   <style>
-    body {
-      margin: 0;
-      padding: 0;
-      background: linear-gradient(135deg, #ff4136 20%, #0074d9 40%, #2ecc40 60%, #ffffff 80%, #000000);
-      background-size: 400% 400%;
-      animation: bgAnimation 20s ease infinite;
-      font-family: 'Courier New', Courier, monospace;
-      color: #f8f8f2;
-    }
+/* Set box-sizing on root element */
+html {
+  box-sizing: border-box;
+}
 
-    @keyframes bgAnimation {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
-    }
+/* Inherit box-sizing for key elements (excluding headings) */
+body,
+header,
+nav,
+main,
+section,
+footer,
+figure,
+article,
+table,
+.center-container,
+.rotated-centered,
+.location-table,
+.location-form,
+.validation-links,
+.divider {
+  box-sizing: inherit;
+}
 
-    header {
-      background: #000;
-      color: #ffffff;
-      padding: 1rem;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      border-bottom: 3px solid #ff4136;
-    }
+body {
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(135deg, #ff4136 20%, #0074d9 40%, #2ecc40 60%, #ffffff 80%, #000000);
+  background-size: 400% 400%;
+  animation: bgAnimation 20s ease infinite;
+  font-family: 'Courier New', Courier, monospace;
+  color: #f8f8f2;
+}
 
-    header h1 {
-      margin: 0;
-      font-size: 2.5rem;
-      text-shadow: 2px 2px #0074d9;
-    }
+@keyframes bgAnimation {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
 
-    nav {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-    }
+header {
+  background: #000;
+  color: #ffffff;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 3px solid #ff4136;
+}
 
-    nav a {
-      background: #2ecc40;
-      padding: 0.5rem 1rem;
-      border-radius: 5px;
-      color: #000;
-      text-decoration: none;
-      font-weight: bold;
-      transition: transform 0.2s;
-    }
+h1 {
+  margin: 0;
+  font-size: 2.5rem;
+  text-shadow: 2px 2px #0074d9;
+}
 
-    nav a:hover {
-      transform: scale(1.1);
-      background: #ff4136;
-      color: #fff;
-    }
+nav {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
 
-    nav img.divider {
-      width: 20px;
-      height: 20px;
-    }
+nav a {
+  background: #2ecc40;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  color: #000;
+  text-decoration: none;
+  font-weight: bold;
+  transition: transform 0.2s;
+}
 
-    main {
-      padding: 1rem;
-      background: rgba(255, 255, 255, 0.1);
-      border: 2px dashed #0074d9;
-      border-radius: 8px;
-    }
+nav a:hover {
+  transform: scale(1.1);
+  background: #ff4136;
+  color: #fff;
+}
 
-    section {
-      display: none;
-      margin-bottom: 2rem;
-      padding: 1rem;
-      background: rgba(0, 0, 0, 0.5);
-      border-left: 5px solid #2ecc40;
-      border-radius: 8px;
-    }
+.divider {
+  width: 20px;
+  height: 20px;
+}
 
-    section.active {
-      display: block;
-    }
+main {
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.1);
+  border: 2px dashed #0074d9;
+  border-radius: 8px;
+}
 
-    footer {
-      background: #000;
-      color: #ffffff;
-      text-align: center;
-      padding: 1rem;
-      font-size: 0.9rem;
-      border-top: 3px solid #0074d9;
-    }
+section {
+  display: none;
+  margin-bottom: 2rem;
+  padding: 1rem;
+  background: rgba(0, 0, 0, 0.5);
+  border-left: 5px solid #2ecc40;
+  border-radius: 8px;
+}
 
-    figure {
-  display: inline-block;          /* shrink-wrap around the image */
+.active {
+  display: block;
+}
+
+footer {
+  background: #000;
+  color: #ffffff;
   text-align: center;
-  margin: 1rem auto;             /* center horizontally; auto left/right */
-  border: 2px solid #ff4136;     /* red border */
+  padding: 1rem;
+  font-size: 0.9rem;
+  border-top: 3px solid #0074d9;
+}
+
+figure {
+  display: inline-block;
+  text-align: center;
+  margin: 1rem auto;
+  border: 2px solid #ff4136;
   padding: 0.5rem;
   border-radius: 5px;
-  /* background: #ffffff;        remove solid white background */
-  background: rgba(255,255,255,0.2); /* optional: subtle transparent background */
+  background: rgba(255, 255, 255, 0.2);
 }
 
 figure img {
@@ -136,43 +159,49 @@ figure figcaption {
   margin-top: 0.5rem;
   color: #000;
 }
-    /* Custom deck box styles to fix contrast and add MTG flair */
-    article {
-      background: #2b0040;
-      color: #f8f8f8;
-      padding: 1rem;
-      margin-bottom: 1rem;
-      border-radius: 10px;
-      border: 2px solid #cc00ff;
-      box-shadow: 0 0 10px #cc00ff;
-      transition: transform 0.3s ease;
-    }
 
-    article:hover {
-      background-color: #be9420;
-      transform: scale(1.02);
-    }
 
-    article h3 {
-      color: #ff80ff;
-      text-shadow: 1px 1px 2px black;
-    }
+article {
+  background: #2b0040;
+  color: #f8f8f8;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 10px;
+  border: 2px solid #cc00ff;
+  box-shadow: 0 0 10px #cc00ff;
+  transition: transform 0.3s ease;
+}
 
-    article p, article figcaption {
-      font-size: 1.05rem;
-      text-shadow: 1px 1px 2px black;
-    }
+article:hover {
+  background-color: #be9420;
+  transform: scale(1.02);
+}
 
-    .validation-links a {
-      color: #2ecc40;
-      margin: 0 0.5rem;
-      text-decoration: none;
-    }
 
-    .validation-links a:hover {
-      text-decoration: underline;
-    }
-    table.gametable {
+h3 {
+  color: #ff80ff;
+  text-shadow: 1px 1px 2px black;
+}
+
+article p,
+article figcaption {
+  font-size: 1.05rem;
+  text-shadow: 1px 1px 2px black;
+}
+
+
+.validation-links a {
+  color: #2ecc40;
+  margin: 0 0.5rem;
+  text-decoration: none;
+}
+
+.validation-links a:hover {
+  text-decoration: underline;
+}
+
+
+table.gametable {
   width: 100%;
   border-collapse: collapse;
   margin: 2rem 0;
@@ -182,6 +211,7 @@ figure figcaption {
   border: 3px solid #0074d9;
   border-radius: 6px;
   box-shadow: 0 0 10px #2ecc40;
+  box-sizing: border-box;
 }
 
 table.gametable th,
@@ -200,18 +230,24 @@ table.gametable tbody tr:hover {
   background-color: #e0f7fa;
   transition: 0.3s ease;
 }
+
+
 .center-container {
   display: flex;
-  justify-content: center; /* horizontal centering */
-  align-items: center;     /* vertical centering */
-  height: 100vh;           /* full screen height */
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
+
 
 .rotated-centered {
   transform: rotate(270deg);
-  width: 800px;
+  max-width: 800px; /* Use max-width instead of fixed width */
   height: auto;
+  box-sizing: border-box;
 }
+
+
 .location-table {
   width: 100%;
   border-collapse: collapse;
@@ -221,9 +257,11 @@ table.gametable tbody tr:hover {
   font-family: 'Courier New', Courier, monospace;
   border: 2px solid #0074d9;
   box-shadow: 0 0 10px #2ecc40;
+  box-sizing: border-box;
 }
 
-.location-table th, .location-table td {
+.location-table th,
+.location-table td {
   padding: 1rem;
   border: 1px solid #0074d9;
   text-align: center;
@@ -234,14 +272,18 @@ table.gametable tbody tr:hover {
   color: #fff;
 }
 
-.location-form input, .location-form textarea {
+
+.location-form input,
+.location-form textarea {
   width: 100%;
+  box-sizing: border-box; /* Ensures border and padding are included in the total width */
   padding: 0.5rem;
   margin-top: 0.3rem;
   border-radius: 5px;
   border: 1px solid #0074d9;
   font-family: 'Courier New', Courier, monospace;
 }
+
 
 .location-form button {
   background-color: #2ecc40;
@@ -261,12 +303,14 @@ table.gametable tbody tr:hover {
 
 
   </style>
+  
   <main>
     <!-- WHAT Section (Home): First section displayed -->
    <section id="what" class="active">
   <h2>Home - What is Commander?</h2>
+  <script src="https://lint.page/kit/4d0fe3.js" crossorigin="anonymous"></script>
   <p>Commander is a unique Magic the Gathering format where each deck is built around a legendary creature—the Commander. In this 100-card singleton format (aside from basic lands), your Commander defines your strategy.</p>
-  <p>This site is dedicated to my passion for Commander. I spend epic Friday and Saturday nights playing with my mom, her boyfriend, my girlfriend, and my two best friends. Our games can get heated and we sometimes play for hours!</p>
+  <p>This site is dedicated to my passion for Commander. I spend epic Friday and Saturday nights playing with my mom, her friend, my girlfriend, and my two best friends. Our games can get heated and we sometimes play for hours!</p>
   <figure>
     <img src="images/collection.jpeg" alt="Commander collection" width="400">
     <figcaption>My Personal Epic Commander Full Collection. Each deck is 100 cards.</figcaption>
@@ -297,15 +341,21 @@ table.gametable tbody tr:hover {
     
     <!-- WHEN Section (Schedule) -->
     <section id="when">
-        <h2>Schedule - When We Play</h2>
-        <p>Our Commander battles are scheduled for Friday and Saturday nights. The excitement builds as we gather and draw our opening hands.</p>
-        <p>Even with a busy week full of assignments, these late-night sessions are worth every minute of preparation.</p>
-      
-        <p>While our official start times are 7 PM on Fridays and 5 PM on Saturdays, things are always a bit flexible. Sometimes people show up late, or we take time setting up food, music, and good vibes before diving in. No one’s in a rush—we’re here to enjoy the night, not race through it. Even when someone shows up an hour late, they know a seat and a shuffled deck are waiting.</p>
-      
-        <p>Some of our sessions go deep into the night—our record is playing straight through until 5 AM. Most games end around 1 or 2 in the morning, especially when work or school waits the next day. But when the energy is right and everyone's hyped, we lose track of time completely. Commander has this way of pulling you in, and before you know it, hours have passed in a whirlwind of spells, combos, and laughter. We try to be responsible… but sometimes the game just doesn’t let go.</p>
-      
-        <h3>Our Commander Game Night Schedule</h3>
+      <h2>Schedule - When We Play</h2>
+      <p>Our Commander battles are scheduled for Friday and Saturday nights. The excitement builds as we gather and draw our opening hands.</p>
+      <p>Even with a busy week full of assignments, these late-night sessions are worth every minute of preparation.</p>
+    
+      <figure>
+        <img src="images/group.webp" alt="Illustration of friends playing Commander on Friday and Saturday nights" style="max-width: 500px;">
+        <figcaption>Nothing beats the anticipation of a weekend Commander session! The clocks show how we lose track of time!</figcaption>
+      </figure>
+      <p><em>AI Prompt: "Create a cartoonish image illustrating a group of friends playing Commander on Friday and Saturday nights, with a clock in the background"</em></p>
+    
+      <p>While our official start times are 7 PM on Fridays and 5 PM on Saturdays, things are always a bit flexible. Sometimes people show up late, or we take time setting up food, music, and good vibes before diving in. No one’s in a rush—we’re here to enjoy the night, not race through it. Even when someone shows up an hour late, they know a seat and a shuffled deck are waiting.</p>
+    
+      <p>Some of our sessions go deep into the night—our record is playing straight through until 5 AM. Most games end around 1 or 2 in the morning, especially when work or school waits the next day. But when the energy is right and everyone's hyped, we lose track of time completely. Commander has this way of pulling you in, and before you know it, hours have passed in a whirlwind of spells, combos, and laughter. We try to be responsible… but sometimes the game just doesn’t let go.</p>
+    
+      <h3>Our Commander Game Night Schedule</h3>
       <table class="gametable">
         <thead>
           <tr>
@@ -331,6 +381,7 @@ table.gametable tbody tr:hover {
         </tbody>
       </table>
     </section>
+    
     
     <!-- WHERE Section (Locations) -->
     <section id="where">
@@ -401,11 +452,13 @@ table.gametable tbody tr:hover {
       <h3>Learn More</h3>
       <p>Want to get into the game? These videos helped me and my friends get started:</p>
       <figure>
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/wif9ppH5JpI" title="How to Play Magic: The Gathering" frameborder="0" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/wif9ppH5JpI" 
+        title="How to Play Magic: The Gathering" style="border: none;" allowfullscreen></iframe>
         <figcaption>How to Play Magic: The Gathering</figcaption>
       </figure>
       <figure>
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/42noux9KKEM" title="How to Play Commander" frameborder="0" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/42noux9KKEM" 
+        title="How to Play Commander" style="border: none;" allowfullscreen></iframe>
         <figcaption>How to Play Commander (EDH Format)</figcaption>
       </figure>
 
@@ -421,10 +474,10 @@ table.gametable tbody tr:hover {
         <p>This Izzet deck (red and blue) is built around Niv Mizzet. The strategy is to cast spells that deal major damage, and I draw cards equal to the non-combat damage dealt to three opponents.</p>
         <p>The deck focuses on spell-slinging and board control, making each play impactful.</p>
         <figure>
-          <img src="images/niv_mizzet.jpeg" alt="Niv Mizzet deck display" style="max-width: 500px; height: auto;";>
+          <img src="images/niv_mizzet.jpeg" alt="Niv Mizzet deck display" 
+            style="max-width: 500px; height: auto;">
           <figcaption>Niv Mizzet in action leading a spell-slinging assault</figcaption>
         </figure>
-        <p><em>AI Prompt: "Design a dynamic, high-energy image showcasing a Magic the Gathering deck led by Niv Mizzet with vibrant red and blue mana symbols."</em></p>
       </article>
       
       <!-- Tinybones, Bauble Burglar -->
@@ -436,7 +489,6 @@ table.gametable tbody tr:hover {
           <img src="images/tinybones.jpeg" alt="Tinybones deck display" style="max-width: 500px; height: auto;">
           <figcaption>Tinybones deck using dark swamp imagery for dramatic effect</figcaption>
         </figure>
-        <p><em>AI Prompt: "Generate a moody, gothic image for a mono-black Magic the Gathering deck featuring Tinybones with dark swamp imagery."</em></p>
       </article>
       
       <!-- Giada, Font of Hope -->
@@ -460,7 +512,6 @@ table.gametable tbody tr:hover {
           <img src="images/pirates.jpeg" alt="Pirate deck display" style="max-width: 500px; height: auto;">
           <figcaption>Pirate deck showcasing nautical themes and adventurous gameplay</figcaption>
         </figure>
-        <p><em>AI Prompt: "Create a vibrant, adventurous image of a pirate-themed Magic the Gathering deck with nautical elements and a touch of mischief."</em></p>
       </article>
       
       <!-- Lord of the Rings Deck -->
@@ -472,7 +523,6 @@ table.gametable tbody tr:hover {
           <img src="images/lotr.jpeg" alt="Lord of the Rings deck display" style="max-width: 500px; height: auto;">
           <figcaption>Lord of the Rings themed deck with hobbit-inspired strategies</figcaption>
         </figure>
-        <p><em>AI Prompt: "Design an imaginative image that fuses Magic the Gathering with Lord of the Rings aesthetics, highlighting hobbit elements and magical nature."</em></p>
       </article>
       
       <!-- Eldrazi Deck Zulodoch -->
@@ -484,7 +534,6 @@ table.gametable tbody tr:hover {
           <img src="images/eldrazi.jpeg" alt="Eldrazi deck display" style="max-width: 500px; height: auto;">
         <figcaption>Eldrazi deck unleashing massive, game-changing creatures</figcaption>
         </figure>
-        <p><em>AI Prompt: "Generate an epic, high-impact image of an Eldrazi-themed Magic the Gathering deck with colossal creatures and dramatic energy."</em></p>
       </article>
       
       <!-- Innalia the Archmage Ritualist Deck -->
@@ -496,22 +545,50 @@ table.gametable tbody tr:hover {
           <img src="images/innala.jpeg" alt="Innalia deck display" style="max-width: 500px; height: auto;">
           <figcaption>Innalia deck with a mystical wizard tribal theme</figcaption>
         </figure>
-        <p><em>AI Prompt: "Illustrate a mystical wizard tribal deck featuring Innalia with dramatic spellcasting effects."</em></p>
       </article>
     </section>
     
     <!-- WHY Section (Reasons for Playing) -->
     <section id="why">
       <h2>Why I Play Commander</h2>
-      <p>Commander is not just a game—it is a way to connect with family and friends through epic battles and clever strategy. The format keeps every game unpredictable.</p>
-      <p>Despite a busy schedule filled with assignments, the thrill of these late-night sessions is an unbeatable reward.</p>
+      <p>I stopped playing video games because I craved real social interaction and wanted to make my last year of college more productive. Commander gave me the perfect opportunity to connect with friends and family through epic battles and clever strategy.</p>
+      <p>Since shifting away from traditional gaming, I've discovered a richer, more fulfilling lifestyle. I have had more time to spend with loved ones, started blog posting, and even delved into cybersecurity research—ventures that have opened my eyes to a whole new world I wish I had known about earlier.</p>
+      <p>Every Commander session reminds me that it is never too late to embrace change and grow. The game has brought a sense of community and passion into my life, proving that stepping out of your comfort zone can lead to incredible new friendships and experiences. It’s all good to start now and see where the journey takes you.</p>
       <figure>
-        <img src="images/why_play.jpg" alt="Passionate gaming moment">
-        <figcaption>The passion and strategy that fuel our Commander nights</figcaption>
+        <img src="images/hourssaved.webp" alt="Passionate gaming moment" style="max-width: 700px;">
+        <figcaption>The change in life that I have made this year because of this hobby</figcaption>
       </figure>
-      <p><em>AI Prompt: "Create an inspirational image of a person deeply focused and joyful while playing Magic the Gathering Commander in a warm, inviting setting."</em></p>
-    
+      
+      <p><em>AI Prompt: "Create a pixel art split-scene showing the contrast between video gaming and card playing. On the left side, depict the negative aspects of excessive gaming: a person alone in a dark, cluttered room with glowing screens, energy drinks, and a tired, slouched posture. The mood is cold and isolating. On the right side, show the positive aspects of playing card games like Magic: The Gathering: a brightly lit room with warm colors, friends gathered around a table, laughing and engaged in gameplay. Include cards, dice, and a cozy atmosphere. Showcase joy, focus, and connection. Make the overall style retro pixel art, with clear emotional contrast between the two sides."</em></p>
+      <p><em>AI Prompt that I used to create the above AI prompt for a better image: "create a prompt to make an image in pixel art showing the sides of gaming and card playing showcase good and bad on the twosides of the images</em></p>
+
+      <table class="gametable">
+  <thead>
+    <tr>
+      <th>Activity</th>
+      <th>Hours per Week</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Gaming (4 hours/day)</td>
+      <td>28 hours</td>
+    </tr>
+    <tr>
+      <td>Commander & Gaming (2 nights/week)</td>
+      <td>8 hours</td>
+    </tr>
+    <tr>
+      <td>Time Saved</td>
+      <td>20 hours</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>I absolutely love this new balance in my life. Since I stopped playing video games and committed to playing Commander only on two nights a week, I've discovered a whole new world of opportunities. I also gained 20 hours a week! With the extra time, I have been learning new things almost every day—from mastering magic tricks to perfecting my card handling techniques. This change has not only deepened my appreciation for the game but has also allowed me to reconnect with friends and family, start blog posting, and even dive into cybersecurity research. Every session now feels like an adventure, and I’m grateful for the new skills and friendships I’ve gained along the way.</p>
+
     </section>
+    
     
     <!-- AI PROMPTS Section -->
     <section id="ai">
@@ -528,10 +605,10 @@ table.gametable tbody tr:hover {
           <li><em>"take my prompts from this chat that ive used, correct the grammer and return them to me in a list format."</em></li>
         </ul>
       </section>
-      
+      <!--Hello-->
   </main>
   
-  <!-- Footer with design firm link and validation links -->
+  <!-- Footer with design firm link and validation links, not required but personaly i like the look.-->
   <footer>
     <p>designed by <a href="https://realrybear.github.io/itis3135/crosbycusomtz.com/" target="_blank" style="color:#EDF2F4;">Crosby Customz</a></p>
     <div class="validation-links">
@@ -544,23 +621,24 @@ table.gametable tbody tr:hover {
   
   <!-- JavaScript to hide all sections except the one clicked -->
   <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      const links = document.querySelectorAll('nav a[data-section]');
-      links.forEach(link => {
-        link.addEventListener('click', function(e) {
-          e.preventDefault();
-          const sectionToShow = this.getAttribute('data-section');
-          document.querySelectorAll('main section').forEach(sec => {
-            sec.classList.toggle('active', sec.id === sectionToShow);
-          });
-          // Optional: scroll to the top of the main content
-          window.scrollTo(0, 0);
-        });
+   document.addEventListener('DOMContentLoaded', function() {
+  const links = document.querySelectorAll('nav a[data-section]');
+  links.forEach((link) => {
+    link.addEventListener('click', function(e) {
+      e.preventDefault();
+      const sectionToShow = this.getAttribute('data-section');
+      document.querySelectorAll('main section').forEach((sec) => {
+        sec.classList.toggle('active', sec.id === sectionToShow);
       });
+      // Optional: scroll to the top of the main content
+      window.scrollTo(0, 0);
     });
+  });
+});
+
   </script>
   <script>
-    // Wait until the page is fully loaded
+    // Response Form Js Script
     document.addEventListener('DOMContentLoaded', function () {
       const form = document.querySelector('.location-form');
       form.addEventListener('submit', function (event) {
@@ -574,6 +652,5 @@ table.gametable tbody tr:hover {
       });
     });
   </script>
-  
 </body>
 </html>
