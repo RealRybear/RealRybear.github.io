@@ -8,27 +8,25 @@
   <script src="https://lint.page/kit/4d0fe3.js" crossorigin="anonymous"></script>
 </head>
 <body>
- 
+
+  <!-- Header Section -->
   <header>
     <h1>CRAP Website Evaluations</h1>
     <p class="tagline">Exploring CRAP Principles in Website Evaluations</p>
     <nav id="navbar">
       <ul>
         <li><a href="index.html">Home</a></li>
-       
         <li><a href="website_evaluations.html">Website Evaluations</a></li>
       </ul>
     </nav>
   </header>
-  
+
+  <!-- Main Content -->
   <main>
     <h2>Website Evaluations</h2>
-    
-  
+
     <section class="good-website">
-      <h3>
-        <a href="https://www.apple.com" target="_blank">Apple</a>
-      </h3>
+      <h3><a href="https://www.apple.com" target="_blank">Apple</a></h3>
       <p>Apple’s website is a prime example of effective design that adheres to the CRAP principles.</p>
       <ul>
         <li><strong>Contrast:</strong> Uses high contrast between text and background for clear readability.</li>
@@ -37,12 +35,9 @@
         <li><strong>Proximity:</strong> Related content is grouped together, enhancing usability and focus.</li>
       </ul>
     </section>
-    
-   
+
     <section class="bad-website">
-      <h3>
-        <a href="https://www.lingscars.com" target="_blank">LingsCars</a>
-      </h3>
+      <h3><a href="https://www.lingscars.com" target="_blank">LingsCars</a></h3>
       <p>LingsCars is known for its cluttered and chaotic design, which fails to effectively apply CRAP principles.</p>
       <ul>
         <li><strong>Contrast:</strong> Color choices clash and provide insufficient contrast, making text hard to read.</li>
@@ -51,25 +46,31 @@
         <li><strong>Proximity:</strong> Information is scattered, with related items not grouped together effectively.</li>
       </ul>
     </section>
-    
   </main>
-  
-  
+
+  <!-- Corrected Footer -->
   <footer>
-    <nav id="footer-menu">
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="website_evaluations.html">Website Evaluations</a></li>
-      </ul>
-    </nav>
-    <p>
-      <a href="https://validator.w3.org/nu/?doc=https://yourwebsite.com" target="_blank">HTML Validation</a> | 
-      <a href="https://jigsaw.w3.org/css-validator/validator?uri=https://yourwebsite.com" target="_blank">CSS Validation</a>
-    </p>
-    <p>
-      &copy; 2025 <a href="https://realrybear.github.io/itis3135/crosbycustomz.com/index.html" target="_blank">Crosby Customz</a>. All rights reserved.
-    </p>
+    <ul>
+      <li><a href="https://webpages.charlotte.edu/rcrosby7">CLT Site</a></li>
+      <li><a href="https://github.com/RealRybear/">GitHub</a></li>
+      <li><a href="https://realrybear.github.io/">GitHub.io</a></li>
+      <li><a href="https://realrybear.github.io/itis3135/">ITIS3135.io</a></li>
+      <li><a href="https://www.freecodecamp.org/rcrosby7">FreeCodeCamp</a></li>
+      <li><a href="https://www.codecademy.com/profiles/CyberRybear">Codecademy</a></li>
+      <li><a href="https://www.linkedin.com/in/ryan-crosby-the-legend/">LinkedIn</a></li>
+    </ul>
+    <p>Designed by <a href="./crosbycustomz.com/index.html">Crosby Customz</a> © 2025</p>
+    <a href="https://validator.w3.org/check?uri=referer" id="validation_link_html">
+      <img class="validator-img" src="https://mytienhoang.github.io/itis3135/z_archives/html_validation.png" alt="Valid HTML!">
+    </a>
+    <a href="https://jigsaw.w3.org/css-validator/check/referer" id="validation_link_css">
+      <img class="validator-img" src="https://jigsaw.w3.org/css-validator/images/vcss" alt="Valid CSS!">
+    </a>
+    <script>
+      document.getElementById("validation_link_html").setAttribute("href", "https://validator.w3.org/check?uri=" + location.href);
+      document.getElementById("validation_link_css").setAttribute("href", "https://jigsaw.w3.org/css-validator/validator?uri=" + location.href);
+    </script>
   </footer>
+
 </body>
 </html>
