@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ryan Crosby's Tables || ITIS 3135</title>
+  <link rel="stylesheet" href="styles/default.css">
+  <style>
+    .validator-img {
+      border: 0;
+      width: 88px;
+      height: 31px;
+      box-sizing: border-box;
+    }
+    /* Basic styling for both tables */
+    table.simple, table.complex {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 20px;
+    }
+    table.simple th, table.simple td,
+    table.complex th, table.complex td {
+      border: 1px solid #000;
+      padding: 8px;
+      text-align: left;
+    }
+    
+    table.simple th, table.complex th {
+      background-color: #555;
+      color: #fff;
+    }
+    /* Pseudo classes applied */
+    table.complex tr:nth-child(even) {
+      background-color: #f2f2f2;
+    }
+    table.complex tr:nth-child(odd) {
+      background-color: #fff;
+    }
+    /* Figure styling */
+    figure {
+      margin: 20px 0;
+    }
+    figcaption {
+      font-style: italic;
+      text-align: center;
+      margin-top: 8px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Ryan Crosby || ITIS 3135</h1>
+    <script src="https://lint.page/kit/4d0fe3.js" crossorigin="anonymous"></script>
+    <nav>
+      <ul>
+        <li><a href="./">Home</a></li>
+        <li><a href="introduction.html">Introduction</a></li>
+        <li><a href="contract.html">Contract</a></li>
+        <li><a href="./stuff/CRAP.HTML" target="_blank">Crappy page</a></li>
+        <li><a href="tables.html">Tables</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <h2>Activity #2: HTML Tables</h2>
+
+    <!-- Part 2: Ordered List -->
+    <h3>My Tabular Data</h3>
+    <ol>
+      <li>Frodo Baggins – frodo.baggins@shiremail.com – 10 years</li>
+      <li>Samwise Gamgee – samwise.gamgee@shiremail.com – 12 years</li>
+      <li>Meriadoc Brandybuck – merry.brandybuck@shiremail.com – 8 years</li>
+      <li>Peregrin Took – pippin.took@shiremail.com – 7 years</li>
+      <li>Gandalf Grey – gandalf.grey@middleearth.com – 30 years</li>
+      <li>Aragorn Elessar – aragorn.elessar@middleearth.com – 20 years</li>
+      <li>Legolas Greenleaf – legolas.greenleaf@woodlandmail.com – 15 years</li>
+    </ol>
+
+    <!-- Part 3: Basic Table -->
+    <h3>Employee Data in Simple Table</h3>
+    <table class="simple">
+      <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Years of Service</th>
+      </tr>
+      <tr>
+        <td>Frodo Baggins</td>
+        <td>frodo.baggins@shiremail.com</td>
+        <td>10</td>
+      </tr>
+      <tr>
+        <td>Samwise Gamgee</td>
+        <td>samwise.gamgee@shiremail.com</td>
+        <td>12</td>
+      </tr>
+      <tr>
+        <td>Meriadoc Brandybuck</td>
+        <td>merry.brandybuck@shiremail.com</td>
+        <td>8</td>
+      </tr>
+      <tr>
+        <td>Peregrin Took</td>
+        <td>pippin.took@shiremail.com</td>
+        <td>7</td>
+      </tr>
+      <tr>
+        <td>Gandalf Grey</td>
+        <td>gandalf.grey@middleearth.com</td>
+        <td>30</td>
+      </tr>
+      <tr>
+        <td>Aragorn Elessar</td>
+        <td>aragorn.elessar@middleearth.com</td>
+        <td>20</td>
+      </tr>
+      <tr>
+        <td>Legolas Greenleaf</td>
+        <td>legolas.greenleaf@woodlandmail.com</td>
+        <td>15</td>
+      </tr>
+    </table>
+
+    <!-- Part 4: Complex Table -->
+    <h3>Employee Data in Complex Table</h3>
+    <figure>
+      <table class="complex">
+        <!-- Header row with additional columns -->
+        <tr>
+          <th>Category</th>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Years of Service</th>
+          <th>Monthly Salary</th>
+        </tr>
+        <!-- Hobbits Category (using rowspan for multiple entries) -->
+        <tr>
+          <td rowspan="4">Hobbits</td>
+          <td>Frodo Baggins</td>
+          <td>frodo.baggins@shiremail.com</td>
+          <td>10</td>
+          <td>$2,000</td>
+        </tr>
+        <tr>
+          <td>Samwise Gamgee</td>
+          <td>samwise.gamgee@shiremail.com</td>
+          <td>12</td>
+          <td>$2,100</td>
+        </tr>
+        <tr>
+          <td>Meriadoc Brandybuck</td>
+          <td>merry.brandybuck@shiremail.com</td>
+          <td>8</td>
+          <td>$1,800</td>
+        </tr>
+        <tr>
+          <td>Peregrin Took</td>
+          <td>pippin.took@shiremail.com</td>
+          <td>7</td>
+          <td>$1,700</td>
+        </tr>
+        <!-- Wizards Category -->
+        <tr>
+          <td>Wizard</td>
+          <td>Gandalf Grey</td>
+          <td>gandalf.grey@middleearth.com</td>
+          <td>30</td>
+          <td>$5,000</td>
+        </tr>
+        <!-- Warriors Category (using rowspan) -->
+        <tr>
+          <td rowspan="2">Warriors</td>
+          <td>Aragorn Elessar</td>
+          <td>aragorn.elessar@middleearth.com</td>
+          <td>20</td>
+          <td>$4,500</td>
+        </tr>
+        <tr>
+          <td>Legolas Greenleaf</td>
+          <td>legolas.greenleaf@woodlandmail.com</td>
+          <td>15</td>
+          <td>$4,000</td>
+        </tr>
+        <!-- Bottom row with totals (spanning first three columns) -->
+        <tr>
+          <th colspan="3">Total Years of Service</th>
+          <!-- Total years = 10+12+8+7+30+20+15 = 102 -->
+          <td>102</td>
+          <!-- Total monthly salaries = $2,000+$2,100+$1,800+$1,700+$5,000+$4,500+$4,000 = $21,100 -->
+          <td>$21,100</td>
+        </tr>
+      </table>
+      <figcaption>Employee Information</figcaption>
+    </figure>
+  </main>
+
+  <footer>
+    <ul>
+      <li><a href="https://webpages.charlotte.edu/rcrosby7">CLT Site</a></li>
+      <li><a href="https://github.com/realrybear/">GitHub</a></li>
+      <li><a href="https://realrybear.github.io/">GitHub.io</a></li>
+      <li><a href="https://realrybear.github.io/itis3135/">ITIS3135.io</a></li>
+      <li><a href="https://www.freecodecamp.org/rcrosby7">FreeCodeCamp</a></li>
+      <li><a href="https://www.codecademy.com/profiles/cyberrybear">Codecademy</a></li>
+      <li><a href="https://www.linkedin.com/in/ryan-crosby-the-legend/">LinkedIn</a></li>
+    </ul>
+    <p>Designed by <a href="crosbycustomz.com/index.html">Crosbycustomz</a> © 2025</p>
+    <a href="https://validator.w3.org/check?uri=referer" id="validation-link-html">
+      <img class="validator-img" src="https://mytienhoang.github.io/itis3135/z_archives/html_validation.png" alt="Valid HTML!">
+    </a>
+    <a href="https://jigsaw.w3.org/css-validator/check/referer" id="validation-link-css">
+      <img class="validator-img" src="https://jigsaw.w3.org/css-validator/images/vcss" alt="Valid CSS!">
+    </a>
+    <script>
+      document.getElementById("validation-link-html").setAttribute("href", "https://validator.w3.org/check?uri=" + location.href);
+      document.getElementById("validation-link-css").setAttribute("href", "https://jigsaw.w3.org/css-validator/validator?uri=" + location.href);
+    </script>
+  </footer>
+</body>
+</html>
