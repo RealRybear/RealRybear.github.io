@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>BYO Intro</title>
+ 
+  
+  <link rel="stylesheet" href="styles/default.css">
+</head>
+<body>
+
+    <header>
+        
+        <h1>Ryan Crosby || ITIS 3135</h1>
+        <nav>
+          <ul>
+            <li><a href="./">Home</a></li>
+            <li><a href="introduction.html">Introduction</a></li>
+            <li><a href="contract.html">Contract</a></li>
+            <li><a href="/stuff/CRAP.HTML" target="_blank">Crappy page</a></li>
+            <li><a href="tables.html">Tables</a></li>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="website_evaluations.html">Website Evaluations</a></li>
+          <li><a href="byo_intro.html">BYO Intro</a></li>
+          </ul>
+        </nav>
+        <script src="https://lint.page/kit/4d0fe3.js" crossorigin="anonymous"></script>
+
+      </header>
+  
+  <!-- Main Content -->
+  <main>
+    <h2>BYO Intro</h2>
+    <h3>Time to create your own introduction page! Please fill out the form below:</h3>
+    
+    <form id="byoForm" novalidate>
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" placeholder="Your Name" required>
+        <br>
+        
+        <label for="mascot">Mascot:</label>
+        <input type="text" id="mascot" name="mascot" placeholder="Your Mascot" required>
+        <br>
+        
+        <label for="image">Image (PNG or JPG):</label>
+        <input type="file" id="image" name="image" accept="image/png, image/jpeg" required>
+        <br>
+        
+        <label for="imgCaption">Image Caption:</label>
+        <input type="text" id="imgCaption" name="imgCaption" placeholder="Your Image Caption" required>
+        <br>
+        
+        <label for="personalBackground">Personal Background:</label>
+        <textarea id="personalBackground" name="personalBackground" placeholder="Your personal background..." required></textarea>
+        <br>
+        
+        <label for="professionalBackground">Professional Background:</label>
+        <textarea id="professionalBackground" name="professionalBackground" placeholder="Your professional background..." required></textarea>
+        <br>
+        
+        <label for="academicBackground">Academic Background:</label>
+        <textarea id="academicBackground" name="academicBackground" placeholder="Your academic background..." required></textarea>
+        <br>
+        
+        <label for="webDevBackground">Background in Web Development:</label>
+        <textarea id="webDevBackground" name="webDevBackground" placeholder="Your web development background..." required></textarea>
+        <br>
+        
+        <label for="computerPlatform">Primary Computer Platform:</label>
+        <input type="text" id="computerPlatform" name="computerPlatform" placeholder="Your primary platform" required>
+        <br>
+        
+        <fieldset id="coursesFieldset">
+          <legend>Courses Currently Taking:</legend>
+          <div id="coursesContainer">
+            <input type="text" name="course[]" placeholder="Course Name" required>
+          </div>
+          <button type="button" id="addCourse">Add Course</button>
+        </fieldset>
+        <br>
+        
+        <label for="funnyThing">Funny Thing?</label>
+        <input type="text" id="funnyThing" name="funnyThing" placeholder="Something funny">
+        <br>
+        
+        <label for="anythingElse">Anything Else?</label>
+        <input type="text" id="anythingElse" name="anythingElse" placeholder="Anything else you'd like to add?">
+        <br>
+        
+        <label>
+          <input type="checkbox" id="agreement" name="agreement" required>
+          I understand that what is on this page is not password protected and I will not put anything here that I don’t want publicly available.
+        </label>
+        <br>
+        
+        <input type="submit" value="Submit">
+        <input type="reset" value="Reset">
+      </form>
+      
+      <div id="result" style="display:none;">
+        <!-- The generated introduction page will be displayed here after submission -->
+      </div>
+      
+    
+   
+  </main>
+  
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Your Name</p>
+  </footer>
+  
+  <!-- JavaScript embedded directly in the HTML -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const form = document.getElementById("byoForm");
+      const resultDiv = document.getElementById("result");
+      const addCourseButton = document.getElementById("addCourse");
+      const coursesContainer = document.getElementById("coursesContainer");
+  
+      // Add new course input with delete button
+      addCourseButton.addEventListener("click", () => {
+        const courseDiv = document.createElement("div");
+        const input = document.createElement("input");
+        input.type = "text";
+        input.name = "course[]";
+        input.placeholder = "Course Name";
+        input.required = true;
+  
+        const deleteButton = document.createElement("button");
+        deleteButton.type = "button";
+        deleteButton.textContent = "Delete";
+  
+        deleteButton.addEventListener("click", () => {
+          courseDiv.remove();
+        });
+  
+        courseDiv.appendChild(input);
+        courseDiv.appendChild(deleteButton);
+        coursesContainer.appendChild(courseDiv);
+      });
+  
+      // Form submit handler
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
+  
+        if (!form.checkValidity()) {
+          alert("Please fill in all required fields.");
+          return;
+        }
+  
+        const imageInput = document.getElementById("image");
+        const file = imageInput.files[0];
+        if (!file || !/\.(jpg|jpeg|png)$/i.test(file.name)) {
+          alert("Please upload a valid PNG or JPG image.");
+          return;
+        }
+  
+        const formData = new FormData(form);
+        let output = `<h2>Introduction Page for ${formData.get("name")}</h2>`;
+        output += `<p><strong>Mascot:</strong> ${formData.get("mascot")}</p>`;
+        output += `<p><strong>Image:</strong> ${file.name}</p>`;
+        output += `<p><strong>Image Caption:</strong> ${formData.get("imgCaption")}</p>`;
+        output += `<p><strong>Personal Background:</strong> ${formData.get("personalBackground")}</p>`;
+        output += `<p><strong>Professional Background:</strong> ${formData.get("professionalBackground")}</p>`;
+        output += `<p><strong>Academic Background:</strong> ${formData.get("academicBackground")}</p>`;
+        output += `<p><strong>Web Development Background:</strong> ${formData.get("webDevBackground")}</p>`;
+        output += `<p><strong>Primary Computer Platform:</strong> ${formData.get("computerPlatform")}</p>`;
+  
+        const courses = formData.getAll("course[]").filter((c) => c.trim() !== "");
+        output += `<p><strong>Courses Currently Taking:</strong> ${courses.join(", ")}</p>`;
+  
+        output += `<p><strong>Funny Thing:</strong> ${formData.get("funnyThing")}</p>`;
+        output += `<p><strong>Anything Else:</strong> ${formData.get("anythingElse")}</p>`;
+  
+        form.style.display = "none";
+        resultDiv.innerHTML = output + `<br><a href="#" id="resetLink">Reset</a>`;
+        resultDiv.style.display = "block";
+  
+        // Reset page link
+        const resetLink = document.getElementById("resetLink");
+        if (resetLink) {
+          resetLink.addEventListener("click", (e) => {
+            e.preventDefault();
+            window.location.reload();
+          });
+        }
+      });
+    });
+  </script>
+  
+</body>
+</html>
