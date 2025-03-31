@@ -140,52 +140,57 @@
         coursesContainer.appendChild(courseDiv);
       });
   
-      // Form submit handler
       form.addEventListener("submit", function (e) {
-        e.preventDefault();
+  e.preventDefault();
+
+  if (!form.checkValidity()) {
+    alert("Please fill in all required fields.");
+    return;
+  }
+
+  const imageInput = document.getElementById("image");
+  const file = imageInput.files[0];
+  if (!file || !/\.(jpg|jpeg|png)$/i.test(file.name)) {
+    alert("Please upload a valid PNG or JPG image.");
+    return;
+  }
+
+  // Create an object URL for the uploaded image
+  const imgURL = URL.createObjectURL(file);
+
+  const formData = new FormData(form);
+  let output = `<h2>Introduction Page for ${formData.get("name")}</h2>`;
+  output += `<p><strong>Mascot:</strong> ${formData.get("mascot")}</p>`;
+  // Display the actual image using an <img> element
+  output += `<p><strong>Image Preview:</strong><br>
+              <img src="${imgURL}" alt="${formData.get("imgCaption")}" style="max-width:300px;"></p>`;
+  output += `<p><strong>Image Caption:</strong> ${formData.get("imgCaption")}</p>`;
+  output += `<p><strong>Personal Background:</strong> ${formData.get("personalBackground")}</p>`;
+  output += `<p><strong>Professional Background:</strong> ${formData.get("professionalBackground")}</p>`;
+  output += `<p><strong>Academic Background:</strong> ${formData.get("academicBackground")}</p>`;
+  output += `<p><strong>Web Development Background:</strong> ${formData.get("webDevBackground")}</p>`;
+  output += `<p><strong>Primary Computer Platform:</strong> ${formData.get("computerPlatform")}</p>`;
+
+  const courses = formData.getAll("course[]").filter((c) => c.trim() !== "");
+  output += `<p><strong>Courses Currently Taking:</strong> ${courses.join(", ")}</p>`;
   
-        if (!form.checkValidity()) {
-          alert("Please fill in all required fields.");
-          return;
-        }
-  
-        const imageInput = document.getElementById("image");
-        const file = imageInput.files[0];
-        if (!file || !/\.(jpg|jpeg|png)$/i.test(file.name)) {
-          alert("Please upload a valid PNG or JPG image.");
-          return;
-        }
-  
-        const formData = new FormData(form);
-        let output = `<h2>Introduction Page for ${formData.get("name")}</h2>`;
-        output += `<p><strong>Mascot:</strong> ${formData.get("mascot")}</p>`;
-        output += `<p><strong>Image:</strong> ${file.name}</p>`;
-        output += `<p><strong>Image Caption:</strong> ${formData.get("imgCaption")}</p>`;
-        output += `<p><strong>Personal Background:</strong> ${formData.get("personalBackground")}</p>`;
-        output += `<p><strong>Professional Background:</strong> ${formData.get("professionalBackground")}</p>`;
-        output += `<p><strong>Academic Background:</strong> ${formData.get("academicBackground")}</p>`;
-        output += `<p><strong>Web Development Background:</strong> ${formData.get("webDevBackground")}</p>`;
-        output += `<p><strong>Primary Computer Platform:</strong> ${formData.get("computerPlatform")}</p>`;
-  
-        const courses = formData.getAll("course[]").filter((c) => c.trim() !== "");
-        output += `<p><strong>Courses Currently Taking:</strong> ${courses.join(", ")}</p>`;
-  
-        output += `<p><strong>Funny Thing:</strong> ${formData.get("funnyThing")}</p>`;
-        output += `<p><strong>Anything Else:</strong> ${formData.get("anythingElse")}</p>`;
-  
-        form.style.display = "none";
-        resultDiv.innerHTML = output + `<br><a href="#" id="resetLink">Reset</a>`;
-        resultDiv.style.display = "block";
-  
-        // Reset page link
-        const resetLink = document.getElementById("resetLink");
-        if (resetLink) {
-          resetLink.addEventListener("click", (e) => {
-            e.preventDefault();
-            window.location.reload();
-          });
-        }
-      });
+  output += `<p><strong>Funny Thing:</strong> ${formData.get("funnyThing")}</p>`;
+  output += `<p><strong>Anything Else:</strong> ${formData.get("anythingElse")}</p>`;
+
+  form.style.display = "none";
+  resultDiv.innerHTML = output + `<br><a href="#" id="resetLink">Reset</a>`;
+  resultDiv.style.display = "block";
+
+
+  const resetLink = document.getElementById("resetLink");
+  if (resetLink) {
+    resetLink.addEventListener("click", (e) => {
+      e.preventDefault();
+      window.location.reload();
+    });
+  }
+});
+
     });
   </script>
   
