@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Gallery - Samantha's Cat Website</title>
+  <!-- Link to external CSS file -->
+  <link rel="stylesheet" href="style.css">
+  <script src="https://lint.page/kit/4d0fe3.js" crossorigin="anonymous"></script>
+</head>
+<body>
+  <!-- Header Section -->
+  <header id="site-header">
+    <h1>Cat Gallery</h1>
+  </header>
+  
+  <!-- Navigation Bar -->
+  <nav id="main-nav">
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="meet-the-cats.html">Meet the Cats</a></li>
+      <li><a href="gallery.html" class="active">Gallery</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+  
+  <!-- Main Content Area -->
+  <main id="gallery-content">
+    <section class="gallery-section">
+      <h2>Gallery</h2>
+      <p>
+        Browse through our collection one image at a time. Use the arrows to view each special moment captured from Samantha's cat project.
+      </p>
+      <!-- Carousel Container -->
+      <div id="carousel-container" style="display: flex; align-items: center; justify-content: center;">
+        <!-- Left Arrow -->
+        <button id="prev" aria-label="Previous Image" style="font-size: 2rem; background: none; border: none; cursor: pointer;">&#8249;</button>
+        <!-- Carousel Content -->
+        <div id="carousel-content" style="text-align: center; margin: 0 20px;">
+          <img id="carousel-image" src="images/bed.JPG" alt="A peaceful moment right before Gatsby started running around!" class="responsive-img" style="max-width: 600px;">
+          <p id="carousel-caption">A peaceful moment right before Gatsby started running around!</p>
+        </div>
+        <!-- Right Arrow -->
+        <button id="next" aria-label="Next Image" style="font-size: 2rem; background: none; border: none; cursor: pointer;">&#8250;</button>
+      </div>
+      
+      <!-- More Coming Soon Button -->
+      <div style="text-align: center; margin-top: 20px;">
+        <button onclick="alert('More images coming soon!')" style="padding: 10px 20px; font-size: 1rem; border: none; border-radius: 4px; background-color: #e0f7fa; cursor: pointer;">
+          More Coming Soon
+        </button>
+      </div>
+    </section>
+  </main>
+  
+  <!-- Footer Section -->
+  <footer id="site-footer">
+    <p>Designed by <a href="../crosbycustomz.com/index.html">Crosby Customz</a> © 2025</p>
+    <p>
+      <a href="https://validator.w3.org/check?uri=referer" target="_blank">HTML Validator</a> | 
+      <a href="https://jigsaw.w3.org/css-validator/check/referer" target="_blank">CSS Validator</a>
+    </p>
+  </footer>
+  
+  <!-- Link to external JavaScript file -->
+  <script src="script.js"></script>
+</body>
+</html>

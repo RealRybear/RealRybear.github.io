@@ -1,0 +1,160 @@
+/* Import the same playful font */
+@import url('https://fonts.googleapis.com/css2?family=Baloo+2&display=swap');
+
+/* Color and font variables */
+:root {
+    --pink: #ffb6c1;
+    --hot-pink: #ff69b4;
+    --dark-pink: #ff1493;
+    --light-blue: #add8e6;
+    --deep-blue: #003366;
+    --white: #ffffff;
+    --shadow: rgba(0, 0, 0, 0.1);
+    --blur-bg: rgba(255, 255, 255, 0.4);
+}
+
+/* Minimal Reset */
+body, h1, h2, h3, h4, h5, h6, p, ul, li, a, nav, header, main, footer, figure, figcaption {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body Styles */
+body {
+    font-family: 'Baloo 2', cursive;
+    background: linear-gradient(135deg, var(--pink), var(--light-blue));
+    background-attachment: fixed;
+    color: var(--deep-blue);
+    overflow-x: hidden;
+}
+
+/* Header */
+header {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    padding: 1.5rem;
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--white);
+    background-color: var(--hot-pink);
+    box-shadow: 0 4px 6px var(--shadow);
+}
+
+/* Navigation Bar */
+nav {
+    background-color: var(--light-blue);
+    box-shadow: 0 2px 6px var(--shadow);
+}
+
+nav ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+    gap: 1.5rem;
+    padding: 1rem;
+}
+
+nav a {
+    display: inline-block;
+    text-decoration: none;
+    color: var(--deep-blue);
+    background: var(--white);
+    font-weight: bold;
+    padding: 0.5rem 1.5rem;
+    border-radius: 20px;
+    transition: 0.3s ease-in-out;
+}
+
+nav a:hover {
+    background-color: var(--hot-pink);
+    color: var(--white);
+    transform: translateY(-2px) scale(1.05);
+}
+
+/* Main Content */
+main {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 1rem;
+}
+
+/* Sample Card */
+.cat-card {
+    background-color: var(--blur-bg);
+    backdrop-filter: blur(12px);
+    border-radius: 20px;
+    border: 2px solid var(--white);
+    box-shadow: 0 8px 24px var(--shadow);
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    transition: 0.3s ease;
+}
+
+.cat-card:hover {
+    transform: translateY(-6px);
+}
+
+/* Cat Card Image */
+.cat-card img {
+    display: block;
+    max-width: 280px;
+    width: 100%;
+    margin: 0 auto 1rem;
+    border-radius: 15px;
+}
+
+
+/* Buttons */
+button {
+    background-color: var(--hot-pink);
+    color: var(--white);
+    border: none;
+    border-radius: 15px;
+    padding: 0.6rem 1.2rem;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+button:hover {
+    background-color: var(--dark-pink);
+    transform: scale(1.05);
+}
+
+/* Footer */
+footer {
+    background-color: var(--light-blue);
+    color: var(--deep-blue);
+    text-align: center;
+    padding: 1rem 0.5rem;
+    margin-top: 2rem;
+    border-top: 3px solid var(--hot-pink);
+    box-shadow: 0 -4px 6px var(--shadow);
+    font-size: 0.9rem;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    header {
+        font-size: 1.6rem;
+    }
+    
+    nav ul {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    nav a {
+        width: 100%;
+        text-align: center;
+    }
+    
+    .cat-card img {
+        max-width: 100%;
+    }
+}
