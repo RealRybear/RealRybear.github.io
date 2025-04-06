@@ -13,14 +13,12 @@
     --blur-bg: rgba(255, 255, 255, 0.4);
 }
 
-/* Minimal Reset */
 body, h1, h2, h3, h4, h5, h6, p, ul, li, a, nav, header, main, footer, figure, figcaption {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* Body Styles */
 body {
     font-family: 'Baloo 2', cursive;
     background: linear-gradient(135deg, var(--pink), var(--light-blue));
@@ -29,7 +27,6 @@ body {
     overflow-x: hidden;
 }
 
-/* Header */
 header {
     position: sticky;
     top: 0;
@@ -43,7 +40,6 @@ header {
     box-shadow: 0 4px 6px var(--shadow);
 }
 
-/* Navigation Bar */
 nav {
     background-color: var(--light-blue);
     box-shadow: 0 2px 6px var(--shadow);
@@ -76,14 +72,12 @@ nav a:hover {
     transform: translateY(-2px) scale(1.05);
 }
 
-/* Main Content */
 main {
     max-width: 1200px;
     margin: 2rem auto;
     padding: 1rem;
 }
 
-/* Sample Card */
 .cat-card {
     background-color: var(--blur-bg);
     backdrop-filter: blur(12px);
@@ -99,7 +93,6 @@ main {
     transform: translateY(-6px);
 }
 
-/* Cat Card Image */
 .cat-card img {
     display: block;
     max-width: 280px;
@@ -109,7 +102,6 @@ main {
 }
 
 
-/* Buttons */
 button {
     background-color: var(--hot-pink);
     color: var(--white);
@@ -126,7 +118,6 @@ button:hover {
     transform: scale(1.05);
 }
 
-/* Footer */
 footer {
     background-color: var(--light-blue);
     color: var(--deep-blue);
@@ -138,7 +129,6 @@ footer {
     font-size: 0.9rem;
 }
 
-/* Responsive Adjustments */
 @media (max-width: 768px) {
     header {
         font-size: 1.6rem;
