@@ -36,7 +36,6 @@
     table.complex tr:nth-child(odd) {
       background-color: #fff;
     }
-    /* Figure styling */
     figure {
       margin: 20px 0;
     }
@@ -69,7 +68,6 @@
   <main>
     <h2>Activity #2: HTML Tables</h2>
 
-    <!-- Part 2: Ordered List -->
     <h3>My Tabular Data</h3>
     <ol>
       <li>Frodo Baggins – frodo.baggins@shiremail.com – 10 years</li>
@@ -81,7 +79,6 @@
       <li>Legolas Greenleaf – legolas.greenleaf@woodlandmail.com – 15 years</li>
     </ol>
 
-    <!-- Part 3: Basic Table -->
     <h3>Employee Data in Simple Table</h3>
     <table class="simple">
       <tr>
@@ -126,11 +123,10 @@
       </tr>
     </table>
 
-    <!-- Part 4: Complex Table -->
     <h3>Employee Data in Complex Table</h3>
     <figure>
       <table class="complex">
-        <!-- Header row with additional columns -->
+        
         <tr>
           <th>Category</th>
           <th>Name</th>
@@ -138,7 +134,7 @@
           <th>Years of Service</th>
           <th>Monthly Salary</th>
         </tr>
-        <!-- Hobbits Category (using rowspan for multiple entries) -->
+       
         <tr>
           <td rowspan="4">Hobbits</td>
           <td>Frodo Baggins</td>
@@ -163,8 +159,7 @@
           <td>pippin.took@shiremail.com</td>
           <td>7</td>
           <td>$1,700</td>
-        </tr>
-        <!-- Wizards Category -->
+       
         <tr>
           <td>Wizard</td>
           <td>Gandalf Grey</td>
@@ -172,7 +167,7 @@
           <td>30</td>
           <td>$5,000</td>
         </tr>
-        <!-- Warriors Category (using rowspan) -->
+       
         <tr>
           <td rowspan="2">Warriors</td>
           <td>Aragorn Elessar</td>
@@ -186,12 +181,9 @@
           <td>15</td>
           <td>$4,000</td>
         </tr>
-        <!-- Bottom row with totals (spanning first three columns) -->
         <tr>
           <th colspan="3">Total Years of Service</th>
-          <!-- Total years = 10+12+8+7+30+20+15 = 102 -->
           <td>102</td>
-          <!-- Total monthly salaries = $2,000+$2,100+$1,800+$1,700+$5,000+$4,500+$4,000 = $21,100 -->
           <td>$21,100</td>
         </tr>
       </table>
@@ -218,6 +210,9 @@
     </a>
     <script>
       document.getElementById("validation-link-html").setAttribute("href", "https://validator.w3.org/check?uri=" + location.href);
+      $(document).ready(function(){
+        $("#header-placeholder").load("header.html");
+      });
       document.getElementById("validation-link-css").setAttribute("href", "https://jigsaw.w3.org/css-validator/validator?uri=" + location.href);
     </script>
   </footer>

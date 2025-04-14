@@ -6,27 +6,13 @@
  
   
   <link rel="stylesheet" href="styles/default.css">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
 </head>
 <body>
+  <div id="header-placeholder"></div>
 
-    <header>
-        
-        <h1>Ryan Crosby || ITIS 3135</h1>
-        <nav>
-          <ul>
-            <li><a href="./">Home</a></li>
-        <li><a href="introduction.html">Introduction</a></li>
-        <li><a href="contract.html">Contract</a></li>
-        <li><a href="./stuff/CRAP.HTML">Crappy page</a></li>
-        <li><a href="tables.html">Tables</a></li>
-      <li><a href="website_evaluations.html">Website Evaluations</a></li>
-      <li><a href="byo_intro.html">BYO Intro</a></li>
-          </ul>
-        </nav>
-        <script src="https://lint.page/kit/4d0fe3.js" crossorigin="anonymous"></script>
-
-      </header>
-  
+   
   <!-- Main Content -->
   <main>
     <h2>BYO Intro</h2>
@@ -111,6 +97,9 @@
   
   <!-- JavaScript embedded directly in the HTML -->
   <script>
+     $(document).ready(function(){
+        $("#header-placeholder").load("header.html");
+      });
     document.addEventListener("DOMContentLoaded", function () {
       const form = document.getElementById("byoForm");
       const resultDiv = document.getElementById("result");

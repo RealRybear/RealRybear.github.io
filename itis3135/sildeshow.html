@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Ryan Crosby - Full Name Slideshow</title>
+  <link rel="stylesheet" href="css/default.css">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="./scripts/slideshow.js"></script>
+  <link rel="stylesheet" href="styles/default.css">
+</head>
+<body>
+  <div id="header-placeholder"></div>
+  
+  <main>
+    <h2>Slideshow Gallery</h2>
+    <div id="slideshow-container">
+      <button id="prev" aria-label="Previous Slide">&lt;</button>
+      <img id="mainImage" src="" alt="Slideshow Image" width="600" height="400">
+      <button id="next" aria-label="Next Slide">&gt;</button>
+    </div>
+    <div id="caption"></div>
+
+    <section id="notes">
+      <h3>Notes</h3>
+      <ul>
+        <li>Images were AI-generated using ChatGPT.</li>
+        <li>Consulted the “How To Create a Slideshow” tutorial on w3schools.com.</li>
+        <li>Biggest challenge is the amount of work from freecodecamp while managing other classes.</li>
+        <li>This is my original work. -RC</li>
+      </ul>
+      <p>
+        <strong>AI Image Prompts:</strong>
+        <ul>
+          <li>"Generate a futuristic landscape image of a sleek robot in an urban setting, in landscape orientation."</li>
+          <li>"Create a serene landscape photo of a luxurious yacht sailing on calm blue waters, captured in wide format."</li>
+          <li>"Produce a cinematic image of an airplane soaring across a vibrant sky in a panoramic landscape view."</li>
+          <li>"Capture a breathtaking landscape of a star-filled night sky over a distant horizon."</li>
+          <li>"Render an enchanting castle atop a hill, with panoramic views of the surrounding countryside. Cartoon pixelated"</li>
+          <li>"Using airbrush design a tranquil scene of a winding river flowing through a lush valley, in vibrant landscape format."</li>
+          <li>"Create a stunning ocean view with gentle waves and a clear horizon, shot in expansive landscape orientation."</li>
+          <li>"Generate a dramatic sunset with warm colors and distinctive silhouettes, captured in a broad landscape shot."</li>
+          <li>"Produce an image of an architecturally striking bridge spanning a river, showcased in a panoramic landscape view."</li>
+          <li>"Render a rustic yurt set in an open field with expansive skies, perfect for a landscape-oriented photograph."</li>
+        </ul>
+      </p>
+      <p>Signed, Ryan Crosby, 04/14/2025 11:00 AM</p>
+    </section>
+  </main>
+
+  <footer>
+    <ul>
+      <li><a href="https://webpages.charlotte.edu/rcrosby7">CLT Site</a></li>
+      <li><a href="https://github.com/realrybear/">GitHub</a></li>
+      <li><a href="https://realrybear.github.io/">GitHub.io</a></li>
+      <li><a href="https://realrybear.github.io/itis3135/">ITIS3135.io</a></li>
+      <li><a href="https://www.freecodecamp.org/rcrosby7">FreeCodeCamp</a></li>
+      <li><a href="https://www.codecademy.com/profiles/cyberrybear">Codecademy</a></li>
+      <li><a href="https://www.linkedin.com/in/ryan-crosby-the-legend/">LinkedIn</a></li>
+    </ul>
+    <p>Designed by <a href="crosbycustomz.com/index.html">Crosbycustomz</a> © 2025</p>
+    <a href="https://validator.w3.org/check?uri=referer" id="validation-link-html">
+      <img class="validator-img" src="https://mytienhoang.github.io/itis3135/z_archives/html_validation.png" alt="Valid HTML!">
+    </a>
+    <a href="https://jigsaw.w3.org/css-validator/check/referer" id="validation-link-css">
+      <img class="validator-img" src="https://jigsaw.w3.org/css-validator/images/vcss" alt="Valid CSS!">
+    </a>
+    <script>
+      $(document).ready(function(){
+        $("#header-placeholder").load("header.html");
+      });
+      document.getElementById("validation-link-html").setAttribute("href", "https://validator.w3.org/check?uri=" + location.href);
+      document.getElementById("validation-link-css").setAttribute("href", "https://jigsaw.w3.org/css-validator/validator?uri=" + location.href);
+    </script>
+  </footer>
+</body>
+</html>

@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Ryan Crosby's Mascot || ITIS 3135 || Introduction</title>
   <link rel="stylesheet" href="styles/default.css">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
   <style>
     /* Styles for the portrait image */
     .portrait {
@@ -20,27 +22,15 @@
   </style>
 </head>
 <body>
-  <header>
-    <h1>Ryan Crosby || ITIS 3135</h1>
-    <script src="https://lint.page/kit/4d0fe3.js" crossorigin="anonymous"></script>
-    <nav>
-      <ul>
-        <li><a href="./">Home</a></li>
-        <li><a href="introduction.html">Introduction</a></li>
-        <li><a href="contract.html">Contract</a></li>
-        <li><a href="./stuff/CRAP.HTML">Crappy page</a></li>
-        <li><a href="tables.html">Tables</a></li>
-      <li><a href="website_evaluations.html">Website Evaluations</a></li>
-      <li><a href="byo_intro.html">BYO Intro</a></li>
-      </ul>
-    </nav>
-  </header>
+  <script src="https://lint.page/kit/4d0fe3.js" crossorigin="anonymous"></script>
 
+  <div id="header-placeholder"></div>
+ 
+  
   <main>
     <h2>Ryan Crosby: Introduction</h2>
 
     
-    <!-- New Figure with the Embedded Smaller Image -->
     <figure>
       <img src="images/me.jfif" alt="Ryan Crosby's Portrait" class="portrait">
       <figcaption>Ryan Crosby - My Portrait</figcaption>
@@ -88,7 +78,9 @@
     </a>
     <script>
       document.getElementById("validation_link_html").setAttribute("href", "https://validator.w3.org/check?uri=" + location.href);
-      document.getElementById("validation_link_css").setAttribute("href", "https://jigsaw.w3.org/css-validator/validator?uri=" + location.href);
+      $(document).ready(function(){
+        $("#header-placeholder").load("header.html");
+      });document.getElementById("validation_link_css").setAttribute("href", "https://jigsaw.w3.org/css-validator/validator?uri=" + location.href);
     </script>
   </footer>
 </body>
