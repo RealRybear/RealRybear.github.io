@@ -5,30 +5,23 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Contact - Samantha's Cat Website</title>
   <link rel="stylesheet" href="style.css">
-  <script src="https://lint.page/kit/4d0fe3.js" crossorigin="anonymous"></script>
-
 </head>
 <body>
   <header id="site-header">
     <h1>Contact Samantha</h1>
   </header>
   
-  <nav id="main-nav">
-    <ul>
-      <li><a href="index.html">Home</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="meet-the-cats.html">Meet the Cats</a></li>
-      <li><a href="gallery.html">Gallery</a></li>
-      <li><a href="contact.html" class="active">Contact</a></li>
-    </ul>
-  </nav>
+  <div id="nav-placeholder"></div>
+  <script src="https://lint.page/kit/4d0fe3.js" crossorigin="anonymous"></script>
+
   
   <main id="contact-content">
     <section class="contact-section">
       <h2>Get in Touch</h2>
       <p>If you have any questions or would like more information about Samantha's Cat Project, please fill out the form below.</p>
+      
       <!-- Contact Form -->
-      <form id="contactForm" onsubmit="return validateForm();">
+      <form id="contactForm" novalidate>
         <label for="name">Name:</label>
         <input type="text" id="name" name="name" placeholder="Your Name" required>
   
@@ -40,6 +33,8 @@
   
         <button type="submit">Send Message</button>
       </form>
+      
+      <div id="form-status" aria-live="polite"></div>
     </section>
   </main>
   
@@ -51,6 +46,7 @@
     </p>
   </footer>
   
-  <script src="script.js"></script>
+  <script src="script2.js"></script>
+  <script src="script3.js"></script>
 </body>
 </html>
