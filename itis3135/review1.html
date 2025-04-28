@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Review2 - Dan's Scrum Master Guide Peer Review</title>
+  <link rel="stylesheet" href="./styles/default.css">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://lint.page/kit/4d0fe3.js" crossorigin="anonymous"></script>
+</head>
+<body>
+  <header>
+    <h1>Dan's Scrum Master Guide</h1>
+  </header>
+  <div id="header-placeholder"></div>
+  <main>
+    <h2>Peer Review: Alimi, Ali</h2>
+    <img src="images/reivew1.png" alt="Ali's homepage screenshot" style="max-width:600px; width:100%; display:block; margin:0 auto;">
+    <figure>
+      <figcaption><a href="https://webpages.charlotte.edu/aalimi1/itis3135/client_project/index.html">https://webpages.charlotte.edu/aalimi1/itis3135/client_project/index.html</a></figcaption>
+    </figure>
+
+    <ul>
+      <li>I do not see any uppercase letters or spaces in file or folder names.</li>
+      <li><strong>Design:</strong>
+        <ul>
+          <li>Yes, this page has sufficient contrast and font sizing so it is easy to read.</li>
+          <li>Yes, this page uses site colors and fonts from the standard default.css file.</li>
+        </ul>
+      </li>
+      <li><strong>CRAP:</strong>
+        <ul>
+          <li><strong>Contrast:</strong> There are no contrast problems; text is legible against the background.</li>
+          <li><strong>Repetition:</strong> Consistent styling and typography across sections.</li>
+          <li><strong>Alignment:</strong> Headings and paragraphs are well-aligned in a centered layout.</li>
+          <li><strong>Proximity:</strong> Related content (sections, images, text) is grouped appropriately.</li>
+        </ul>
+      </li>
+      <li>Each page includes a <code>&lt;header&gt;</code>, <code>&lt;main&gt;</code>, and <code>&lt;footer&gt;</code>.</li>
+      <li>The header contains an <code>&lt;h1&gt;</code> with the site title.</li>
+      <li>The main content begins with an <code>&lt;h2&gt;</code>.</li>
+      <li>The footer includes the correct links and validation badges.</li>
+    </ul>
+
+    <p>I have emailed this review link to Ali Alimi at his university email.</p>
+    <p>Reviewer: Ryan Crosby | Date: 2025-04-27</p>
+  </main>
+
+  <footer>
+    <ul>
+      <li><a href="https://webpages.charlotte.edu/rcrosby7">CLT Site</a></li>
+      <li><a href="https://github.com/realrybear/">GitHub</a></li>
+      <li><a href="https://realrybear.github.io/">GitHub.io</a></li>
+      <li><a href="https://realrybear.github.io/itis3135/">ITIS3135.io</a></li>
+      <li><a href="https://www.freecodecamp.org/rcrosby7">FreeCodeCamp</a></li>
+      <li><a href="https://www.codecademy.com/profiles/cyberrybear">Codecademy</a></li>
+      <li><a href="https://www.linkedin.com/in/ryan-crosby-the-legend/">LinkedIn</a></li>
+    </ul>
+    <p>Designed by <a href="crosbycustomz.com/index.html">Crosbycustomz</a> © 2025</p>
+    <a href="https://validator.w3.org/check?uri=referer" id="validation-link-html">
+      <img class="validator-img" src="https://mytienhoang.github.io/itis3135/z_archives/html_validation.png" alt="Valid HTML!">
+    </a>
+    <a href="https://jigsaw.w3.org/css-validator/check/referer" id="validation-link-css">
+      <img class="validator-img" src="https://jigsaw.w3.org/css-validator/images/vcss" alt="Valid CSS!">
+    </a>
+    <script>
+      $(document).ready(function(){
+        $("#header-placeholder").load("header.html");
+      });
+      document.getElementById("validation-link-html").setAttribute("href", "https://validator.w3.org/check?uri=" + location.href);
+      document.getElementById("validation-link-css").setAttribute("href", "https://jigsaw.w3.org/css-validator/validator?uri=" + location.href);
+    </script>
+  </footer>
+</body>
+</html>

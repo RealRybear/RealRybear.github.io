@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Review1 - Balanced Bites Peer Review</title>
+  <link rel="stylesheet" href="./styles/default.css">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://lint.page/kit/4d0fe3.js" crossorigin="anonymous"></script>
+
+
+</head>
+<body>
+  <header>
+    <h1>Balanced Bites</h1>
+    
+  </header>
+  <div id="header-placeholder"></div>
+  <main>
+    <h2>Peer Review: Anthony, Justin</h2>
+    <img src="images/review2.png" alt="Justin's contact page screenshot" style="max-width:600px; width:100%; display:block; margin:0 auto;">
+
+    <figure>
+      <figcaption><a href="https://webpages.charlotte.edu/jantho23/itis3135/project/contact.html">https://webpages.charlotte.edu/jantho23/itis3135/project/contact.html</a></figcaption>
+    </figure>
+
+    <ul>
+      <li><strong>Website Checklist</strong> – <a href="https://docs.google.com/document/d/1aY0JQVFKMuyMHIdSyrRiuSy_lbOmA10Zw6z5cr0mBUU/edit?tab=t.0#heading=h.sj7vhjy8pfgd">von Briesen's Web Classes - Google Docs</a></li>
+      <li><strong>Submission Navigation:</strong> review1.html linked in main navigation.</li>
+      <li><strong>File Naming:</strong> All filenames use lowercase and hyphens/underscores; no spaces.</li>
+      <li><strong>Design (CRAP):</strong>
+        <ul>
+          <li>Contrast: Text is legible against background colors.</li>
+          <li>Repetition: Consistent button shapes and font styles.</li>
+          <li>Alignment: Form fields and labels are properly aligned.</li>
+          <li>Proximity: Related form elements grouped clearly.</li>
+        </ul>
+      </li>
+      <li><strong>Structure:</strong> Page includes &lt;header&gt;, &lt;main&gt;, &lt;footer&gt;, and nav between header and main.</li>
+      <li><strong>Header:</strong> Displays brand name only; omits page name.</li>
+      <li><strong>Main:</strong> Begins with peer name and review title; does not repeat brand text.</li>
+      <li><strong>Tagline:</strong> Site tagline appears consistently at top of pages.</li>
+      <li><strong>Footer:</strong> Contains footer nav and copyright notice; validation links recommended.</li>
+      <li><strong>Validation:</strong> HTML & CSS pass validation (aside from Accumulus warnings).</li>
+      <li><strong>Additional Feedback:</strong>
+        <ul>
+          <li><strong>Stop:</strong> Avoid inline styles; move styling to CSS file.</li>
+          <li><strong>Start:</strong> Add focus indicators for form inputs for accessibility.</li>
+          <li><strong>Continue:</strong> Using emojis in labels adds friendly tone.</li>
+        </ul>
+      </li>
+    </ul>
+
+    <p>I have emailed this review link to Justin at his university email.</p>
+    <p>Reviewer: Ryan Crosby | Date: 2025-04-27</p>
+  </main>
+
+  <footer>
+    <ul>
+      <li><a href="https://webpages.charlotte.edu/rcrosby7">CLT Site</a></li>
+      <li><a href="https://github.com/realrybear/">GitHub</a></li>
+      <li><a href="https://realrybear.github.io/">GitHub.io</a></li>
+      <li><a href="https://realrybear.github.io/itis3135/">ITIS3135.io</a></li>
+      <li><a href="https://www.freecodecamp.org/rcrosby7">FreeCodeCamp</a></li>
+      <li><a href="https://www.codecademy.com/profiles/cyberrybear">Codecademy</a></li>
+      <li><a href="https://www.linkedin.com/in/ryan-crosby-the-legend/">LinkedIn</a></li>
+    </ul>
+    <p>Designed by <a href="crosbycustomz.com/index.html">Crosbycustomz</a> © 2025</p>
+    <a href="https://validator.w3.org/check?uri=referer" id="validation-link-html">
+      <img class="validator-img" src="https://mytienhoang.github.io/itis3135/z_archives/html_validation.png" alt="Valid HTML!">
+    </a>
+    <a href="https://jigsaw.w3.org/css-validator/check/referer" id="validation-link-css">
+      <img class="validator-img" src="https://jigsaw.w3.org/css-validator/images/vcss" alt="Valid CSS!">
+    </a>
+    <script>
+        $(document).ready(function(){
+        $("#header-placeholder").load("header.html");
+      });
+      document.getElementById("validation-link-html").setAttribute("href", "https://validator.w3.org/check?uri=" + location.href);
+      $(document).ready(function(){
+        $("#header-placeholder").load("header.html");
+      });
+      document.getElementById("validation-link-css").setAttribute("href", "https://jigsaw.w3.org/css-validator/validator?uri=" + location.href);
+    </script>
+  </footer>
+
+</body>
+</html>
