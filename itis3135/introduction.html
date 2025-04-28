@@ -59,29 +59,21 @@
     <p><strong>I'd also like to share:</strong> Stay curious and never stop learning!</p>
   </main>
 
-  <footer>
-    <ul>
-      <li><a href="https://webpages.charlotte.edu/rcrosby7">CLT Site</a></li>
-      <li><a href="https://github.com/RealRybear/">GitHub</a></li>
-      <li><a href="https://realrybear.github.io/">GitHub.io</a></li>
-      <li><a href="https://realrybear.github.io/itis3135/">ITIS3135.io</a></li>
-      <li><a href="https://www.freecodecamp.org/rcrosby7">FreeCodeCamp</a></li>
-      <li><a href="https://www.codecademy.com/profiles/CyberRybear">Codecademy</a></li>
-      <li><a href="https://www.linkedin.com/in/ryan-crosby-the-legend/">LinkedIn</a></li>
-    </ul>
-    <p>Designed by <a href="./crosbycustomz.com/index.html">Crosby Customz</a> © 2025</p>
-    <a href="https://validator.w3.org/check?uri=referer" id="validation_link_html">
-      <img class="validator-img" src="https://mytienhoang.github.io/itis3135/z_archives/html_validation.png" alt="Valid HTML!">
-    </a>
-    <a href="https://jigsaw.w3.org/css-validator/check/referer" id="validation_link_css">
-      <img class="validator-img" src="https://jigsaw.w3.org/css-validator/images/vcss" alt="Valid CSS!">
-    </a>
-    <script>
-      document.getElementById("validation_link_html").setAttribute("href", "https://validator.w3.org/check?uri=" + location.href);
-      $(document).ready(function(){
-        $("#header-placeholder").load("header.html");
-      });document.getElementById("validation_link_css").setAttribute("href", "https://jigsaw.w3.org/css-validator/validator?uri=" + location.href);
-    </script>
-  </footer>
+  <div id="footer-placeholder"></div>
+  <script>
+    $(function(){
+      // 1) load header
+      $("#header-placeholder").load("header.html");
+
+      // 2) load footer and then fix its validator links
+      $("#footer-placeholder").load("footer.html", function(){
+        const uri = encodeURIComponent(location.href);
+        $("#validation_link_html")
+          .attr("href", "https://validator.w3.org/check?uri=" + uri);
+        $("#validation_link_css")
+          .attr("href", "https://jigsaw.w3.org/css-validator/validator?uri=" + uri);
+      });
+    });
+  </script>
 </body>
 </html>

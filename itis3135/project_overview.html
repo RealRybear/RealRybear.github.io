@@ -203,13 +203,21 @@
      
     </section>
   </main>
+  <div id="footer-placeholder"></div>
+  <script>
+    $(function(){
+      // 1) load header
+      $("#header-placeholder").load("header.html");
 
-  <footer>
-    <p>Designed by <a href="./crosbycustomz.com/index.html">Crosby Customz</a> © 2025</p>
-    <p>
-      <a href="https://validator.w3.org/check?uri=referer" target="_blank">HTML Validator</a> |
-      <a href="https://jigsaw.w3.org/css-validator/check/referer" target="_blank">CSS Validator</a>
-    </p>
-  </footer>
+      // 2) load footer and then fix its validator links
+      $("#footer-placeholder").load("footer.html", function(){
+        const uri = encodeURIComponent(location.href);
+        $("#validation_link_html")
+          .attr("href", "https://validator.w3.org/check?uri=" + uri);
+        $("#validation_link_css")
+          .attr("href", "https://jigsaw.w3.org/css-validator/validator?uri=" + uri);
+      });
+    });
+  </script>
 </body>
 </html>
