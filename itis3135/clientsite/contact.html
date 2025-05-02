@@ -19,34 +19,69 @@
     <section class="contact-section">
       <h2>Get in Touch</h2>
       <p>If you have any questions or would like more information about Samantha's Cat Project, please fill out the form below.</p>
-      
-      <!-- Contact Form -->
-      <form id="contactForm" novalidate>
+      <!-- Contact form -->
+      <form id="contactForm">
         <label for="name">Name:</label>
-        <input type="text" id="name" name="name" placeholder="Your Name" required>
-  
+        <input
+          type="text"
+          id="name"
+          name="name"
+          placeholder="Your Name"
+          required
+          minlength="2"
+          maxlength="50"
+          pattern="[A-Za-z\s]+"
+          title="Only letters & spaces, 2–50 characters."
+        >
+      
         <label for="email">Email:</label>
-        <input type="email" id="email" name="email" placeholder="you@example.com" required>
-  
+        <input
+          type="email"
+          id="email"
+          name="email"
+          placeholder="you@example.com"
+          required
+        >
+      
         <label for="message">Message:</label>
-        <textarea id="message" name="message" placeholder="Your message here..." required></textarea>
-  
+        <textarea
+          id="message"
+          name="message"
+          placeholder="Your message here..."
+          required
+          minlength="10"
+          maxlength="500"
+        ></textarea>
+      
         <button type="submit">Send Message</button>
       </form>
+      
       
       <div id="form-status" aria-live="polite"></div>
     </section>
   </main>
   
   <footer id="site-footer">
-    <p>Designed by <a href="../crosbycustomz.com/index.html">Crosby Customz</a> © 2025</p>
-    <p>
-      <a href="https://validator.w3.org/check?uri=referer" target="_blank">HTML Validator</a> | 
-      <a href="https://jigsaw.w3.org/css-validator/check/referer" target="_blank">CSS Validator</a>
-    </p>
-  </footer>
-  
-  <script src="script2.js"></script>
-  <script src="script3.js"></script>
+    <p>Designed by <a href="./crosbycustomz.com/index.html">Crosby Customz</a> © 2025 <a href="https://www.freecodecamp.org/certification/rcrosby7/javascript-algorithms-and-data-structures-v8">Certified in J.S.</a></p>
+    <a id="validation_link_html" href="#">
+      <img style="border:0;width:88px;height:31px" src="https://mytienhoang.github.io/itis3135/z_archives/html_validation.png" alt="Valid HTML!">
+    </a>
+    <a id="validation_link_css" href="#">
+      <img style="border:0;width:88px;height:31px" src="https://jigsaw.w3.org/css-validator/images/vcss" alt="Valid CSS!">
+    </a>
+    <a
+  href="https://wave.webaim.org/report?url=referer"
+  target="_blank"
+  rel="noopener"
+  class="validator-btn"
+>
+  WCAG Validator
+</a>
+
+</footer>
+    <script src="script.js"></script>
+    <script src="script2.js"></script>
+    
+    <script src="script3.js"></script>
 </body>
 </html>

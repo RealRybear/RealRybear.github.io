@@ -35,8 +35,8 @@ header {
     text-align: center;
     font-size: 2rem;
     font-weight: 700;
-    color: var(--white);
-    background-color: var(--hot-pink);
+    background-color: var(--hot-pink); 
+    color: var(--deep-blue);   
     box-shadow: 0 4px 6px var(--shadow);
 }
 
@@ -104,7 +104,7 @@ main {
 
 button {
     background-color: var(--hot-pink);
-    color: var(--white);
+    color: var(--dark-blue);
     border: none;
     border-radius: 15px;
     padding: 0.6rem 1.2rem;
