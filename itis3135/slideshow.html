@@ -3,10 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <title>Ryan Crosby - Full Name Slideshow</title>
-  <link rel="stylesheet" href="css/default.css">
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script src="./scripts/slideshow.js"></script>
   <link rel="stylesheet" href="styles/default.css">
+  <script src="https://lint.page/kit/4d0fe3.js" crossorigin="anonymous"></script>
+
 </head>
 <body>
   <div id="header-placeholder"></div>
@@ -15,7 +16,15 @@
     <h2>Slideshow Gallery</h2>
     <div id="slideshow-container">
       <button id="prev" aria-label="Previous Slide">&lt;</button>
-      <img id="mainImage" src="" alt="Slideshow Image" width="600" height="400">
+      <img
+      id="mainImage"
+      src="images/robot-400x200.png"
+      alt="Slideshow Image"
+      width="400"
+      height="200"
+      style="opacity:0.99;">
+    
+
       <button id="next" aria-label="Next Slide">&gt;</button>
     </div>
     <div id="caption"></div>
@@ -42,7 +51,7 @@
           <li>"Produce an image of an architecturally striking bridge spanning a river, showcased in a panoramic landscape view."</li>
           <li>"Render a rustic yurt set in an open field with expansive skies, perfect for a landscape-oriented photograph."</li>
         </ul>
-      </p>
+      
       <p>Signed, Ryan Crosby, 04/14/2025 11:00 AM</p>
     </section>
   </main>
