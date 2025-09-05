@@ -204,19 +204,32 @@
       <span class="malware">tap me</span>
     </div>
   </div>
-  <script>
-    const malwareContainer = document.getElementById('malware-container');
-    function duplicateMalware() {
-      const newMalware = document.createElement('span');
-      newMalware.classList.add('malware');
-      newMalware.innerHTML = '💀';
-      newMalware.style.left = Math.random() * 250 + 'px';
-      newMalware.style.top = Math.random() * 60 + 'px';
-      newMalware.style.animationDuration = (Math.random() * 2 + 2) + 's';
-      newMalware.addEventListener('click', duplicateMalware);
-      malwareContainer.appendChild(newMalware);
+<script>
+  const malwareContainer = document.getElementById('malware-container');
+  let clickCount = 0;
+
+  function duplicateMalware() {
+    clickCount++;
+
+    if (clickCount >= 10) {
+      document.body.style.background = 'black';
+      document.body.innerHTML = "<h1 style='color: red; text-align: center; margin-top: 20%; font-size: 3rem;'>  💀 Clicking anything can lead to infection on your device, please be careful. 💀</h1>";
+      return; // stop adding more malware
     }
-    document.querySelector('.malware').addEventListener('click', duplicateMalware);
-  </script>
+
+    const newMalware = document.createElement('span');
+    newMalware.classList.add('malware');
+    newMalware.innerHTML = '💀';
+    newMalware.style.position = 'absolute';
+    newMalware.style.left = Math.random() * 250 + 'px';
+    newMalware.style.top = Math.random() * 60 + 'px';
+    newMalware.style.animationDuration = (Math.random() * 2 + 2) + 's';
+    newMalware.addEventListener('click', duplicateMalware);
+    malwareContainer.appendChild(newMalware);
+  }
+
+  document.querySelector('.malware').addEventListener('click', duplicateMalware);
+</script>
+
 </body>
 </html>
