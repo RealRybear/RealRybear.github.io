@@ -7,9 +7,9 @@
   <style>
     /* General Styles */
     body {
-      font-family: 'Roboto', sans-serif;
-      background-color: #1e1e2f;
-      color: #ffffff;
+      font-family: 'Courier New', monospace;
+      background-color: #000000;
+      color: #00ff00;
       text-align: center;
       margin: 0;
       padding: 0;
@@ -18,37 +18,39 @@
     h1 {
       font-size: 2.5em;
       margin-top: 20px;
-      background: linear-gradient(90deg, #00c6ff, #0072ff);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+      color: #00ff00;
+      text-shadow: 0 0 10px #00ff00, 0 0 20px #00ff00;
       text-transform: uppercase;
     }
     
     h2 {
-      color: #00c6ff;
+      color: #00ff00;
       font-size: 1.8em;
       margin-top: 20px;
       text-decoration: underline;
+      text-shadow: 0 0 5px #00ff00;
     }
     
     p {
       font-size: 1.2em;
       line-height: 1.6;
       margin: 10px 15%;
-      color: #d0d0d0;
+      color: #00ff00;
+      text-shadow: 0 0 3px #00ff00;
     }
     
     /* Image Styling */
     img {
       border-radius: 10px;
-      box-shadow: 0px 0px 15px rgba(0, 198, 255, 0.5);
-      transition: transform 0.3s ease-in-out;
+      box-shadow: 0px 0px 20px #00ff00;
+      transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
       width: 300px;
       height: auto;
     }
     
     img:hover {
       transform: scale(1.05);
+      box-shadow: 0px 0px 40px #00ff00;
     }
     
     /* Links Styling */
@@ -56,17 +58,21 @@
       display: inline-block;
       text-decoration: none;
       font-size: 1.2em;
-      background: linear-gradient(90deg, #ff758c, #ff7eb3);
+      background: #000000;
+      border: 2px solid #00ff00;
       padding: 10px 20px;
-      color: white;
+      color: #00ff00;
       border-radius: 5px;
       transition: all 0.3s ease-in-out;
-      margin: 10px;
+      text-shadow: 0 0 5px #00ff00;
     }
     
     a:hover {
-      background: linear-gradient(90deg, #ff7eb3, #ff758c);
+      background: #00ff00;
+      color: #000000;
+      text-shadow: none;
       transform: scale(1.1);
+      box-shadow: 0 0 20px #00ff00;
     }
     
     /* Page Layout */
@@ -90,38 +96,39 @@
 </head>
 <body>
   <div class="container">
-    <h1>Hello, welcome to my ITCS3162 Data Mining Course Page!</h1>
+    <h1>research</h1>
     
-    <img
-      src="../itis3135/images/cool-cat-rocking-out-electric-guitar_14117-1146780.jpg"
-      alt="Cool cat rocking out on an electric guitar"
-    >
+ <a href="projects/secret/index.html">
+  <img src="../itis3135/images/download.jpg" alt="Secret Image">
+</a>
+
     
-    <h2>About Me</h2>
+    <h2></h2>
     <p>
-      Welcome to my ITCS3162 course page! My name is Ryan Crosby, and I am excited
-      to explore the world of data mining. In this course, I will be working on
-      various projects and learning about data analysis techniques.
+     I am focused on cyber research that applies data mining and machine 
+     learning models to network security. My work explores how botnets function,
+      how they spread across distributed systems, and the risks they create for organizations.
+      I use methods such as linear regression, classification models, and clustering techniques
+     to analyze malicious packets and traffic patterns. By applying these approaches,
+       I aim to develop better ways to detect threats, understand attack behaviors, 
+     and create stronger defenses against large-scale attacks like DDoS.
     </p>
     
     <h2>Projects</h2>
-    <a href="/itcs3162/projects/project1/index.html">
-      Project 1: Magic The Gathering Commander Data Analysis
-    </a>
-    
+   
     <p>
       <a href="/itcs3162/projects/project2/index.html">
-        Project 2: Malicious Packet Classification Model
+         Malicious Packet Classification Model
       </a>
     </p>
     <p>
       <a href="/itcs3162/projects/project3/index.html">
-        Project 3: DDoS Regression Model
+         DDoS Regression Model
       </a>
     </p>
     <p>
       <a href="/itcs3162/projects/project4/index.html">
-        Project 4:Anomaly Detection in Network Traffic Using Clustering
+        Anomaly Detection in Network Traffic Using Clustering
       </a>
     </p>
   </div>
