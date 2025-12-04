@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Web Development Projects – Ryan Crosby</title>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: #0a0a0a;
+            color: #e6e6e6;
+            font-family: "Segoe UI", Tahoma, sans-serif;
+        }
+
+        /* Back Button */
+        .back-btn {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            padding: 0.6rem 1.3rem;
+            background: rgba(179, 0, 255, 0.85);
+            color: white;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            box-shadow: 0 0 12px rgba(179, 0, 255, 0.6);
+            transition: 0.3s;
+            font-size: 1rem;
+            z-index: 1000;
+        }
+        .back-btn:hover {
+            background: #c933ff;
+            box-shadow: 0 0 18px rgba(200, 0, 255, 0.9);
+        }
+
+        header {
+            text-align: center;
+            padding: 3rem 1rem;
+            background: linear-gradient(to right, #b300ff, #0066ff);
+            color: white;
+            box-shadow: 0 0 20px rgba(150, 0, 255, 0.3);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 3rem;
+            font-weight: 600;
+        }
+
+        header p {
+            margin-top: 0.7rem;
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        main {
+            max-width: 900px;
+            margin: 3rem auto;
+            padding: 0 1rem;
+        }
+
+        .project-card {
+            background: #111;
+            padding: 2rem;
+            border-radius: 12px;
+            margin-bottom: 2rem;
+            border: 1px solid #1f1f1f;
+            box-shadow: 0 0 12px rgba(0, 0, 0, 0.6);
+            transition: 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 0 18px rgba(150, 0, 255, 0.3);
+        }
+
+        .project-card h2 {
+            margin-top: 0;
+            font-size: 1.8rem;
+            background: linear-gradient(to right, #b300ff, #0066ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .project-card p {
+            line-height: 1.6;
+            opacity: 0.85;
+            margin-bottom: 1.5rem;
+        }
+
+        a.project-btn {
+            display: inline-block;
+            padding: 0.7rem 1.6rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            color: white;
+            background: #b300ff;
+            box-shadow: 0 0 12px rgba(179, 0, 255, 0.5);
+            transition: 0.3s;
+        }
+
+        a.project-btn:hover {
+            background: #c933ff;
+            box-shadow: 0 0 20px rgba(200, 0, 255, 0.8);
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            font-size: 0.9rem;
+            opacity: 0.6;
+        }
+
+    </style>
+</head>
+
+<body>
+
+<a href="/work/index.html" class="back-btn">← Back to Work</a>
+
+<header>
+    <h1>Web Development Projects</h1>
+    <p>Clean Interfaces • Modern UI/UX • Full-Stack Builds</p>
+</header>
+
+<main>
+
+    <!-- MICROSOFT TEAMS UI PROJECT -->
+    <div class="project-card">
+        <h2>Microsoft Teams UI Redesign</h2>
+        <p>
+            A complete redesign of Microsoft Teams focused on improving productivity, navigation,
+            and usability.  
+            Features include modular Live Rooms, a dynamic sidebar, cleaner chat layout, customizable themes,
+            and streamlined user flows.  
+            Built with <strong>HTML, CSS, JavaScript, JSON-driven components, and reusable UI modules</strong>.
+        </p>
+        <a href="/work/web/teams-ui/index.html" class="project-btn">View Project</a>
+    </div>
+
+    <!-- Placeholder for future projects -->
+    <div class="project-card">
+        <h2>Project Two (Coming Soon)</h2>
+        <p>
+            Add your next web development build here — apps, dashboards, tools,
+            or interactive front-end experiences. This page scales easily as your portfolio grows.
+        </p>
+        <a class="project-btn" href="#">Not Yet Published</a>
+    </div>
+
+    <div class="project-card">
+        <h2>Project Three (Coming Soon)</h2>
+        <p>
+            Another spot reserved for future work.  
+            We can build out entire case studies, demos, and interactive previews.
+        </p>
+        <a class="project-btn" href="#">Not Yet Published</a>
+    </div>
+
+</main>
+
+<footer>
+    © 2025 Ryan Crosby — RealRybear. All Rights Reserved.
+</footer>
+
+</body>
+</html>

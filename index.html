@@ -26,10 +26,6 @@
       margin: 0;
       text-shadow: 0 0 5px #0f0;
     }
-    header p {
-      margin: 0.5rem 0 0;
-      font-style: italic;
-    }
 
     main {
       padding: 2rem;
@@ -43,15 +39,11 @@
       margin: 0 auto;
       text-align: center;
     }
-    .content-box h2 {
-      margin-top: 1.5rem;
-      text-shadow: 0 0 3px #0f0;
-    }
-    .content-box p {
-      margin: 0.5rem 0 1.5rem;
-    }
 
-    a.main-link, a.security-link, a.blog-link {
+    a.main-link,
+    a.security-link,
+    a.work-link,
+    a.blog-link {
       display: inline-block;
       margin: 0.3rem;
       padding: 0.5rem 1.5rem;
@@ -59,6 +51,8 @@
       text-decoration: none;
       transition: 0.3s;
     }
+
+    /* Main Research Link */
     a.main-link {
       background: rgba(0, 255, 0, 0.7);
       color: #000;
@@ -69,6 +63,8 @@
       color: #0f0;
       box-shadow: 0 0 8px #fff;
     }
+
+    /* TryHackMe Link */
     a.security-link {
       background: rgba(253, 86, 19, 0.7);
       color: #fff;
@@ -79,15 +75,29 @@
       color: #0f0;
       box-shadow: 0 0 8px #fff;
     }
-    a.blog-link {
-      background: rgba(8, 250, 197, 0.7);
+
+    /* MY WORK — BLUE */
+    a.work-link {
+      background: rgba(0, 102, 255, 0.75);
       color: #fff;
-      box-shadow: 0 0 5px #aaccdd;
+      box-shadow: 0 0 8px #008cff;
+    }
+    a.work-link:hover {
+      background: rgba(255, 255, 255, 0.9);
+      color: #00f;
+      box-shadow: 0 0 10px #00aaff;
+    }
+
+    /* MY BLOG — PURPLE */
+    a.blog-link {
+      background: rgba(150, 0, 255, 0.75);
+      color: #fff;
+      box-shadow: 0 0 8px #b300ff;
     }
     a.blog-link:hover {
       background: rgba(255, 255, 255, 0.9);
-      color: #0f0;
-      box-shadow: 0 0 8px #00ccff;
+      color: #b300ff;
+      box-shadow: 0 0 10px #d580ff;
     }
 
     footer {
@@ -117,6 +127,7 @@
       box-shadow: 0 0 10px rgba(0, 170, 255, 0.8);
       animation: fadeOut 0.5s linear forwards;
     }
+
     @keyframes fadeOut {
       from { opacity: 1; transform: scale(1); }
       to { opacity: 0; transform: scale(0.5); }
@@ -145,6 +156,7 @@
       user-select: none;
       animation: moveSideToSide 3s infinite alternate ease-in-out;
     }
+
     @keyframes moveSideToSide {
       from { left: 10px; }
       to { left: 250px; }
@@ -154,35 +166,51 @@
 <body>
   <header>
     <h1>RealRybear</h1>
-    <p></p>
   </header>
+
   <main>
     <div class="content-box">
-      <a href="itcs3162/" class="main-link">My Research </a>
-      <h2></h2>
+      <a href="itcs3162/" class="main-link">My Research</a>
+
       <p>
-       
-        <a href="https://tryhackme.com/r/p/Vypen" target="_blank" rel="noopener" class="security-link">TryHackMe Profile</a>
+        <a href="https://tryhackme.com/r/p/Vypen"
+           target="_blank"
+           rel="noopener"
+           class="security-link">
+          TryHackMe Profile
+        </a>
       </p>
-     
-        
-        <a href="blog/index.html" target="_blank" rel="noopener noreferrer" class="blog-link" id="blog-link">My Blog</a>
+
+      <p>
+        <a href="/work/index.html"
+           target="_blank"
+           rel="noopener noreferrer"
+           class="work-link"
+           id="work-link">
+          My Work
+        </a>
       </p>
-      <script>
-        document.getElementById("blog-link").addEventListener("click", function(event) {
-          event.preventDefault();
-          window.location.href = "blog/index.html";
-        });
-      </script>
+
+      <p>
+        <a href="blog/index.html"
+           target="_blank"
+           rel="noopener noreferrer"
+           class="blog-link"
+           id="blog-link">
+          My Blog
+        </a>
+      </p>
     </div>
   </main>
+
   <footer>
     <nav>
-      <a href="https://www.linkedin.com/in/ryan-crosby-the-legend/" target="_blank" rel="noopener">LinkedIn</a> ~ 
-      <a href="https://github.com/RealRybear" target="_blank" rel="noopener">GitHub</a> ~ 
+      <a href="https://www.linkedin.com/in/ryan-crosby-the-legend/" target="_blank" rel="noopener">LinkedIn</a> ~
+      <a href="https://github.com/RealRybear" target="_blank" rel="noopener">GitHub</a> ~
       <a href="https://realrybear.github.io/" target="_blank" rel="noopener">GitHub.io</a>
     </nav>
   </footer>
+
   <script>
     document.addEventListener('mousemove', (e) => {
       for (let i = 0; i < 3; i++) {
@@ -198,38 +226,40 @@
       }
     });
   </script>
+
   <div class="malware-box">
-    <p>  Eliminate The Malware!</p>
+    <p>Eliminate The Malware!</p>
     <div id="malware-container">
-      <span class="malware">tap me</span>
+      <span class="malware">CLICK!</span>
     </div>
   </div>
-<script>
-  const malwareContainer = document.getElementById('malware-container');
-  let clickCount = 0;
 
-  function duplicateMalware() {
-    clickCount++;
+  <script>
+    const malwareContainer = document.getElementById('malware-container');
+    let clickCount = 0;
 
-    if (clickCount >= 10) {
-      document.body.style.background = 'black';
-      document.body.innerHTML = "<h1 style='color: red; text-align: center; margin-top: 20%; font-size: 3rem;'>  💀 Clicking anything can lead to infection on your device, please be careful. 💀</h1>";
-      return; // stop adding more malware
+    function duplicateMalware() {
+      clickCount++;
+
+      if (clickCount >= 10) {
+        document.body.style.background = 'black';
+        document.body.innerHTML =
+          "<h1 style='color: red; text-align: center; margin-top: 20%; font-size: 3rem;'>💀 Clicking anything can lead to infection on your device, please be careful. 💀</h1>";
+        return;
+      }
+
+      const newMalware = document.createElement('span');
+      newMalware.classList.add('malware');
+      newMalware.innerHTML = '💀';
+      newMalware.style.position = 'absolute';
+      newMalware.style.left = Math.random() * 250 + 'px';
+      newMalware.style.top = Math.random() * 60 + 'px';
+      newMalware.style.animationDuration = (Math.random() * 2 + 2) + 's';
+      newMalware.addEventListener('click', duplicateMalware);
+      malwareContainer.appendChild(newMalware);
     }
 
-    const newMalware = document.createElement('span');
-    newMalware.classList.add('malware');
-    newMalware.innerHTML = '💀';
-    newMalware.style.position = 'absolute';
-    newMalware.style.left = Math.random() * 250 + 'px';
-    newMalware.style.top = Math.random() * 60 + 'px';
-    newMalware.style.animationDuration = (Math.random() * 2 + 2) + 's';
-    newMalware.addEventListener('click', duplicateMalware);
-    malwareContainer.appendChild(newMalware);
-  }
-
-  document.querySelector('.malware').addEventListener('click', duplicateMalware);
-</script>
-
+    document.querySelector('.malware').addEventListener('click', duplicateMalware);
+  </script>
 </body>
 </html>

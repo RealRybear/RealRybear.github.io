@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portfolio – Microsoft Teams UI Redesign | Ryan Crosby</title>
+
+    <style>
+        :root {
+            --bg-main: #05060a;
+            --bg-card: #111319;
+            --accent-blue: #4b6fff;
+            --accent-purple: #8c4bff;
+            --accent-teal: #00d4c7;
+            --text-main: #e6e6f0;
+            --text-muted: #a2a4b3;
+            --border-subtle: #212431;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            background: radial-gradient(circle at top, #15182b 0%, #05060a 45%, #020308 100%);
+            color: var(--text-main);
+            font-family: "Segoe UI", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+        }
+
+        /* Back Button */
+        .back-btn {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            padding: 0.5rem 1.2rem;
+            background: rgba(75, 111, 255, 0.95);
+            color: #fff;
+            border-radius: 999px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            box-shadow: 0 0 12px rgba(75, 111, 255, 0.6);
+            transition: 0.25s;
+            z-index: 1000;
+        }
+
+        .back-btn:hover {
+            background: #5f84ff;
+            box-shadow: 0 0 18px rgba(95, 132, 255, 0.9);
+            transform: translateY(-1px);
+        }
+
+        header {
+            text-align: center;
+            padding: 4.5rem 1rem 3rem;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 0.25rem 0.7rem;
+            border-radius: 999px;
+            font-size: 0.8rem;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            background: rgba(0, 212, 199, 0.1);
+            color: var(--accent-teal);
+            border: 1px solid rgba(0, 212, 199, 0.4);
+            margin-bottom: 1rem;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.6rem;
+            font-weight: 650;
+            letter-spacing: 0.02em;
+            background: linear-gradient(to right, #ffffff, #c7d0ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        header p.subtitle {
+            margin: 0.8rem auto 0;
+            max-width: 650px;
+            font-size: 1.05rem;
+            color: var(--text-muted);
+        }
+
+        main {
+            max-width: 1000px;
+            margin: 0 auto 3rem;
+            padding: 0 1.2rem 4rem;
+        }
+
+        .card {
+            background: linear-gradient(145deg, rgba(9, 11, 19, 0.98), rgba(13, 15, 25, 0.98));
+            border-radius: 18px;
+            padding: 1.9rem 1.7rem 1.7rem;
+            border: 1px solid var(--border-subtle);
+            box-shadow: 0 0 18px rgba(0, 0, 0, 0.7);
+            margin-bottom: 1.8rem;
+        }
+
+        .card h2 {
+            margin-top: 0;
+            font-size: 1.4rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .card h2 span.section-num {
+            font-size: 0.9rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--accent-teal);
+            display: block;
+            margin-bottom: 0.2rem;
+        }
+
+        .card p {
+            margin-top: 0.35rem;
+            margin-bottom: 0.9rem;
+            line-height: 1.6;
+            color: var(--text-muted);
+        }
+
+        .overview-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1rem 2rem;
+            margin-top: 0.8rem;
+        }
+
+        .overview-item-label {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--text-muted);
+        }
+
+        .overview-item-value {
+            font-size: 0.98rem;
+        }
+
+        .link-list {
+            list-style: none;
+            padding-left: 0;
+            margin: 0.4rem 0 0;
+        }
+
+        .link-list li {
+            margin-bottom: 0.35rem;
+        }
+
+        .link-list a {
+            color: #9fb5ff;
+            text-decoration: none;
+        }
+
+        .link-list a:hover {
+            text-decoration: underline;
+        }
+
+        .btn-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+            margin-top: 1.2rem;
+        }
+
+        .btn-primary,
+        .btn-ghost {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.65rem 1.4rem;
+            border-radius: 999px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            text-decoration: none;
+            cursor: pointer;
+            transition: 0.25s;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
+            color: #fff;
+            box-shadow: 0 0 14px rgba(75, 111, 255, 0.7);
+            border: none;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 0 20px rgba(95, 132, 255, 0.95);
+        }
+
+        .btn-ghost {
+            background: transparent;
+            color: #c7d0ff;
+            border: 1px solid rgba(138, 150, 255, 0.7);
+        }
+
+        .btn-ghost:hover {
+            background: rgba(138, 150, 255, 0.12);
+            box-shadow: 0 0 14px rgba(138, 150, 255, 0.6);
+        }
+
+        .btn-primary span,
+        .btn-ghost span {
+            margin-left: 0.4rem;
+            font-size: 1.1rem;
+        }
+
+        .pill-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 0.6rem;
+        }
+
+        .pill {
+            padding: 0.25rem 0.7rem;
+            border-radius: 999px;
+            font-size: 0.8rem;
+            background: rgba(111, 132, 255, 0.14);
+            border: 1px solid rgba(111, 132, 255, 0.5);
+            color: #d7ddff;
+        }
+
+        .pill.alt {
+            background: rgba(0, 212, 199, 0.1);
+            border-color: rgba(0, 212, 199, 0.5);
+            color: #b8fff8;
+        }
+
+        .pill.warn {
+            background: rgba(255, 191, 72, 0.12);
+            border-color: rgba(255, 191, 72, 0.5);
+            color: #ffe4b3;
+        }
+
+        .feature-list {
+            list-style: none;
+            padding-left: 0;
+            margin: 0.3rem 0 0;
+        }
+
+        .feature-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.55rem;
+            margin-bottom: 0.55rem;
+            font-size: 0.97rem;
+            color: var(--text-muted);
+        }
+
+        .feature-bullet {
+            margin-top: 0.28rem;
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: radial-gradient(circle, var(--accent-purple) 0%, var(--accent-blue) 80%);
+            box-shadow: 0 0 8px rgba(140, 75, 255, 0.7);
+            flex-shrink: 0;
+        }
+
+        .journey-columns {
+            display: grid;
+            grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+            gap: 1.5rem;
+        }
+
+        @media (max-width: 900px) {
+            .journey-columns {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .screenshot-row {
+            display: grid;
+            grid-template-columns: minmax(0, 2fr) minmax(0, 2fr);
+            gap: 1.5rem;
+            align-items: start;
+        }
+
+        @media (max-width: 900px) {
+            .screenshot-row {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .screenshot-wrapper {
+            background: #05060c;
+            border-radius: 14px;
+            border: 1px solid var(--border-subtle);
+            padding: 0.9rem;
+            text-align: center;
+        }
+
+        .screenshot-wrapper img {
+            max-width: 100%;
+            border-radius: 10px;
+            display: block;
+        }
+
+        .screenshot-caption {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-top: 0.5rem;
+        }
+
+        pre {
+            background: #05060c;
+            color: #dfe3ff;
+            border-radius: 10px;
+            padding: 0.9rem;
+            overflow-x: auto;
+            font-size: 0.85rem;
+            border: 1px solid var(--border-subtle);
+        }
+
+        code {
+            font-family: "Fira Code", "Cascadia Code", Consolas, monospace;
+        }
+
+        footer {
+            text-align: center;
+            padding: 1.5rem 1rem 2rem;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        .note {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin-top: 0.4rem;
+        }
+    </style>
+</head>
+
+<body>
+
+<a href="/work/web/index.html" class="back-btn">← Back to Web Projects</a>
+
+<header>
+    <div class="badge">Capstone · Portfolio Entry</div>
+    <h1>Microsoft Teams UI Redesign (InnovateSync)</h1>
+    <p class="subtitle">
+        A capstone project focused on rethinking Microsoft Teams with cleaner navigation, Live Rooms,
+        and a more focused collaboration experience – built as a production-quality prototype for my portfolio.
+    </p>
+</header>
+
+<main>
+
+    <!-- 1. Project Overview -->
+    <section class="card" id="project-overview">
+        <h2>
+            <span class="section-num">1. Project Overview</span>
+            Project Summary & Key Links
+        </h2>
+
+        <p>
+            This capstone project reimagines Microsoft Teams as <strong>InnovateSync</strong>, a more focused and
+            streamlined collaboration platform. The redesign introduces <em>Live Rooms</em>, a cleaner information
+            architecture, and an updated visual style aimed at reducing clutter and improving productivity for
+            students and professionals working in teams.
+        </p>
+
+        <div class="overview-grid">
+            <div>
+                <div class="overview-item-label">Project Name</div>
+                <div class="overview-item-value">InnovateSync – Microsoft Teams UI Redesign</div>
+            </div>
+            <div>
+                <div class="overview-item-label">My Role</div>
+                <div class="overview-item-value">Lead Front-End Developer & UX Contributor</div>
+            </div>
+            <div>
+                <div class="overview-item-label">Team Size</div>
+                <div class="overview-item-value">3 (cross-functional student team)</div>
+            </div>
+            <div>
+                <div class="overview-item-label">Duration</div>
+                <div class="overview-item-value">One semester (Sprint-based capstone)</div>
+            </div>
+        </div>
+
+        <div style="margin-top:1.1rem;">
+            <div class="overview-item-label">Key Links</div>
+            <ul class="link-list">
+                <li>
+                    <strong>Live Site:</strong>
+                    <a href="https://jstega13.github.io/ITIS-5390/" target="_blank" rel="noopener">
+                        https://jstega13.github.io/ITIS-5390/
+                    </a>
+                </li>
+                <li>
+                    <strong>Figma Prototype:</strong>
+                    <a href="#" target="_blank" rel="noopener">
+                        (Add your Figma link here)
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="btn-row">
+            <a href="https://jstega13.github.io/ITIS-5390/" class="btn-primary" target="_blank" rel="noopener">
+                Open Live Demo
+                <span>↗</span>
+            </a>
+            <a href="#" class="btn-ghost">
+                View Source Code
+                <span>&lt;/&gt;</span>
+            </a>
+        </div>
+
+        <p class="note">
+            Replace the Figma and Source Code links with your actual URLs before submitting.
+        </p>
+    </section>
+
+    <!-- 2. Your Contributions -->
+    <section class="card" id="your-contributions">
+        <h2>
+            <span class="section-num">2. Your Contributions</span>
+            Features I Built & Technologies Used
+        </h2>
+
+        <p>
+            My primary responsibility was taking the team’s UX direction and turning it into a working interface.
+            I focused on front-end implementation, layout, and interaction behavior while keeping the design
+            aligned with our Figma prototypes.
+        </p>
+
+        <h3 style="font-size:1.02rem;margin-top:1.1rem;">Features I Implemented</h3>
+        <ul class="feature-list">
+            <li>
+                <span class="feature-bullet"></span>
+                <div>
+                    <strong>Live Rooms navigation layout</strong> – Added a dedicated Live Rooms entry in the left
+                    nav rail and designed the layout for joining and managing live collaboration spaces.
+                </div>
+            </li>
+            <li>
+                <span class="feature-bullet"></span>
+                <div>
+                    <strong>Top navigation bar</strong> – Implemented a custom header with the product logo, search,
+                    and user profile/avatar controls consistent across pages.
+                </div>
+            </li>
+            <li>
+                <span class="feature-bullet"></span>
+                <div>
+                    <strong>Teams, Chat, and Calendar pages</strong> – Built the main page layouts using semantic
+                    HTML and modular CSS so components can be reused across the app.
+                </div>
+            </li>
+            <li>
+                <span class="feature-bullet"></span>
+                <div>
+                    <strong>Responsive behavior</strong> – Ensured the core layouts adjust gracefully on smaller
+                    screens and laptop resolutions so the experience remains usable in different contexts.
+                </div>
+            </li>
+            <li>
+                <span class="feature-bullet"></span>
+                <div>
+                    <strong>JSON-driven content structure</strong> (planned) – Designed the structure for using JSON
+                    to populate Live Rooms and Teams data, making it easier to scale the prototype in future sprints.
+                </div>
+            </li>
+        </ul>
+
+        <h3 style="font-size:1.02rem;margin-top:1.3rem;">Technologies Used</h3>
+        <div class="pill-row">
+            <span class="pill">HTML5</span>
+            <span class="pill">CSS3 (custom layout & styling)</span>
+            <span class="pill">Flexbox / CSS Grid</span>
+            <span class="pill">Vanilla JavaScript</span>
+            <span class="pill alt">JSON (data structure planning)</span>
+            <span class="pill.warn">Responsive & Accessible Design Practices</span>
+        </div>
+    </section>
+
+    <!-- 3. My Journey -->
+    <section class="card" id="my-journey">
+        <h2>
+            <span class="section-num">3. My Journey</span>
+            What I Learned, Challenges, and Skills Gained
+        </h2>
+
+        <div class="journey-columns">
+            <div>
+                <h3 style="font-size:1.02rem;margin-top:0;">What I Learned</h3>
+                <p>
+                    This project pushed me to think beyond just “making a page look good.” I had to consider
+                    user flows, navigation friction, and how people actually move between Teams, Chat, Live Rooms,
+                    and Calendar in a real workday. I also learned how to translate UX discussions and sketches into
+                    precise HTML/CSS structures that other developers could understand and extend.
+                </p>
+
+                <h3 style="font-size:1.02rem;margin-top:1rem;">Challenges I Overcame</h3>
+                <p>
+                    The biggest challenges were balancing scope with quality and keeping the layouts consistent
+                    across multiple pages. As the design evolved, I had to refactor CSS to avoid duplication and
+                    ensure components were reusable. Coordinating changes with my teammates while we all iterated
+                    on features also forced me to communicate more clearly and document decisions.
+                </p>
+            </div>
+
+            <div>
+                <h3 style="font-size:1.02rem;margin-top:0;">Skills I Gained</h3>
+                <ul class="feature-list">
+                    <li>
+                        <span class="feature-bullet"></span>
+                        <div>Improved at structuring large front-end codebases with reusable components.</div>
+                    </li>
+                    <li>
+                        <span class="feature-bullet"></span>
+                        <div>Gained experience aligning UI implementation with Figma prototypes and UX goals.</div>
+                    </li>
+                    <li>
+                        <span class="feature-bullet"></span>
+                        <div>Strengthened communication skills when merging design, development, and feedback.</div>
+                    </li>
+                    <li>
+                        <span class="feature-bullet"></span>
+                        <div>Learned how to design navigation and layouts that scale across multiple feature areas.</div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. Visuals -->
+    <section class="card" id="visuals">
+        <h2>
+            <span class="section-num">4. Visuals</span>
+            Screenshots & Sample Code
+        </h2>
+
+        <div class="screenshot-row">
+            <div class="screenshot-wrapper">
+                <!-- Replace with your actual screenshot file -->
+                <img src="screenshot-teams-ui-main.png" alt="Screenshot of the InnovateSync Microsoft Teams UI main interface" />
+                <div class="screenshot-caption">
+                    Screenshot of the redesigned main interface with navigation rail, top bar, and content area.
+                </div>
+            </div>
+
+            <div>
+                <p>
+                    Below is a small sample of the HTML structure used to define the navigation rail and top bar.
+                    The real project includes additional components, accessibility attributes, and responsive rules.
+                </p>
+                <pre><code>&lt;!-- Left Navigation Rail --&gt;
+&lt;nav class="nav-rail"&gt;
+  &lt;a href="teams.html" class="nav-item" title="Teams"&gt;
+    &lt;i class="fas fa-users"&gt;&lt;/i&gt;
+  &lt;/a&gt;
+
+  &lt;a href="live_rooms.html" class="nav-item" title="Live Rooms"&gt;
+    &lt;i class="fas fa-broadcast-tower"&gt;&lt;/i&gt;
+  &lt;/a&gt;
+
+  &lt;a href="chat.html" class="nav-item" title="Chat"&gt;
+    &lt;i class="fas fa-comment"&gt;&lt;/i&gt;
+  &lt;/a&gt;
+&lt;/nav&gt;
+
+&lt;!-- Top Bar --&gt;
+&lt;header class="topbar"&gt;
+  &lt;div class="logo-area"&gt;InnovateSync&lt;/div&gt;
+  &lt;input type="search" placeholder="Search" class="search-input" /&gt;
+  &lt;button class="profile-btn"&gt;RC&lt;/button&gt;
+&lt;/header&gt;</code></pre>
+                <p class="note">
+                    You can swap the placeholder screenshot file name for your actual exported image(s) from the project.
+                </p>
+            </div>
+        </div>
+    </section>
+
+</main>
+
+<footer>
+    © 2025 Ryan Crosby — RealRybear. Microsoft Teams is a registered trademark of Microsoft; this is a conceptual redesign for educational and portfolio purposes.
+</footer>
+
+</body>
+</html>
