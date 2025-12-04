@@ -539,59 +539,73 @@
     </section>
 
     <!-- 4. Visuals -->
-    <section class="card" id="visuals">
-        <h2>
-            <span class="section-num">4. Visuals</span>
-            Screenshots & Sample Code
-        </h2>
+<section class="card" id="visuals">
+    <h2>
+        <span class="section-num">4. Visuals</span>
+        Screenshots & Sample Code
+    </h2>
 
-        <div class="screenshot-row">
-            <div class="screenshot-wrapper">
-                <!-- Replace with your actual screenshot file -->
-                <img src="screenshot-teams-ui-main.png" alt="Screenshot of the InnovateSync Microsoft Teams UI main interface" />
-                <div class="screenshot-caption">
-                    Screenshot of the redesigned main interface with navigation rail, top bar, and content area.
-                </div>
+    <!-- FIRST ROW: Main UI + Sample Code -->
+    <div class="screenshot-row">
+        <div class="screenshot-wrapper">
+            <img src="screenshot-teams-ui-main.png" alt="InnovateSync Main Interface Screenshot" />
+            <div class="screenshot-caption">
+                Main interface with navigation rail, top bar, and content area.
             </div>
+        </div>
 
-            <div>
-                <p>
-                    Below is a small sample of the HTML structure used to define the navigation rail and top bar.
-                    The real project includes additional components, accessibility attributes, and responsive rules.
-                </p>
-                <pre><code>&lt;!-- Left Navigation Rail --&gt;
+        <div>
+            <p>
+                Below is a small sample of the HTML structure used to define the navigation rail and top bar.
+                The real project includes additional components, accessibility attributes, and responsive rules.
+            </p>
+            <pre><code>&lt;!-- Left Navigation Rail --&gt;
 &lt;nav class="nav-rail"&gt;
-  &lt;a href="teams.html" class="nav-item" title="Teams"&gt;
-    &lt;i class="fas fa-users"&gt;&lt;/i&gt;
-  &lt;/a&gt;
-
-  &lt;a href="live_rooms.html" class="nav-item" title="Live Rooms"&gt;
-    &lt;i class="fas fa-broadcast-tower"&gt;&lt;/i&gt;
-  &lt;/a&gt;
-
-  &lt;a href="chat.html" class="nav-item" title="Chat"&gt;
-    &lt;i class="fas fa-comment"&gt;&lt;/i&gt;
-  &lt;/a&gt;
+  &lt;a href="teams.html" class="nav-item"&gt;&lt;i class="fas fa-users"&gt;&lt;/i&gt;&lt;/a&gt;
+  &lt;a href="live_rooms.html" class="nav-item"&gt;&lt;i class="fas fa-broadcast-tower"&gt;&lt;/i&gt;&lt;/a&gt;
+  &lt;a href="chat.html" class="nav-item"&gt;&lt;i class="fas fa-comment"&gt;&lt;/i&gt;&lt;/a&gt;
 &lt;/nav&gt;
 
 &lt;!-- Top Bar --&gt;
 &lt;header class="topbar"&gt;
   &lt;div class="logo-area"&gt;InnovateSync&lt;/div&gt;
-  &lt;input type="search" placeholder="Search" class="search-input" /&gt;
+  &lt;input type="search" placeholder="Search" /&gt;
   &lt;button class="profile-btn"&gt;RC&lt;/button&gt;
-&lt;/header&gt;</code></pre>
-                <p class="note">
-                    You can swap the placeholder screenshot file name for your actual exported image(s) from the project.
-                </p>
+&lt;/header&gt;
+</code></pre>
+        </div>
+    </div>
+
+    <!-- SECOND ROW: Live Rooms Screenshot -->
+    <div class="screenshot-row" style="margin-top: 2rem;">
+        <div class="screenshot-wrapper">
+            <img src="liveroom.png" alt="Live Rooms Interface Screenshot" />
+            <div class="screenshot-caption">
+                Live Rooms feature showing active workspaces and join controls.
             </div>
         </div>
-    </section>
 
-</main>
+        <div class="screenshot-wrapper">
+            <img src="login.png" alt="Login Interface Screenshot" />
+            <div class="screenshot-caption">Login page redesigned.            </div>
+        </div>
+    </div>
 
-<footer>
-    © 2025 Ryan Crosby — RealRybear. Microsoft Teams is a registered trademark of Microsoft; this is a conceptual redesign for educational and portfolio purposes.
-</footer>
+    <!-- THIRD ROW: 3 Extra Screenshots Placeholder -->
+    <h3 style="margin-top:2rem; font-size:1.05rem;">Additional Screenshots</h3>
+    <p style="color: var(--text-muted); margin-top:0.4rem;">
+    </p>
 
-</body>
-</html>
+    <div class="screenshot-row" style="margin-top:1rem;">
+        <div class="screenshot-wrapper">
+            <img src="call.png" alt="Placeholder Screenshot 1" />
+            <div class="screenshot-caption">UI for Calls</div>
+        </div>
+
+        <div class="screenshot-wrapper">
+            <img src="uploads.png" alt="Placeholder Screenshot 2" />
+            <div class="screenshot-caption">UI updated for Uploads page</div>
+        </div>
+
+    </div>
+</section>
