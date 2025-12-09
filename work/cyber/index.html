@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cybersecurity Work – Ryan Crosby</title>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: #0a0a0a;
+            color: #e6e6e6;
+            font-family: "Segoe UI", Tahoma, sans-serif;
+        }
+
+        /* Back Button */
+        .back-btn {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            padding: 0.6rem 1.3rem;
+            background: rgba(0, 102, 255, 0.75);
+            color: white;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            box-shadow: 0 0 10px rgba(0, 102, 255, 0.5);
+            transition: 0.3s;
+            font-size: 1rem;
+            z-index: 10;
+        }
+        .back-btn:hover {
+            background: rgba(0, 102, 255, 1);
+            box-shadow: 0 0 16px rgba(0, 140, 255, 0.8);
+        }
+
+        header {
+            text-align: center;
+            padding: 3rem 1rem;
+            background: linear-gradient(to right, #0066ff, #8000ff);
+            color: white;
+            box-shadow: 0 0 20px rgba(0, 102, 255, 0.4);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 3rem;
+            font-weight: 600;
+        }
+
+        header p {
+            margin-top: 0.7rem;
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        main {
+            max-width: 900px;
+            margin: 3rem auto;
+            padding: 0 1rem;
+        }
+
+        .section-card {
+            background: #111;
+            padding: 2rem;
+            border-radius: 12px;
+            margin-bottom: 2rem;
+            border: 1px solid #1f1f1f;
+            box-shadow: 0 0 12px rgba(0, 0, 0, 0.6);
+            transition: 0.3s ease;
+        }
+
+        .section-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 0 18px rgba(0, 102, 255, 0.3);
+        }
+
+        .section-card h2 {
+            margin-top: 0;
+            font-size: 1.8rem;
+            background: linear-gradient(to right, #0066ff, #b300ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .section-card p {
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+            opacity: 0.9;
+        }
+
+        a.section-btn {
+            display: inline-block;
+            padding: 0.7rem 1.6rem;
+            margin-top: 0.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.05rem;
+            transition: 0.3s;
+        }
+
+        /* Button Styles */
+        .btn-primary {
+            background: #0066ff;
+            color: #fff;
+            box-shadow: 0 0 10px rgba(0, 102, 255, 0.4);
+        }
+        .btn-primary:hover {
+            background: #3388ff;
+            box-shadow: 0 0 16px rgba(0, 140, 255, 0.7);
+        }
+
+        .btn-secondary {
+            background: #b300ff;
+            color: #fff;
+            box-shadow: 0 0 10px rgba(179, 0, 255, 0.4);
+        }
+        .btn-secondary:hover {
+            background: #c933ff;
+            box-shadow: 0 0 16px rgba(200, 0, 255, 0.6);
+        }
+
+        .btn-accent {
+            background: #00cc66;
+            color: #fff;
+            box-shadow: 0 0 10px rgba(0, 255, 140, 0.4);
+        }
+        .btn-accent:hover {
+            background: #00e67a;
+            box-shadow: 0 0 16px rgba(0, 255, 170, 0.7);
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            font-size: 0.9rem;
+            opacity: 0.6;
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Back button -->
+    <a href="../index.html" class="back-btn">← Back to My Work</a>
+
+    <header>
+        <h1>Cybersecurity Work</h1>
+        <p>Hands-on projects in offensive and defensive security, plus real-world practice.</p>
+    </header>
+
+    <main>
+
+        <!-- Project 2 -->
+        <div class="section-card">
+            <h2>Project  – Malicious Packet Classification Research Project</h2>
+            <p>
+                This project focuses on foundational cybersecurity concepts and practical
+                skills, including secure configuration, basic analysis, and structured
+                reporting. It demonstrates my ability to follow a methodical process and
+                communicate technical findings clearly.
+            </p>
+            <a href="https://realrybear.github.io/itcs3162/projects/project2/index.html"
+               class="section-btn btn-primary"
+               target="_blank"
+               rel="noopener noreferrer">
+                View Project 
+            </a>
+        </div>
+
+        <!-- Project 3 -->
+        <div class="section-card">
+            <h2>DDoS Botnet Attack Volume Prediction Project</h2>
+            <p>
+                In this project, I dig deeper into system and data analysis:
+                examining security-relevant information, applying structured reasoning,
+                and tying technical observations back to security impact. It showcases
+                my approach to understanding how systems behave under real workloads.
+            </p>
+            <a href="https://realrybear.github.io/itcs3162/projects/project3/index.html"
+               class="section-btn btn-secondary"
+               target="_blank"
+               rel="noopener noreferrer">
+                View Project 
+            </a>
+        </div>
+
+        <!-- Project 4 -->
+        <div class="section-card">
+            <h2>Anomaly Detection in Network Traffic Using Clustering</h2>
+            <p>
+                This capstone-style project integrates multiple concepts: data handling,
+                analysis, and security-minded design. It highlights my ability to work
+                with more complex scenarios, document processes, and deliver a complete
+                technical solution end to end.
+            </p>
+            <a href="https://realrybear.github.io/itcs3162/projects/project4/index.html"
+               class="section-btn btn-primary"
+               target="_blank"
+               rel="noopener noreferrer">
+                View Project 
+            </a>
+        </div>
+
+        <!-- TryHackMe Profile -->
+        <div class="section-card">
+            <h2>TryHackMe – Practical Offensive & Defensive Skills</h2>
+            <p>
+                Outside of classwork, I train on TryHackMe to stay sharp in real-world,
+                hands-on environments. I’m currently ranked in the
+                <strong>top 2% of users on the platform</strong>, out of roughly
+                <strong>3 million+ learners worldwide</strong>.
+            </p>
+            <p>
+                On TryHackMe I actively practice both <strong>offensive</strong> techniques
+                (reconnaissance, exploitation, privilege escalation, web and network attacks)
+                and <strong>defensive</strong> methods (log analysis, detection engineering,
+                hardening, and incident response thinking). That dual focus lets me think like
+                an attacker while still designing and defending systems responsibly.
+            </p>
+            <a href="https://tryhackme.com/r/p/Vypen"
+               class="section-btn btn-accent"
+               target="_blank"
+               rel="noopener noreferrer">
+                View My TryHackMe Profile
+            </a>
+        </div>
+
+    </main>
+
+    <footer>
+        © 2025 Ryan Crosby — RealRybear. All Rights Reserved.
+    </footer>
+
+</body>
+</html>
