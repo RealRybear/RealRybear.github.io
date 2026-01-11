@@ -3,134 +3,172 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ITCS3162 - Data Mining Course Page</title>
+  <title>ITCS 3162 – Data Mining Research</title>
+
   <style>
-    /* General Styles */
+    /* === GLOBAL === */
     body {
-      font-family: 'Courier New', monospace;
-      background-color: #000000;
-      color: #00ff00;
-      text-align: center;
       margin: 0;
       padding: 0;
+      background: linear-gradient(135deg, #050814, #0b1020, #050814);
+      color: #e5e7eb;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont,
+                   "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     }
-    
-    h1 {
-      font-size: 2.5em;
-      margin-top: 20px;
-      color: #00ff00;
-      text-shadow: 0 0 10px #00ff00, 0 0 20px #00ff00;
-      text-transform: uppercase;
-    }
-    
-    h2 {
-      color: #00ff00;
-      font-size: 1.8em;
-      margin-top: 20px;
-      text-decoration: underline;
-      text-shadow: 0 0 5px #00ff00;
-    }
-    
-    p {
-      font-size: 1.2em;
-      line-height: 1.6;
-      margin: 10px 15%;
-      color: #00ff00;
-      text-shadow: 0 0 3px #00ff00;
-    }
-    
-    /* Image Styling */
-    img {
-      border-radius: 10px;
-      box-shadow: 0px 0px 20px #00ff00;
-      transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-      width: 300px;
-      height: auto;
-    }
-    
-    img:hover {
-      transform: scale(1.05);
-      box-shadow: 0px 0px 40px #00ff00;
-    }
-    
-    /* Links Styling */
-    a {
-      display: inline-block;
+
+    /* === BACK BUTTON === */
+    .back-btn {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      padding: 0.6rem 1.4rem;
+      background: rgba(37, 99, 235, 0.9);
+      color: #f9fafb;
+      border-radius: 8px;
       text-decoration: none;
-      font-size: 1.2em;
-      background: #000000;
-      border: 2px solid #00ff00;
-      padding: 10px 20px;
-      color: #00ff00;
-      border-radius: 5px;
-      transition: all 0.3s ease-in-out;
-      text-shadow: 0 0 5px #00ff00;
+      font-weight: 600;
+      box-shadow: 0 6px 16px rgba(37, 99, 235, 0.45);
+      transition: 0.2s ease;
+      font-size: 0.95rem;
     }
-    
-    a:hover {
-      background: #00ff00;
-      color: #000000;
-      text-shadow: none;
-      transform: scale(1.1);
-      box-shadow: 0 0 20px #00ff00;
+
+    .back-btn:hover {
+      background: rgba(29, 78, 216, 1);
+      transform: translateY(-1px);
+      box-shadow: 0 10px 22px rgba(37, 99, 235, 0.6);
     }
-    
-    /* Page Layout */
+
+    /* === LAYOUT === */
     .container {
-      max-width: 800px;
-      margin: auto;
-      padding: 20px;
+      max-width: 850px;
+      margin: 4rem auto;
+      padding: 2.5rem;
+      background: rgba(15, 23, 42, 0.96);
+      border-radius: 16px;
+      border: 1px solid rgba(148, 163, 184, 0.35);
+      box-shadow: 0 22px 50px rgba(15, 23, 42, 0.9);
     }
-    
-    /* Responsive Design */
+
+    h1 {
+      margin-top: 0;
+      font-size: 1.9rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #f9fafb;
+    }
+
+    h2 {
+      margin-top: 2.2rem;
+      font-size: 0.85rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: #9ca3af;
+    }
+
+    p {
+      font-size: 0.95rem;
+      line-height: 1.75;
+      color: #cbd5f5;
+      margin: 0.9rem 0;
+    }
+
+    /* === IMAGE === */
+    img {
+      display: block;
+      margin: 2rem auto;
+      width: 320px;
+      max-width: 100%;
+      border-radius: 12px;
+      box-shadow: 0 12px 28px rgba(15, 23, 42, 0.8);
+      transition: transform 0.25s ease;
+    }
+
+    img:hover {
+      transform: scale(1.04);
+    }
+
+    /* === LINKS === */
+    a.project-link {
+      display: inline-block;
+      margin-top: 0.8rem;
+      padding: 0.6rem 1.5rem;
+      border-radius: 999px;
+      background: #2563eb;
+      color: #f9fafb;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.9rem;
+      box-shadow: 0 8px 18px rgba(37, 99, 235, 0.45);
+      transition: 0.2s ease;
+    }
+
+    a.project-link:hover {
+      background: #1d4ed8;
+      transform: translateY(-1px);
+      box-shadow: 0 14px 26px rgba(37, 99, 235, 0.6);
+    }
+
+    /* === RESPONSIVE === */
     @media (max-width: 768px) {
-      p {
-        margin: 10px 5%;
-      }
-      img {
-        width: 100%;
-        height: auto;
+      .container {
+        margin: 3rem 1rem;
+        padding: 2rem;
       }
     }
   </style>
 </head>
-<body>
-  <div class="container">
-    <h1>research</h1>
-    
- <a href="projects/secret/index.html">
-  <img src="../itis3135/images/download.jpg" alt="Secret Image">
-</a>
 
-    
-    <h2></h2>
-    <p>
-     I am focused on cyber research that applies data mining and machine 
-     learning models to network security. My work explores how botnets function,
-      how they spread across distributed systems, and the risks they create for organizations.
-      I use methods such as linear regression, classification models, and clustering techniques
-     to analyze malicious packets and traffic patterns. By applying these approaches,
-       I aim to develop better ways to detect threats, understand attack behaviors, 
-     and create stronger defenses against large-scale attacks like DDoS.
-    </p>
-    
-    <h2>Projects</h2>
-   
-    <p>
-      <a href="/itcs3162/projects/project2/index.html">
-         Malicious Packet Classification Model
-      </a>
-    </p>
-    <p>
-      <a href="/itcs3162/projects/project3/index.html">
-         DDoS Regression Model
-      </a>
-    </p>
-    <p>
-      <a href="/itcs3162/projects/project4/index.html">
-        Anomaly Detection in Network Traffic Using Clustering
-      </a>
-    </p>
-  </div>
+<body>
+
+<a href="../index.html" class="back-btn">← Back Home</a>
+
+<div class="container">
+
+  <h1>Research</h1>
+
+  <a href="projects/secret/index.html">
+    <img src="../itis3135/images/download.jpg" alt="Research Visualization">
+  </a>
+<p class="image-caption">
+  Click the image to enter a capture-the-flag challenge 
+</p>
+
+  <h2>Research Focus</h2>
+  <p>
+    My research focuses on applying data mining and machine learning techniques
+    to cybersecurity problems. Specifically, I study how botnets operate, how
+    they propagate across distributed systems, and the risks they pose to modern
+    organizations.
+  </p>
+
+  <p>
+    I work with methods including linear regression, classification models, and
+    clustering techniques to analyze malicious packets and network traffic
+    patterns. The goal is to improve threat detection, understand adversarial
+    behavior, and strengthen defenses against large-scale attacks such as DDoS.
+  </p>
+
+  <h2>Projects</h2>
+
+  <p>
+    <a class="project-link" href="projects/project2/index.html">
+      Malicious Packet Classification Model
+    </a>
+  </p>
+
+  <p>
+    <a class="project-link" href="projects/project3/index.html">
+      DDoS Regression Model
+    </a>
+  </p>
+
+  <p>
+    <a class="project-link" href="projects/project4/index.html">
+      Anomaly Detection in Network Traffic Using Clustering
+    </a>
+  </p>
+
+</div>
+
 </body>
 </html>
