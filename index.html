@@ -4,305 +4,212 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Ryan Crosby - RealRybear</title>
+
   <style>
-   
-  /* === GLOBAL: CALMER, MORE PROFESSIONAL LOOK === */
-  html, body {
-    margin: 0;
-    padding: 0;
-    background: linear-gradient(135deg, #050814, #0b1020, #050814);
-    background-size: 200% 200%;
-    animation: subtleGlow 30s ease-in-out infinite;
-    color: #e5e7eb; /* soft off-white */
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
-                 sans-serif;
-    min-height: 100vh;
-    overflow-x: hidden;
-  }
-
-  @keyframes subtleGlow {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
-  }
-
-  /* === HEADER === */
-  header {
-    background: rgba(3, 7, 18, 0.92);
-    padding: 1rem 1.5rem;
-    text-align: center;
-    border-bottom: 1px solid rgba(148, 163, 184, 0.4); /* slate border */
-    box-shadow: 0 8px 20px rgba(15, 23, 42, 0.7);
-  }
-
-  header h1 {
-    margin: 0;
-    font-size: 1.8rem;
-    color: #f9fafb;
-    letter-spacing: 0.06em;
-  }
-
-  /* === MAIN CONTENT === */
-  main {
-    padding: 2.5rem 1.5rem;
-  }
-
-  .content-box {
-    background: rgba(15, 23, 42, 0.92); /* deep slate */
-    padding: 2rem;
-    border-radius: 14px;
-    max-width: 650px;
-    margin: 0 auto;
-    text-align: center;
-    border: 1px solid rgba(148, 163, 184, 0.5); /* subtle professional border */
-    box-shadow: 0 18px 45px rgba(15, 23, 42, 0.9);
-  }
-
-  .content-box p {
-    margin: 0.75rem 0;
-    color: #cbd5f5;
-    font-size: 0.98rem;
-  }
-
-  /* === BUTTONS === */
-  a.main-link,
-  a.security-link,
-  a.work-link,
-  a.blog-link {
-    display: inline-block;
-    margin: 0.4rem;
-    padding: 0.65rem 1.7rem;
-    border-radius: 999px; /* pill buttons */
-    text-decoration: none;
-    transition: transform 0.18s ease, box-shadow 0.18s ease,
-                background-color 0.18s ease, color 0.18s ease;
-    font-weight: 600;
-    font-size: 0.95rem;
-    border: 1px solid transparent;
-  }
-
-  /* Main Research – soft green */
-  a.main-link {
-    background: #16a34a;
-    color: #f9fafb;
-    box-shadow: 0 10px 18px rgba(22, 163, 74, 0.35);
-  }
-  a.main-link:hover {
-    background: #15803d;
-    box-shadow: 0 16px 28px rgba(22, 163, 74, 0.45);
-    transform: translateY(-1px);
-  }
-
-  /* TryHackMe – warm orange */
-  a.security-link {
-    background: #f97316;
-    color: #0b1020;
-    box-shadow: 0 10px 18px rgba(249, 115, 22, 0.4);
-  }
-  a.security-link:hover {
-    background: #ea580c;
-    color: #0b1020;
-    box-shadow: 0 16px 28px rgba(249, 115, 22, 0.5);
-    transform: translateY(-1px);
-  }
-
-  /* My Work – professional blue */
-  a.work-link {
-    background: #3b82f6;
-    color: #0b1020;
-    box-shadow: 0 10px 18px rgba(59, 130, 246, 0.45);
-  }
-  a.work-link:hover {
-    background: #2563eb;
-    color: #f9fafb;
-    box-shadow: 0 16px 28px rgba(59, 130, 246, 0.55);
-    transform: translateY(-1px);
-  }
-
-  /* Blog – calm purple */
-  a.blog-link {
-    background: #8b5cf6;
-    color: #0b1020;
-    box-shadow: 0 10px 18px rgba(139, 92, 246, 0.45);
-  }
-  a.blog-link:hover {
-    background: #7c3aed;
-    color: #f9fafb;
-    box-shadow: 0 16px 28px rgba(139, 92, 246, 0.55);
-    transform: translateY(-1px);
-  }
-
-  /* === FOOTER === */
-  footer {
-    background: rgba(3, 7, 18, 0.96);
-    padding: 1.2rem;
-    text-align: center;
-    border-top: 1px solid rgba(148, 163, 184, 0.4);
-    margin-top: 3rem;
-    box-shadow: 0 -10px 25px rgba(15, 23, 42, 0.85);
-  }
-
-  footer nav a {
-    color: #9ca3af;
-    text-decoration: none;
-    margin: 0 0.6rem;
-    font-weight: 500;
-    font-size: 0.9rem;
-  }
-  footer nav a:hover {
-    color: #e5e7eb;
-    text-decoration: underline;
-  }
-
-  /* === COMET TRAIL EFFECT (KEPT) === */
-  .comet {
-    position: absolute;
-    width: 8px;
-    height: 8px;
-    background: radial-gradient(circle, #ffffff 0%, #60a5fa 70%, #1d4ed8 100%);
-    border-radius: 50%;
-    pointer-events: none;
-    box-shadow: 0 0 10px rgba(37, 99, 235, 0.9);
-    animation: fadeOut 0.5s linear forwards;
-  }
-
-  @keyframes fadeOut {
-    from { opacity: 1; transform: scale(1); }
-    to { opacity: 0; transform: scale(0.5); }
-  }
-
-  /* === MALWARE GAME (KEPT, BUT BORDERS CLEANED UP) === */
-  .malware-box {
-    position: fixed;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 300px;
-    height: 100px;
-    background: rgba(15, 23, 42, 0.98);
-    border: 1px solid rgba(248, 113, 113, 0.8); /* soft red border */
-    box-shadow: 0 14px 30px rgba(127, 29, 29, 0.6);
-    color: #fecaca;
-    text-align: center;
-    padding: 10px;
-    border-radius: 12px;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
-                 sans-serif;
-    font-size: 0.9rem;
-  }
-
-  .malware {
-    position: absolute;
-    font-size: 22px;
-    cursor: pointer;
-    user-select: none;
-    animation: moveSideToSide 3s infinite alternate ease-in-out;
-  }
-
-  @keyframes moveSideToSide {
-    from { left: 10px; }
-    to { left: 250px; }
-  }
-</style>
-
-</head>
-<body>
-  <header>
-    <h1>RealRybear</h1>
-  </header>
-
-  <main>
-    <div class="content-box">
-      <a href="itcs3162/" class="main-link">My Research</a>
-
-      <p>
-        <a href="https://tryhackme.com/r/p/Vypen"
-           target="_blank"
-           rel="noopener"
-           class="security-link">
-          TryHackMe Profile
-        </a>
-      </p>
-
-      <p>
-        <a href="work/index.html"
-           target="_blank"
-           rel="noopener noreferrer"
-           class="work-link"
-           id="work-link">
-          My Work
-        </a>
-      </p>
-
-      <p>
-        <a href="blog/index.html"
-           target="_blank"
-           rel="noopener noreferrer"
-           class="blog-link"
-           id="blog-link">
-          My Blog
-        </a>
-      </p>
-    </div>
-  </main>
-
-  <footer>
-    <nav>
-      <a href="https://www.linkedin.com/in/ryancrosbycyber/" target="_blank" rel="noopener">LinkedIn</a> ~
-      <a href="https://github.com/RealRybear" target="_blank" rel="noopener">GitHub</a> ~
-      <a href="https://realrybear.github.io/" target="_blank" rel="noopener">GitHub.io</a>
-    </nav>
-  </footer>
-
-  <script>
-    document.addEventListener('mousemove', (e) => {
-      for (let i = 0; i < 3; i++) {
-        const comet = document.createElement('div');
-        comet.classList.add('comet');
-        const size = Math.random() * 6 + 4;
-        comet.style.width = `${size}px`;
-        comet.style.height = `${size}px`;
-        comet.style.left = `${e.pageX - size / 2 + Math.random() * 10 - 5}px`;
-        comet.style.top = `${e.pageY - size / 2 + Math.random() * 10 - 5}px`;
-        document.body.appendChild(comet);
-        setTimeout(() => comet.remove(), 500);
-      }
-    });
-  </script>
-
-  <div class="malware-box">
-    <p>Eliminate The Malware!</p>
-    <div id="malware-container">
-      <span class="malware">CLICK!</span>
-    </div>
-  </div>
-
-  <script>
-    const malwareContainer = document.getElementById('malware-container');
-    let clickCount = 0;
-
-    function duplicateMalware() {
-      clickCount++;
-
-      if (clickCount >= 10) {
-        document.body.style.background = 'black';
-        document.body.innerHTML =
-          "<h1 style='color: red; text-align: center; margin-top: 20%; font-size: 3rem;'>💀 Clicking anything can lead to infection on your device, please be careful. 💀</h1>";
-        return;
-      }
-
-      const newMalware = document.createElement('span');
-      newMalware.classList.add('malware');
-      newMalware.innerHTML = '💀';
-      newMalware.style.position = 'absolute';
-      newMalware.style.left = Math.random() * 250 + 'px';
-      newMalware.style.top = Math.random() * 60 + 'px';
-      newMalware.style.animationDuration = (Math.random() * 2 + 2) + 's';
-      newMalware.addEventListener('click', duplicateMalware);
-      malwareContainer.appendChild(newMalware);
+    /* === GLOBAL === */
+    html, body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(135deg, #050814, #0b1020, #050814);
+      background-size: 200% 200%;
+      animation: subtleGlow 30s ease-in-out infinite;
+      color: #e5e7eb;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+                   Roboto, Helvetica, Arial, sans-serif;
+      min-height: 100vh;
     }
 
-    document.querySelector('.malware').addEventListener('click', duplicateMalware);
-  </script>
+    @keyframes subtleGlow {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    /* === HEADER === */
+    header {
+      background: rgba(3, 7, 18, 0.96);
+      padding: 1.3rem 1.5rem;
+      text-align: center;
+      border-bottom: 1px solid rgba(148, 163, 184, 0.35);
+      box-shadow: 0 6px 18px rgba(15, 23, 42, 0.65);
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 1.9rem;
+      letter-spacing: 0.1em;
+      color: #f9fafb;
+      font-weight: 600;
+    }
+
+    /* === MAIN === */
+    main {
+      padding: 3.5rem 1.5rem;
+    }
+
+    .content-box {
+      background: rgba(15, 23, 42, 0.97);
+      padding: 2.6rem 2.8rem;
+      border-radius: 18px;
+      max-width: 760px;
+      margin: 0 auto;
+      border: 1px solid rgba(148, 163, 184, 0.35);
+      box-shadow: 0 24px 55px rgba(15, 23, 42, 0.9);
+    }
+
+    .content-box h2 {
+      margin-top: 0;
+      margin-bottom: 1.4rem;
+      font-size: 0.85rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #9ca3af;
+      font-weight: 600;
+    }
+
+    .content-box p {
+      margin: 1rem 0;
+      line-height: 1.75;
+      font-size: 0.95rem;
+      color: #cbd5f5;
+    }
+
+    /* === LINKS === */
+    .link-row {
+      margin-top: 2.6rem;
+      text-align: center;
+    }
+
+    a.main-link,
+    a.work-link,
+    a.blog-link {
+      display: inline-block;
+      margin: 0.35rem;
+      padding: 0.75rem 2.1rem;
+      border-radius: 999px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.9rem;
+      transition: background-color 0.15s ease,
+                  box-shadow 0.15s ease,
+                  transform 0.15s ease;
+    }
+
+    a.main-link {
+      background: #15803d;
+      color: #f9fafb;
+      box-shadow: 0 8px 16px rgba(22, 163, 74, 0.35);
+    }
+    a.main-link:hover {
+      background: #166534;
+      transform: translateY(-1px);
+      box-shadow: 0 14px 26px rgba(22, 163, 74, 0.45);
+    }
+
+    a.work-link {
+      background: #2563eb;
+      color: #f9fafb;
+      box-shadow: 0 8px 16px rgba(59, 130, 246, 0.45);
+    }
+    a.work-link:hover {
+      background: #1d4ed8;
+      transform: translateY(-1px);
+      box-shadow: 0 14px 26px rgba(59, 130, 246, 0.55);
+    }
+
+    a.blog-link {
+      background: #7c3aed;
+      color: #f9fafb;
+      box-shadow: 0 8px 16px rgba(139, 92, 246, 0.45);
+    }
+    a.blog-link:hover {
+      background: #6d28d9;
+      transform: translateY(-1px);
+      box-shadow: 0 14px 26px rgba(139, 92, 246, 0.55);
+    }
+
+    /* === FOOTER === */
+    footer {
+      background: rgba(3, 7, 18, 0.98);
+      padding: 1.4rem;
+      text-align: center;
+      border-top: 1px solid rgba(148, 163, 184, 0.35);
+      margin-top: 4rem;
+    }
+
+    footer nav a {
+      color: #9ca3af;
+      text-decoration: none;
+      margin: 0 0.6rem;
+      font-size: 0.85rem;
+    }
+
+    footer nav a:hover {
+      color: #e5e7eb;
+      text-decoration: underline;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <h1>RealRybear - Ryan Crosby</h1>
+</header>
+
+<main>
+  <div class="content-box">
+    <h2>Professional Profile</h2>
+
+  <h2>Professional Profile</h2>
+
+<p>
+  I am a computer science graduate specializing in cybersecurity, with practical
+  experience across network engineering, penetration testing, and systems
+  automation. My work focuses on building secure, reliable infrastructure and
+  understanding how complex systems behave under real-world conditions.
+</p>
+
+<h3>Network Engineering</h3>
+<p>
+  I work with routing, switching, segmentation, and infrastructure design, with
+  a strong emphasis on operational stability, fault tolerance, and attack surface
+  reduction. I approach networks as production systems that must be resilient,
+  observable, and defensible by design.
+</p>
+
+<h3>Penetration Testing & Security Research</h3>
+<p>
+  I conduct hands-on penetration testing and vulnerability analysis to identify
+  realistic attack paths and security weaknesses. My approach prioritizes
+  accuracy, documentation, and actionable remediation over theoretical risk.
+</p>
+
+<h3>Automation & Full Stack Development</h3>
+<p>
+  I design and develop automation and full stack web applications that eliminate
+  manual workflows and improve operational efficiency. All development follows
+  security-first principles, emphasizing maintainability, clarity, and long-term
+  reliability.
+</p>
+
+
+    <div class="link-row">
+      <a href="itcs3162/" class="main-link">My Research</a>
+      <a href="work/index.html" class="work-link">My Work</a>
+      <a href="blog/index.html" class="blog-link">My Blog</a>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <nav>
+    <a href="https://github.com/RealRybear" target="_blank" rel="noopener">GitHub</a> ~
+    <a href="https://tryhackme.com/r/p/Vypen" target="_blank" rel="noopener">TryHackMe</a> ~
+    <a href="https://www.linkedin.com/in/ryancrosbycyber/" target="_blank" rel="noopener">LinkedIn</a>
+  </nav>
+</footer>
+
+
 </body>
 </html>
